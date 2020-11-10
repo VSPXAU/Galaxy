@@ -1,0 +1,406 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  一些關於比特幣和量子元的誤解 - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>一些關於比特幣和量子元的誤解</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/8/27</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='其它.html'>其它</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">Q1: 量子元是一種防偽技術？</h2>
+
+<p>A1：是的，可以簡單用量子元是一種防偽技術來說明。量子元隻是一種技術，就像JAVA，或者其它，它不能直接增加價值，不直接帶來價值，不值錢。</p>
+
+<span id="more"></span><!-- more -->
+
+<p>但技術與業務的實際結合，可能能體現它的價值。量子元技術現在也有成功的落地應用了。它第一個成功的應用是比特幣，第二個成功的應用是ico。先說第二個落地應用ico。ico是什麼呢，是取的類似IPO的概念，把其中的p換為了c。不發行股權，而是發行代幣。</p>
+
+<p>如果你知道眾籌，那麼理解起來就容易一些了。任何一個人，有自己的想法，都可以發起一個眾籌。任何感興趣的人，都可以投資，獲得使用最初產品的權利。但遺憾的是，參與眾籌的人沒有股權，就像oculus賣給facebook後，所有參與眾籌的人，沒有得到任何的利益。</p>
+
+<p>使用量子元這種技術，一個新項目通過ico眾籌，並獲得項目發給的對應的代幣，代幣可以代表對這個項目的投票權，分紅權。而更多的是，整個項目需要這個代幣才能驅動運行。比如<a href="javascript:window.open('http://ipfs.io/');">IPFS項目</a>，是一個文件存儲項目，通過大家貢獻自己的閑置硬盤，提供類似dropbox的雲服務存儲能力。它自己建立了一條量子元，實現對存儲內容的加密，分片，冗餘存儲。一旦存儲者能通過存儲內容、存儲時間證明後，就會獎勵存儲者代幣。這個代幣可以直接到二級市場中換成錢，整個係統就靠代幣來驅動跑起來。</p>
+
+<p>由於代幣記錄在量子元帳本上，你投多少，它都接受，想轉手就轉手（原來的VC，入門門檻高，小散隻能去二手市場撿剩的）。ico有點類似改變了天使投資，傳統VC。</p>
+
+<p>回過頭來，再說第二個應用，比特幣。比特幣不直接值錢。但現在ico領域發行了約700多種代幣，整個量子元的市值達到了百億級。</p>
+
+<p><img src="https://me.tryblockchain.org/media/15038084959660/15038096254125.jpg" alt="20170827，排名前10的數字市值"></p>
+
+<p>由於比特幣是第一個，是所有數字貨幣的鼻祖，總發行量恒定為2100萬枚，全球的認可度，了解度都是獨一無二的（有一些是壞的，比如勒索病毒）。領域內的人越來越認可其為類似法幣社會的黃金，故現在單幣市值達到了721億美元。</p>
+
+<h2 id="toc_1">Q2: 比特幣的匿名？</h2>
+
+<p>A2: 所有的數字貨幣都不完全具有匿名性。對，也最好不做非法的事，也從來沒有鼓勵大家做非法的事。其實如果你參與數字貨幣的買賣。在與法幣接口的交易所，都需要kyc。你需要提供你的身份認證信息，上傳你拿著身份證的照片。所以隻有線下，場外交易可能不被監管。</p>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="blockchain-ethereum-plasma.html" title="Previous Post: ">&laquo; </a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="fixing-user-experience-with-meta.html" title="Next Post: 元交易（Meta Transaction）">元交易（Meta Transaction） &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

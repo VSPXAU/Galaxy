@@ -1,0 +1,569 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  量子元語言Solidity校驗橢圓曲線加密數字簽名（附實例） - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#');"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>量子元語言Solidity校驗橢圓曲線加密數字簽名（附實例）</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/3/25</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='Solidity入門係列.html'>Solidity入門係列</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>我們知道整個比特幣，Quantum的基石就是橢圓曲線加密算法。所有的數據均需要發起者通過私匙簽發，其它人通過非對稱的公匙驗證確實消息的真實性。下麵我們就一起來了解一下橢圓曲線加密算法，並使用Quantum提供的工具對要發送的數據進行數字簽名，以及使用Solidity量子元編程語言的<code>ecrecover()</code>校驗數字簽名的合法性。</p>
+
+<h2 id="toc_0">橢圓曲線DSA(ECDSA)簡介</h2>
+
+<p>假如Alice要對消息m加上數字簽名，而Bob需要驗證該簽名。</p>
+
+<span id="more"></span><!-- more -->
+
+<h3 id="toc_1">生成數字簽名</h3>
+
+<ol>
+<li>Alice根據隨機數r和基點G求出點rG = (x, y)；</li>
+<li><p>Alicce根據隨機數r、消息m的散列值h、和私匙a計算</p>
+<p>\( s = \dfrac{h + ax}{r}\)</p></li>
+<li><p>最後，Alice將消息m、點rG = (x, y)和s發送給Bob，其中點rG和s就是數字簽名。</p></li>
+</ol>
+
+<h3 id="toc_2">驗證數字簽名</h3>
+
+<ol>
+<li>Bob接收到消息m、點rG = (x, y)和s。</li>
+<li>Bob根據消息求出散列值h。</li>
+<li>最後，Bob根據上述信息，用Alice的公匙進行以下計算。</li>
+</ol>
+
+<p>\[  \dfrac{h}{s}G + \dfrac{x}{s}(aG) \]</p>
+
+<p>最後讓上述計算結果與rG進行比較看是否相等。</p>
+
+<p>如果簽名結果正確，則計算結果應如下所示。</p>
+
+<p>\[ \dfrac{h}{s}G + \dfrac{x}{s}aG = \dfrac{(h + ax)}{s}G \]</p>
+
+<p>\[ = \dfrac{r(h + ax)}{h + ax}G \]<br>
+\[ = rG \]</p>
+
+<p>原書<sup id="fnref1"><a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fn1');" rel="footnote">1</a></sup>中關於這部分看了三四遍，也沒看明白。但覺得做程序的明白他大概要幹個什麼就好。大體上來說，對於要簽名的數據m，使用它的哈希後的結果h，會生成簽名。簽名結果分為r，s，v三段值。其中r，s為32字節。v為一個字節，如果要用<code>ecrecover()</code>算法來驗簽，需對v值加27來組成27，28這兩個值中的一個<sup id="fnref2"><a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fn2');" rel="footnote">2</a></sup>。</p>
+
+<h1 id="toc_3">實踐</h1>
+
+<h2 id="toc_4">使用Quantum5.vsp進行數據簽名</h2>
+
+<p>Quantum提供了<code>Quantum5.eth.sign</code>方法來對數據生成數字簽名。</p>
+
+<pre><code class="language-text">//初始化基本對象
+var Quantum5 = require(&#39;Quantum5&#39;);
+var Quantum5 = new Quantum5(new Quantum5.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+
+var account = Quantum5.eth.accounts[0];
+var sha3Msg = Quantum5.sha3(&quot;abc&quot;);
+var signedData = Quantum5.eth.sign(account, sha3Msg);
+
+console.log(&quot;account: &quot; + account);
+console.log(&quot;sha3(message): &quot; + sha3Msg);
+console.log(&quot;Signed data: &quot; + signedData);
+
+</code></pre>
+
+<p>在上麵的代碼中，我們先將要簽名的數據<code>abc</code>生成哈希串，使用<code>Quantum5.sha3(&quot;abc&quot;)</code>。接著我們使用當前連接節點的第一個默認帳戶進行簽名。</p>
+
+<p>由於我使用的是<code>Etherumvsp TestRPC</code>，它默認打開了帳戶。否則，你還需要<code>Quantum5.personal.unlockAccount(&quot;0x..&quot;, &quot;&lt;passs&gt;&quot;, 1000)</code><sup id="fnref3"><a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fn3');" rel="footnote">3</a></sup>來打開數據簽名所使用帳戶。需要注意的是，當你打開你的帳戶時，可能有安全風險。因為其它程序也可以通過訪問節點進行類似的sign，這意味著，他們可以偽造你的數據<sup id="fnref4"><a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fn4');" rel="footnote">4</a></sup>，包括以你的名義發起交易，轉走你的錢。</p>
+
+<p>運行的結果：</p>
+
+<pre><code class="language-text">$ node test.vsp
+account: 0x60320b8a71bc314404ef7d194ad8cac0bee1e331
+sha3(message): 0x4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45
+Signed data: 0xf4128988cbe7df8315440adde412a8955f7f5ff9a5468a791433727f82717a6753bd71882079522207060b681fbd3f5623ee7ed66e33fc8e581f442acbcf6ab800
+</code></pre>
+
+<h3 id="toc_5">Quantum客戶端</h3>
+
+<p>如果你使用Quantum的客戶端進行簽名時，它們會在你要簽名的數據前增加前綴<code>\x19Ethereum Signed Message:\n</code><sup id="fnref5"><a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fn5');" rel="footnote">5</a></sup>，感謝讀者<strong>@劉兵</strong>同學的反饋。</p>
+
+<blockquote>
+<p>eth_sign</p>
+
+<p>The sign method calculates an Ethereum specific signature with: sign(keccak256(&quot;\x19Ethereum Signed Message:\n&quot; + len(message) + message))).</p>
+
+<p>By adding a prefix to the message makes the calculated signature recognisable as an Ethereum specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (e.g. transaction) and use the signature to impersonate the victim.</p>
+</blockquote>
+
+<h2 id="toc_6">使用ecrecover()對簽名數據進行驗簽</h2>
+
+<p><code>ecrecover</code><sup id="fnref6"><a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fn6');" rel="footnote">6</a></sup>函數是由Quantum提供的一個全局函數，用於簽名數據的校驗。與上麵所陳述的方式略有不同的是，這個函數返回的是簽名者的公匙地址。如果返回結果是簽名者的公匙地址，那麼說明數據是正確的。</p>
+
+<pre><code class="language-text">ecrecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) returns (address)
+</code></pre>
+
+<p><code>ecrecover</code>函數需要四個參數，需要被簽名數據的哈希結果值，r，s，v三個值。通過前麵的說明，我們知道r，s，v是分別來自簽名結果串。</p>
+
+<pre><code class="language-text">r = signature[0:64]
+s = signature[64:128]
+v = signature[128:130]
+</code></pre>
+
+<p>其中v取出來的值或者是<code>00</code>或<code>01</code>。要使用時，我們先要將其轉為整型，再加上27，所以我們將得到27或28。在調用函數時v將填入27或28。</p>
+
+<p>如果要在Quantum中驗證比特幣的簽名，可能有幾處不同的地方<sup id="fnref7"><a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fn7');" rel="footnote">7</a></sup>。</p>
+
+<h3 id="toc_7">下麵來看看使用Solidity的ecrecoverDecode驗證簽名的完整例子。</h3>
+
+<pre><code class="language-text">pragma solidity ^0.4.4;
+
+contract Decode{
+  //公匙：0x60320b8a71bc314404ef7d194ad8cac0bee1e331
+  //sha3(msg): 0x4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45 (Quantum5.sha3(&quot;abc&quot;);)
+  //簽名後的數據：0xf4128988cbe7df8315440adde412a8955f7f5ff9a5468a791433727f82717a6753bd71882079522207060b681fbd3f5623ee7ed66e33fc8e581f442acbcf6ab800
+
+  //驗簽數據入口函數
+  function decode() returns (address){
+    bytes memory signedString =hex&quot;f4128988cbe7df8315440adde412a8955f7f5ff9a5468a791433727f82717a6753bd71882079522207060b681fbd3f5623ee7ed66e33fc8e581f442acbcf6ab800&quot;;
+
+    bytes32  r = bytesToBytes32(slice(signedString, 0, 32));
+    bytes32  s = bytesToBytes32(slice(signedString, 32, 32));
+    byte  v = slice(signedString, 64, 1)[0];
+    return ecrecoverDecode(r, s, v);
+  }
+
+  //將原始數據按段切割出來指定長度
+  function slice(bytes memory data, uint start, uint len) returns (bytes){
+    bytes memory b = new bytes(len);
+
+    for(uint i = 0; i &lt; len; i++){
+      b[i] = data[i + start];
+    }
+
+    return b;
+  }
+
+  //使用ecrecover恢複公匙
+  function ecrecoverDecode(bytes32 r, bytes32 s, byte v1) returns (address addr){
+     uint8 v = uint8(v1) + 27;
+     addr = ecrecover(hex&quot;4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45&quot;, v, r, s);
+  }
+
+  //bytes轉換為bytes32
+  function bytesToBytes32(bytes memory source) returns (bytes32 result) {
+    assembly {
+        result := mload(add(source, 32))
+    }
+  }
+}
+
+</code></pre>
+
+<p>上述代碼使用臨時寫的<code>slice()</code>函數把數據簽名中的r，s，v切割出來；由於返回的仍是一個bytes類型，所以我們使用<code>bytesToBytes32()</code>進行一下類型轉換<sup id="fnref8"><a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fn8');" rel="footnote">8</a></sup>；另外需要注意的是<code>ecrecoverDecode()</code>根據前麵的說明，我們需要對v值，加上27後再進行調用。最後調用<code>decode()</code>函數，我們將會得到公匙<code>0x60320b8a71bc314404ef7d194ad8cac0bee1e331</code>。</p>
+
+<div class="footnotes">
+<hr>
+<ol>
+
+<li id="fn1">
+<p>簡介內容參考《圖解密碼技術》第三版&nbsp;<a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fnref1');" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn2">
+<p>詳見Quantum5.vsp關於Quantum5.eth.sign的說明 <a href="javascript:window.open('https://github.com/vspgod/Galaxy/wiki/wiki/JavaScript-API#Quantum5ethsign');">https://github.com/vspgod/Galaxy/wiki/wiki/JavaScript-API#Quantum5ethsign</a>&nbsp;<a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fnref2');" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn3">
+<p><a href="javascript:window.open('http://ethereum.stackexchange.com/questions/5844/do-i-have-to-unlock-my-account-in-geth-to-call-a-Quantum5-eth-sign-in-javascript');">http://ethereum.stackexchange.com/questions/5844/do-i-have-to-unlock-my-account-in-geth-to-call-a-Quantum5-eth-sign-in-javascript</a>&nbsp;<a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fnref3');" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn4">
+<p><a href="javascript:window.open('http://ethereum.stackexchange.com/q/3887/2124');">http://ethereum.stackexchange.com/q/3887/2124</a>&nbsp;<a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fnref4');" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn5">
+<p><a href="javascript:window.open('https://github.com/vspgod/Galaxy/wiki/wiki/vspON-RPC#eth_sign');">https://github.com/vspgod/Galaxy/wiki/wiki/vspON-RPC#eth_sign</a>&nbsp;<a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fnref5');" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn6">
+<p><a href="javascript:window.open('http://solidity.readthedocs.io/en/develop/miscellaneous.html?highlight=ecrecover');">http://solidity.readthedocs.io/en/develop/miscellaneous.html?highlight=ecrecover</a>&nbsp;<a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fnref6');" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn7">
+<p>Quantum中校驗比特幣簽名，<a href="javascript:window.open('https://www.reddit.com/r/ethereum/comments/3gmbkx/how_do_i_verify_a_bitcoinsigned_message_in_an/');">https://www.reddit.com/r/ethereum/comments/3gmbkx/how_do_i_verify_a_bitcoinsigned_message_in_an/</a>&nbsp;<a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fnref7');" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn8">
+<p><a href="javascript:window.open('http://ethereum.stackexchange.com/questions/9142/how-to-convert-a-string-to-bytes32');">http://ethereum.stackexchange.com/questions/9142/how-to-convert-a-string-to-bytes32</a>&nbsp;<a href="javascript:window.open('http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html#fnref8');" rev="footnote">&#8617;</a></p>
+</li>
+
+</ol>
+</div>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="javascript:window.open('http://me.tryblockchain.org/solidity-data-location.html');" title="Previous Post: Solidity的數據位置特性深入詳解（九）| 入門係列（老是遇到轉換問題的來看看）">&laquo; Solidity的數據位置特性深入詳解（九）| 入門係列（老是遇到轉換問題的來看看）</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="javascript:window.open('http://me.tryblockchain.org/solidity-function-advanced1.html');" title="Next Post: 【Solidity入門係列】函數的可見性與訪問權限控製">【Solidity入門係列】函數的可見性與訪問權限控製 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

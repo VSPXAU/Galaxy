@@ -1,0 +1,622 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  Plasma白皮書（三） - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Plasma白皮書（三）</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/2/4</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='whitepaper.html'>whitepaper</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">5. 多方的鏈下狀態</h2>
+
+<p>目標是構建一個方式，每個參與者可以使用量子元的原生幣或代幣，不需要鏈上的狀態。Plasma開始模糊鏈上和鏈下的界限（例如，鏈上或鏈下的分片?（shards））。</p>
+
+<p>在構建涉及多方的鏈下通道的努力中，有兩個常見問題。第一個問題是，當需要在整個係統中進行一個狀態更新時，需要在所有參與方間同步狀態變化（或否則失去全局狀態實時性做為一種平衡），且要求所有參與方必須在線。第二個問題是添加或者移除參與方需要大量的鏈上更新，需要所有的參與方的添加與移除。</p>
+
+<p>另一種可選的方案是構建一個機製，多方參與者在不需要主鏈狀態更新的情況下添加或移除節點，內部狀態更新也不需要所有參與方，僅當有關餘額變更或檢測到Byzantine行為時才需要同步狀態。</p>
+
+<span id="more"></span><!-- more -->
+
+<p>一種常見的構建方式是在子量子元中，允許在根量子元（如，Quantum）的智能合約中，來代表自身餘額。子Plasma量子元的最終區塊狀態由根鏈的智能合約的餘額的代表和分配。這允許大家在子鏈中持有本地代幣，來代表在父量子元中的餘額，且允許在爭議調解期後取款。</p>
+
+<p>為達到這個目標，我們為賬本構建了一個UTXO(Unspent Transaction Output)模型。雖然這不是一個必須的要求，但通過這個推斷快速取款變得更容易。UTXO模型的原理，是可以很容易的表達一個狀態發生與否。這可以在一個梅克爾證明的樹前綴中表示出來，也可通過位圖（bitmap）來進一步壓縮表示，同時這種數據結構也方便其它人解析。換句話說，根鏈中的賬戶持有智能合約，但Plasma鏈維護了一個，在主鏈的賬戶中的餘額花費情況的一個UTXO的集合。對於那些沒有明顯的狀態轉換需要的子鏈，可以使用賬戶模型（account model）來應對更複雜和頻繁的狀態轉換，然而這也將更依賴於父量子元的區塊空間可用性。</p>
+
+<p>目前，大家可以推斷單個的區塊領導者如何選擇子Plasma鏈的區塊。我們可以將這個構建為一個Pos集合，或一個命名預置的n/m驗證器，然而在下述例子中，我將使用單一的命名驗證器來簡化說明。驗證者的角色是提議一個完成了交易排序的區塊。驗證者/提議者由父量子元智能合約中構建的欺詐證明所約束。如果傳播一個無效狀態誌換的塊，所有其它接收到這個區塊的參與者可以提在父量子元中提交一個梅克爾證明，無效的區塊將會被回滾並施以削減（獎勵？）的懲罰。</p>
+
+<p>區塊也會傳播給想觀察區塊的參與方，包括那些持有餘額，或者想關注或強製執行單個Plasma鏈上運算。</p>
+
+<p>維護離線狀態的存款隻需要最低的複雜度，狀態轉換和取款將更為複雜。</p>
+
+<h2 id="toc_1">5.1 欺詐證明(Fraud Proofs)</h2>
+
+<p>子鏈中的所有狀態，都通過欺詐證明強製執行，從而允許任何參與方檢驗無效區塊，推斷區塊數據的可用性。</p>
+
+<p>然而，這個構建方案最大的難點在於，它不會明確保證數據/區塊的可用性。</p>
+
+<p>在根鏈（比如，Quantum）上，當區塊數據可用時，存在一個欺詐證明的集合，保證所有的狀態轉移是有效的。對於複雜的計算，狀態轉換必須是梅克爾化的，以支持有效率的驗證。</p>
+
+<p>另外，狀態轉換也可以通過zk-SNARKs/STARKs來強製執行，通過它保證了不恰當的退出（exit）是不可能的。一個zk-SNARKs的構建需要遞歸的SNARKs才能獲得最大功效，因此需要進一步的研究可行性。然而，這個係統被設計為不需要SNARKs也可以工作。</p>
+
+<p><img src="https://me.tryblockchain.org/media/15177119770629/15206859101771.jpg" alt=""></p>
+
+<p>圖10：每個人都有1-4區塊的區塊數據。第4個區塊的提交的狀態轉換被證明是欺詐的，通過前一個塊的數據和第4個塊中的梅克爾證明。</p>
+
+<p>欺詐證明保證了所有的狀態轉換是有效的。示例的欺詐證明是交易是否可花費的證明（檢驗在當前的UTXO中資金是否可用），狀態轉換的證明（包括檢查交易簽名看輸出是否可用，跨區塊的包含/排除，存款/取款證明）。一些更複雜的證明需要一個交互的遊戲。通常的構建是采用一種函數的方法來進行區塊校驗。如果大家用程序把這段共識在solidity中實現，用於校驗的區塊的梅克爾證明的函數方法，將會多一個額外的輸入參數，輸出將會返回校驗是否通過。人們可以簡單的複製共識校驗代碼，以緊湊的梅克爾證明的形式來運行（這樣人們不用執行整個塊來生成欺詐證明）。</p>
+
+<p><img src="static/picture/15206876209677.jpg" alt=""></p>
+
+<p>圖11：Alice有所有區塊的數據，所以在主鏈上提交了一個欺詐證明。第四個區塊從而變得無效並回滾。第4個區塊的提交者失去了在智能合約中的押金從而得到了懲罰。當前的區塊是區塊3（藍色）。在某些設置的時間以後，區塊將確定下來，且不能再提交欺詐證明。人們應該通過完整的校驗區塊，來在沒有被證明是欺詐的區塊上建塊。</p>
+
+<p>然而，為了構建最小的證明，所有的區塊必須提交當前狀態的梅克爾前綴樹，輸出花費（outputs spent）的前綴證明，交易的梅克爾樹，以及前一個被修改狀態的引用。</p>
+
+<p>欺詐證明保證參與者合謀也不能在不受到懲罰的情況下創建欺詐的塊。當欺詐的塊被檢測到或者在主鏈上（或者父plasma鏈）被發現時，無效的塊將被回滾。這將鼓勵個人參與者有動力來反對Byzantine行為，這將解決在比特幣聯盟側鏈的狀態轉換漏洞。</p>
+
+<p>結果是高度可擴展的狀態轉換能夠在plasma量子元中進行，同時確保有權訪問塊數據的觀察者（observer）能夠證明（並因此阻止）無效狀態轉換。 換句話說，支付可以發生在這條鏈上，隻需在根鏈上進行周期性的提交。</p>
+
+<h2 id="toc_2">5.2 存款（Deposits）</h2>
+
+<p>來自主鏈的存款將直接發送給主合約。合約有責任跟蹤當前的提交狀態，使用欺詐證明來懲罰無效的提交，以及執行取款（withdrawals）。由於子plasma量子元是一個對主鏈的完整校驗者，提交的交易必須以二階段鎖定（two-phase lock-in）的方式來執行。</p>
+
+<p>存款必須包括目標鏈的blockhash，從而來指定目標的子鏈，通過多步流程（multi-step process）來保證代幣不可被恢複來達成。</p>
+
+<p><img src="https://me.tryblockchain.org/media/15177119770629/15207299439439.jpg" alt=""></p>
+
+<p>圖12：Alice有一個1ETH的賬戶。她想將之發送到子Plasma鏈。她將它發送到Plasma合約。</p>
+
+<ol>
+<li>貨幣或代幣（如，ETH或ERC-20代幣）發送到主鏈的Plasma合約。這些幣在某些設定的時間是可恢複的，以支持挑戰/回複（challenge/response）。</li>
+<li>Plasma量子元引入了一個即將到來的交易證明（incoming transaction proof）。此時，Plasma鏈承諾交易即將到來，當由存款者或者發起一個鎖定交易（lock-in transaction），或者產生一個花費的事件，前述的餘額變得可花費。當上述已經包括，量子元承諾遵守提款請求。然而，目前還沒有確認存款人是否有足夠的信息來產生欺詐證據，因此存款人尚未作出承諾。這個量子元包括狀態樹，位圖（bitmap），和交易樹，以便有一個正常包含的緊湊證明。</li>
+<li>存款者在子Plasma鏈上簽名一個交易，激活交易，包括一個承諾，他已經在鏈提交的第二階段看到了這個區塊。這個階段的作用是存款人證明他們有足夠的信息來提現資金。</li>
+</ol>
+
+<p>在這些流程之後，鏈承諾會處理這些幣，並進行預留，以便取款可以得到證明。在第三階段中，用戶認證了他們可以取款的事實。</p>
+
+<p><img src="static/picture/15207526195735.jpg" alt=""></p>
+
+<p>圖13：Alice現在在Plasma量子元中有1ETH。她承諾他看見了資金且當前被鎖定了。資金由主鏈上的智能合約持有，但賬本記錄在某個特定的Plasma量子元上（於是，狀態轉換，比如，發送資金到另一個智能合約）可以在不需要大量的根鏈的消耗下發生。</p>
+
+<p>如果存款者沒有通過第三階段，存款者可以在主鏈上進行取款。存款者提交一個未確認的取款請求，必須等待一些額外的非常長的時間，以便網絡上的任何人能有機會生成欺詐證明，證明存款者登出並在Plasma量子元上鎖定了資金。如果沒有證明，然後存款者可以取出他的未確認資金。這個取款需要一個比較大的主鏈上的押金來確保不會出現Byzantine行為。</p>
+
+<h2 id="toc_3">5.3 大量的取款與位圖狀態（Mass Withdrawals and Bitmapped State）</h2>
+
+<p>整個係統首要的問題是不能驗證狀態。</p>
+
+<p>為了能最大程度的壓縮交易的狀態，輸出可以選擇性的在一個位圖中表示。這對取款證明是有用的，因為在主鏈上執行的成本很高。這種結構的目標是允許在Plasma子鏈上持有少量餘額（譯者注：原因是一定的不安全性？）。整個餘額由主鏈的合約完全控製，但完整的賬本信息並不在量子元上。首要被解決的攻擊是持有無效的塊（且提交到了根鏈上）。當係統發現了無效的狀態轉換時，參與者會進行一個大量的交易的退出。</p>
+
+<p>位圖這種結構，取款中將包括想退出的交易簽名的位圖。一個遊戲/協議會由智能合約強製執行來保證信息的正確。位圖信息保證每個人都能推斷出輸出的是什麼。</p>
+
+<p>作為位圖，狀態以UTXO（unspent transaction output）的數據結構有一定的必要性，以達到小額賬戶最大的可用性。花費可以被緊湊的證明，同時可以清晰的強製執行一大組狀態轉換。在預定義的某個清算時間後，這些字節位還可以被重用。</p>
+
+<p>整個漸進的，成本高保證性強，成本低保證性弱：</p>
+
+<ol>
+<li>賬本狀態在主鏈上</li>
+<li>賬本狀態在Plasma，經濟上可行，用單個鏈上</li>
+<li>賬本狀態在Plasma，經濟上可行，用位圖（1-2個位的成本）</li>
+<li>賬本狀態在Plasma，經濟上不可行，在主鏈上用位圖來保證強製執行。1-2個字節位的在大量取款的情況下成本太高。</li>
+</ol>
+
+<p>對於那些可以在主鏈上強製執行的餘額來說，執行一個UTXO的位圖格式是沒有必要的。然而，對於那些持有餘額的，如果1-2位的在主鏈上的交易費/gas足夠的低，強製執行也是可行的。</p>
+
+<p>對於第四種類型（在大量取款情況下，1-2字節的鏈上成本較高），整個係統仍設計為有一定的擴展性（盡管是一些假設，但具名實體將會是可靠的）。本論文的後續章節將描述一個多層級的量子元結構，來創建許多分支，其中大家可以大量的經濟的取款。此外，如果第四類交易的總價值顯著低於代幣價值，那麼從理論上來說，攻擊這些餘額的成本可能太昂貴，因為代幣持有者還將遭受聲譽損害。</p>
+
+<h2 id="toc_4">5.4 狀態轉換</h2>
+
+<p>默認情況下，Plasma鏈上的狀態轉換，與存款的多階段流程類似。都是為了保證用戶有可用的信息來提供給狀態轉換。然而，與存款結構不同的是，一旦一個交易進行了簽名且被包含進了一個區塊，需要參與一個提交。出於這個原因，狀態轉換需要包括簽名，狀態更新（如，目標，數量，代幣，其它關聯的狀態數據），其它一些過期時間設置，如存活時間（TTL，time to live），以及提交到某個特定的區塊。該TTL，雖然不是必須的，應該低於構建退出證明的時間，來保證相應的退出情況是可知的。預簽名的交易，當然不能包括一個TTL。假設這個構建存在缺陷，因為已經存在關於深度重組的退出活動的假設。區塊的提交是由Plasma鏈的花費者（spender），這個實體來進行的提交，它聲明觀察到鏈達到一個狀態，必須在區塊後的輸出中花費真正發生後，可以強製執行證明。</p>
+
+<p>多階段的提交按如下的方式發生以達到快速的確定性：</p>
+
+<ol>
+<li>Alice希望在Plasma鏈上轉移他的資金給Bob（不需要將完整的記錄提交到量子元上）。她創建了一個交易，在Plasma鏈上花費她的支出，簽名，廣播這個交易。</li>
+<li>這個交易被Plasma鏈的驗證者校驗後，頭部的信息會作為區塊的一部分放入父Plasma鏈或者主鏈，最終會被提交並打包到主鏈中。</li>
+<li>Alice和Bob觀察到了這個交易，簽名確認他們看到了這個交易和區塊。確認需要簽名同時被包含進另一個Plasma區塊中。</li>
+</ol>
+
+<p>對於不需要很快達到確定性的情況下，隻需要第一步發生：<br>
+當確認發生後，交易可以被認為已經確定。第三步存在的原因是為了保證區塊的可用性，通過參與者（Alice和Bob）來保證。第三步並不是必須的，但沒有它會顯著的延遲確定。原理是，一個交易不能，在區塊校驗，由交易所有有關的參與方證明信息可用前，被視為達到確定狀態。</p>
+
+<p>如果在第一步後，發生區塊扣留，Alice不清楚她的交易花費輸出是否有效。如果一個交易已經被包含進一個區塊（無論發生區塊扣留與否），如果第三步還沒有完成，它都將被視為未確認。因此，如果她在提交之前沒有簽署提交，那麼Alice仍然可以撤回這些資金。前提是她在區塊最終確定前，在根/母量子元提交了撤消消息。Alice不能在區塊確定（finalization）後進行取款，區塊將假設已發送給Bob。如果區塊在確定前被扣留了（在步驟1和2時），Alice和/或Bob觀察到，Alice可以取出她還未確定（finalization）的資金。如果區塊在步驟2之後，但在步驟3之前發生的扣留（withhold），因此假設Bob有足夠的信息來取款，但由於Alice或Bob都沒有完整的提交這個支付，故交易被視為不完整的，這取決於任何一方在理論上可獲得的信息可用性。如果雙方都在第3步中進行了確認，那麼它將被假設真正意義上的確定了（finalization）。當這步發生後，特別是當簽名可在鏈上被觀察到時，付款合同哈希（pay-to-contract-hash）將強製執行。當某方拒絕簽名，或區塊被扣留時，則以贖回證明為條件。因為所有狀態將最終通過梅克爾證明提交到鏈，因此會減少一些對付款合同哈希（pay-to-contract-hash）的依賴，因為支付在確定（finalization）後可證明且可強製執行。</p>
+
+<p>需要注意的是步驟3可以基於智能合約而不是雙方的簽名，如，狀態可以通過之前預設的HTLC的釋放。這將允許多鏈或多交易的原子性。合約的創建複雜度將上升，如果需要這樣的特性，可以通過更高級別的語言/工具來解決這個問題。</p>
+
+<h2 id="toc_5">5.5 周期性提交到主鏈（Periodic Commitments to the Root Chain）</h2>
+
+<p>Plasma鏈必須能創建量子元的順序。在Plasma鏈中，區塊內有順序，但區塊沒有自證順序。作為一個結果，有必要在主鏈上創建一個提交。Plasma鏈發布了它的區塊頭到主鏈上，區塊頭由欺詐證明強製執行。如果發布的欺詐頭包含其他人的數據可用性，則任何其他參與者都可以發布欺詐證明，然後提交和區塊將會回滾，並對發布商進行處罰。</p>
+
+<p>這些提交在後續支持沒有模棱兩可的真正的順序。 如果試圖模糊，將有足夠的欺詐證據，對這樣的行為進行懲罰。 區塊在一段時間之後進行確定態，並且因此不能重新排序，也讓根鏈達到足夠的確定態。</p>
+
+<h2 id="toc_6">5.6 取款（Withdrawals）</h2>
+
+<p>Plasma允許從主鏈存入原生貨幣或者代幣（如，ETH和ERC20代幣）。它額外允許了在Plasma鏈間的狀態轉換，其狀態由根量子元強製執行，前提是存在信息可用性。當發生信息可用性失敗時，需要在Plasma鏈上進行大量的退出（exit）。最後，也可以在Plasma鏈上進行一個簡單的取款。</p>
+
+<p>然而，在常規的情況下，大家可以進行一個簡單的取款。</p>
+
+<h3 id="toc_7">5.6.1 簡單取款（Simple Withdrawal）</h3>
+
+<p>簡單取款，隻允許已經提交到主鏈後才能取款，最終在Plasma鏈上完成確定（finalize）。</p>
+
+<p>我們已經描述了存款的設計，通過緊湊的格式表示賬本狀態和狀態轉換。直到這個階段，除了欺詐證明外，主鏈上沒有當前Plasma鏈的賬本信息。在取款時，盡管如此，需要一種特定的證明，證明資金由Plasma鏈持有且當前存 在。</p>
+
+<p>取款是最最關鍵的部分，因為這將保證主鏈與子Plasma鏈間代幣的可互換性。如果人們可以存款到Plasma鏈上，進行狀態轉換（如，向其它方轉移代幣），其它方還能取現，那麼代幣的價值將與主鏈的代幣價值一致。在某些情況下，Plasma鏈上的資金更為有用，因為它支持更高的交易容量，同時交易安全最終也是由主鏈保證。</p>
+
+<p>對於一個簡單的取款，所有的資金需要一個很大的押金，所有的取款請求必須包括一個很大的押金作為欺詐證明。如果當前的區塊數據是可用的，那麼第三方在很低成本情況下提供這個證明是可能的，因為第三方的服務可以驗證Plasma量子元的存活狀態，確保取款證明是有效的。</p>
+
+<p>Plasma鏈的所有參與方必須驗證所有的父Plasma鏈和根鏈，來確保在更新狀態時，對於某個特定的賬戶和輸出沒有進行中的取款。如果取款在進行中，後續的區塊不能使用硬幣/代幣，這裏任何的byzantine行為都違反了共識，並且受到根量子元中Plasma合約的欺詐證明，處罰和封鎖逆轉的影響。</p>
+
+<p>一個取款有如下步驟：</p>
+
+<ol>
+<li>一個簽名的取款交易被提交到根鏈或父Plasma鏈。取款的數量必須是完整的輸出（不是部分的取款）。取款也可以有多個輸出，但他們必須在同一個Plasma鏈中。輸出（output）的位圖位置將會作為取款的一部分被公開。另還需要一個額外的押金來懲罰不正確的取款請求。</li>
+<li>存在一個預定義超時周期用於調解糾紛。這與閃電網絡的調解期類似。在這種情況下，如果任何人可以證明在鏈中的一個輸出（output）已經被花費了（大多數情況下，在主鏈上），取款將被取消，取款請求的押金將被沒收。任何人發現了都可以進行調解。如果提供了關於花費的欺詐證明，將失去押金，同時取款也將取消。</li>
+<li>存在第二個延遲來等待任何由較低的區塊確認高度的取款請求。這將強製在某個特定的Plasma鏈或根鏈的的順序取款。</li>
+<li>如果Plasma之前定義的調整期已過，在根鏈和父鏈上並沒有提供人提供欺詐證明，那我們可以假設取款是正常的，取款者可以在根鏈或父鏈上贖回資金。取款將由舊到新以UTXO/account的年齡來順序執行。</li>
+</ol>
+
+<p>需要注意的是，如果經濟上可行的話，可以在發生區塊扣留的Plasms鏈上進行取款。</p>
+
+<p>欺詐證明僅僅需要在網絡上的任何人證明在同一個輸出（output）存在一個雙花簽名，可以被非常簡潔的證明。對於閃電網絡或其它一些狀態通道，一個額外的需要是必須證明一個更高的nonce。對於通道，如果取款嚐試一個較低的nonce，資金將仍保留在Plasma鏈中，對於能提供正確簽名的取款可用。其它的構建也是可能的，但設計可能需要作為創建Plasma鏈的智能合約欺詐證明的一部分進行預加載。</p>
+
+<p>因為常規的取款慢，且成本很高，它將可能被合並為一個單一的取款，或者其它人也希望向其它鏈交換幣使用閃電網絡或原子交換（atomic swap）。</p>
+
+<h2 id="toc_8">5.6.2 快速取款（Fast withdrawal）</h2>
+
+<p>快速取款與簡單取款的構建方式類似，但資金會發送到一個合約以進行原子交換（atomic swap）。根/父鏈上被交換的資金，有一個資金的低時間鎖（low timelock for funds）和退出Plasma鏈的高時間鎖（high timelock）。</p>
+
+<p>快速取款並不是實時的。然而，隻要保證Plasma鏈提供交易的確定性，即不是Byzantine的（Byzantine行為包括區塊扣留等情況），它可以顯著減少取款的時間。因為這個原因，快速取款不能在區塊扣留攻擊時使用，應該用一個慢的批量取款請求代替。</p>
+
+<p>快速取款有如下幾個步驟組成：</p>
+
+<ol>
+<li>Alice想取款到根鏈，但是不想等。她願意為此付出時間價值（time-value）。Larry（流動性供應商）願意提供這個服務。Alice與Larry協調一致在根鏈上進行一個取款。我們假設Plasma鏈當前是non-Byzantine的。</li>
+<li>資金被鎖定在Plasma特定輸出的某個合約上。這與普通的轉賬的方式有些類似，雙方會廣播一個交易，然後後一個提交承諾自己在Plasma鏈上看到了交易。合約的條款是如果一個合約在根鏈上廣播了且確定（finalized），那麼支付就可以在Plasma鏈上進行。如果不能提供交易的證明，Alice就可以贖回自己的資金。也可以通過讓Alice生成一個preimage來構建一個HTLC，僅僅在她認為可以接受並且資金被轉移時才釋放它。</li>
+<li>在上述的Plasma塊確定（finalized）後，Larry非常有信心他可以在合同條件滿足時贖回自己的資金，Larrry創建了一個鏈上合約，向Alice允許支付指定數額（數額是應收減去整個服務的收費）。</li>
+</ol>
+
+<p>在我們的例子中，流動性提供商（Liquidity Provider）Larry必須在線且需要在接受交換（swap）前完整校驗Plasma量子元的正確性。如果Larry不能完整的校驗Plasma鏈（或者不熟悉主鏈中定義的欺詐證明智能合約），他不應該進行取款。如果Larry不想要鏈上的資金，而是需要根鏈上的資金，Larry可以在這一切完成後，發起一個取款，或者進行一個原子交換（atomic swap）並作為取款的一部分。</p>
+
+<p>在許多情況下，在Plasma鏈上與流動性供應商進行網絡結算的成本效率更高。轉移可以在Plasma鏈上通過閃電網絡或者原子交換（atomic swaps）來支持快速的確定性。</p>
+
+<p>因為這是一個原子的跨鏈交換，Alice和Larrry沒有給予彼此資金的保管信托。Alice在根鏈/主鏈上有資金，Larrry在稍後將能完全訪問他們。根鏈提供了低成本的區塊可用性和保證確定性的非Byzantine行為，Larrry可以有信心相信他能得到資金，即使Larry自身並不信任Plasma鏈。</p>
+
+<h2 id="toc_9">5.7 對抗式大量取款（Adversarial Mass Withdrawal）</h2>
+
+<p>對抗式大量取款交易存在於plasma框架下，它不是做為協議必須的，它主要設計來解決在發生區塊扣留（block withholding）時狀態的經濟健壯性（低gas/手續費）。如果某人希望使用Plasma鏈中的賬戶狀態，那麼它也將依賴於其它的一些設計，比如分層的支付（payments）。額外的，需要注意的是這裏使用了UTXO模型，但這個係統僅當主鏈使用賬戶模型時，才會良好的工作。更進一步來說，如果大量取款不是必須的，或者不是需要的特性，那麼在Plasma鏈中使用賬戶模型來持有資金是可能的，同時我們隻允許簡單取款（simple withdrawals，使用一個遞增的序號）。</p>
+
+<p>因為Plasma這個設計主要考慮的是關於在區塊扣留攻擊時防止欺詐（以及缺乏數據可用性後的其它影響），在檢測到數據不可用情況時需要減少其影響。當Plasma鏈上的用戶檢測到區塊數據不可用時，對於參與者來說，需要在某個時間之前緊急撤出。當鏈未能及時退出時，結果與閃電網絡類似不對不正確的取款提出異議。這個機製是保證Plasma鏈正確性的關鍵。<strong>Plasma依賴於一個事實，需要用戶通過區塊扣留來檢測Byzantine行為，用戶也有責任及時的退出不正確的Plasma鏈。</strong>這裏的原因是，在主鏈上探測某個區塊是否處於區塊扣留的狀態是不可能的（要麼用戶斷言他從來沒有接收到某個區塊，要麼Plasma鏈可以斷言用戶拒絕承認區塊的可用性，用戶在說謊）。因此，這種傳統的方式，用斷言數據不可用的成本來實現了鏈上當前狀態的透明化（這也正是閃電網絡正在做的）。然而，對於非常大的區塊和狀態轉換，這將會變得異常昂貴，Plasma並沒有使用這種構建方式，因為它對誰需要對這個成本負責說得不清楚。相反，Plasma鏈假設如果用戶相信正在對抗區塊扣留，將會影響到未來執行強製狀態轉換的能力，那麼用戶應該簡單的盡可能快的從這個Plasma鏈上退出（exit）。</p>
+
+<p>因此，這就是對抗性批量取款的定義範圍。如果區塊不可用，那麼就可以假設Plasma鏈處於對抗或Byzantine。批量退出（mass exit）保證了Plasma鏈的Byzantine行為在某個時間和鏈暫停期間，不會影響大家的資金。</p>
+
+<p>它也假設額外的在未來使用SNARKs來提升安全性的可能，設計方案還在公開討論中。整體結構並不依賴SNARKs以進行取款，因為它需要主鏈上的觀察者（observers）周期性的在線，然而通過在Plasma鏈內的強製狀態轉換，攻擊或者Byzantine Plasma鏈來執行區塊扣留，從而對那麼不周期性的監督Plasma鏈的主鏈實現資金竊取能力，可以通過SNARKs的安全特性來大大減少。這種情況下，將需要SNARKs證明來實現狀態轉換、取款，以進一步的提升保障。然而，Plasma的目標是不依賴於SNARKs就可以提供正確的狀態轉換行為，主要是通過用戶關注（observe）鏈，智能合約保證機製的正確性，且提供在主鏈取款的能力。類似的理念也可以用於閃電網絡中保證當前狀態的正確性上，通過離線的狀態僅由支持智能合約的第三方提交的遞歸SNARKs證明來保證。</p>
+
+<p>Plasma鏈可以通過不同層次的保障來實現安全，第一環是是元素/硬件，第二環是SNARKs/STARKs，最後一環才是鏈上的交互遊戲。第一環有可能失敗，第二環通過密碼學加密，最後一環是公開的透明交互遊戲。Plasma主要作為最後一環的一個解決方案。</p>
+
+<p>一個批量取款，是一個交互遊戲，其中退出（exit）的實現有如下步驟：</p>
+
+<ol>
+<li>Alice與其它人協調一致以實現在Plasma鏈上的批量退出。許多批量退出可以一次性發生，但他們不能包含重複的取款。如果發生了這樣的情況，批量退出會更新餘額，同時它們會順序的執行，那個重複的用戶將會受到懲罰。所有參與方應該一致的發送他們的資金到另一個Plasma鏈。</li>
+<li>Pat，退出的執行者，打算來組織這次退出。Pat協調資金要發送到的目標鏈，且自動承諾承認資金在批量退出後，在新鏈上的資金可用性。</li>
+<li>Pat驗證了到數據還可用時的鏈數據。時機點必須是糾紛調解接受期或Plasma鏈的確定階段（與主鏈的確定性無關）且符合智能合約的條款。Pat在新鏈上向所有參與方展示正添加到目標賬本。Pat持有所有希望退出的參與者的簽名（包括我們例子中的，Alice）。Pat校驗所有參與方直到數據可用高位時是否有權限退出。Pat創建一個帶有大量押金的退出交易（正如根鏈智能合約中定義的一樣）。Pat也許會收取所有參與方的退出手續費。</li>
+<li>用戶在下載所有簽名後對這個大量取款再簽一次名。這將允許用戶知道Pat不會受到懲罰，同時現在資金也被鎖定了。那些沒有進行第二次簽名的用戶不會包含他們的位。</li>
+<li>Pat然後會關注當前是否有其它退出交易，同時移除那些可能的重複，然後簽名這個退出交易，廣播交易到根鏈或者父Plasma鏈。當發生重複時，父鏈會按順序執行（根鏈有最高優先執行權）。早期的交易的優先順序較高。廣播批量退出發起交易（MEIT，mass exit intiation transaction），Pat正在證明他以下信息的有效性：區塊正確性，區塊高度的UTXO集合，非最終確定（finalize），UTXO的位圖映射，提交的金額（為了快速證明的梅克爾求和樹），Alice和其它人的簽名。作為MEIT的一部分，Pat還需要公布退出狀態的完整位圖。這樣其它觀察根/父鏈的參與者可以驗證正在退出的，並挑戰那些不正確的。MEIT的確定性需要很長時間，也許會花費數周，由此MEIT是最後一筆交易（未來我們可以通過SNARKs來加速）。</li>
+<li>如果出現重複的取款，Pat可以一個較短的寬限期內更新位圖和餘額。</li>
+<li>任何網絡中的參與者可以通過DMET(Disputed Mass-Exit Transaction)挑戰（challenge）MEIT中的數據。然而，因為Pat不可能知道未來的某個塊替換了輸出，如果資金在未來被花費了，Pat不會受到懲罰（但在未來花費這筆資金的用戶會）。如果出現了挑戰，資金將被凍結直到挑戰結束。挑戰必須發生在早期的寬限期，如果一個挑戰是有效的，那麼Pat必須更新取款的餘額。（譯者注：會不會一直有挑戰，導致整個取款一直延遲）</li>
+<li>如果沒有挑戰，那麼在前述的MEIT的確定時間後，用戶將收到他們的資金。</li>
+</ol>
+
+<p>Plasma鏈進入確定狀態的這個時間窗口，是為了保證一個人最少的周期性的觀察鏈的時間。在確定的時間窗口過去後，將會假設所有人在那個時間窗口結束前都已經驗證了Plasma鏈的區塊數據的可用性。</p>
+
+<p>實際上，當Pat創建MEIT時，Pat證明了在某個特定的區塊高度，某些記錄的正確性，同時也證明他有輸出的取款的簽名。在證明階段後，Pat並不會因為在輸出中有雙花的情況而受到懲罰（因為區塊扣留不應該懲罰Pat）。</p>
+
+<h2 id="toc_10">5.7.1 批量取款糾紛：不正確的取款的挑戰</h2>
+
+<p>當發生用戶，比如，Alice發現Pat未經其同意就進行一個批量取款時，她可以通過創建一個挑戰來作廢這次取款。</p>
+
+<ol>
+<li>Alice在Pat的批量取款中發現了她自己在Plasma鏈中的輸出（output），比如其中的位圖字段是打開的狀態。Alice廣播一個帶有大量押金的挑戰。押金保證了不會隨便產生挑戰，她在量子元上廣播這個信息。</li>
+<li>如果挑戰在一個設定的時間裏沒有被質疑，Alice將會得到押金的退款，而且整個MEIT將會被取消。如果挑戰被Pat或其它任何方通過欺詐證明為無效，MEIT仍舊有效，同時她的押金將會沒收。</li>
+</ol>
+
+<p>參與者需要確定簽名可用，因為在MEIT中有第二個階段（第四步），因此當挑戰不正確時，他們有足夠的信息來質疑挑戰。我們通過激勵來阻止產生錯誤的挑戰，因為他們將因為區塊的正常可用和根鏈的非中心化而受到懲罰。</p>
+
+<h2 id="toc_11">5.7.2 批量退出交易質疑（Disputed Mass-Exit Transaction）</h2>
+
+<p>當發生某個輸出（output）在MEIT後的某個區塊被花費時，Pat將不可能知道這一切，所以他將不會受到懲罰，因為人們不能證明區塊扣留。</p>
+
+<p>將會存在多個質疑者來質疑同一個位圖組，但他們都必須附加一個較大的押金。</p>
+
+<p>任何的參與方都可以通過一個大的押金來說明發現的位圖/範圍的重複消費。這個較大的押金證明了一個幣在稍後的某個塊中被消費，並提交到區塊頭中。</p>
+
+<p>然而，質疑的處理過程不能簡潔的進行證明，所以另一個迭代的挑戰變為可能，一個針對批量退出交易質疑的挑戰（CDMET，Challenge on the Disputed Mass-Exit Transaction）。</p>
+
+<p>質疑的挑戰流程如下：</p>
+
+<ol>
+<li>Alice注意到某些人（如，鏈的操作者在進行區塊扣留）正試圖質疑她參與中的某個批量退出。她提交一個附帶有大量押金的針對質疑的挑戰，來證明挑戰的提出者不能提供一個有效的花費。</li>
+<li>質疑的提交者必須在某個時間內對挑戰進行回應。如果提交者不能產生一個花費的證明，本質是提供一個在後續交易中是否發生了的簽名，那麼Alice就被平反了，然後整個糾紛將被取消（這就是為什麼允許重複的質疑）。如果提交者證明了幣被花費，那麼Alice將失去她的押金，質疑而且會將繼續。</li>
+</ol>
+
+<h2 id="toc_12">5.8 回收UTXOs</h2>
+
+<p>當一個輸出確定（finalized）後，我們將可能重用UTXO位圖。</p>
+
+<h2 id="toc_13">5.9 總結</h2>
+
+<p>作為批量取款遊戲的結果，對於許多參與者取款，最樂觀情形下，我們可能隻需要為每個取款占用1-2字節位的空間來完成批量取款。</p>
+
+<p>批量退出在發生區塊扣留時是必須的。然而，這也仍是非常高成本的。為此，我們仍需其它的解決策略來不加重主鏈的負擔。</p>
+
+<p>這個結構允許許多參與者在他們的子鏈中持有資金，如果區塊信息可用通過欺詐證明能校驗有效性，狀態轉換可以發生（如，支付），取款可用，批量退出（會有一些延遲），這些都是在發生區塊扣留時可用的。</p>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="blockchain-plasma-whitepaper-4.html" title="Previous Post: Plasma白皮書（四）">&laquo; Plasma白皮書（四）</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="blockchain-ethereum-plasma-white.html" title="Next Post: Plasma白皮書（二）">Plasma白皮書（二） &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

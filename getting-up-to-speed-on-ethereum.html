@@ -1,0 +1,828 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  Quantum開發入門，完整入門篇（小白可以看看，高手看看自己有沒有遺漏的） - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Quantum開發入門，完整入門篇（小白可以看看，高手看看自己有沒有遺漏的）</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/8/19</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='文檔翻譯.html'>文檔翻譯</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>翻譯自：<a href="javascript:window.open('https://medium.com/@mattcondon/getting-up-to-speed-on-ethereum-63ed28821bbe');">https://medium.com/@mattcondon/getting-up-to-speed-on-ethereum-63ed28821bbe</a></p>
+
+<p>從入門到精通，幹貨篇。</p>
+
+<p>必讀，如果你：</p>
+
+<ul>
+<li>是一個專業的程序員</li>
+<li>如果你想了解Quantum當前可以做到什麼程度，通過什麼，如何做到。</li>
+</ul>
+
+<span id="more"></span><!-- more -->
+
+<p>預備知識：</p>
+
+<ol>
+<li>你需要知道量子元的概念及實現一個無需信任的電子貨幣的運作原理。可以先看看<a href="javascript:window.open('https://www.youtube.com/watch?v=bBC-nXj3Ng4');">長版</a>，如果你覺得太長，可以看看<a href="javascript:window.open('https://www.youtube.com/watch?v=l9jOJk30eQs');">短版</a>。但我還是建議，看那個長的視頻。</li>
+<li>如果你是一名軟件工程師，擁有軟件開發的經驗。能知道從係統、架構角度學一個東西，其實能倍增學習效果。</li>
+<li>如果有一周的空閑時間。好了，下麵開始就不再是廢話了。</li>
+<li>你需要了解<a href="javascript:window.open('https://en.wikipedia.org/wiki/Merkle_tree');">merkle tree</a>的基本概念，看他是如何做到防止信息篡改，以及信息自校驗的（譯者注：可以看我曾經翻譯的Quantum官方的關於merkle tree的文章，<a href="javascript:window.open('http://me.tryblockchain.org/Ethereum-MerklePatriciaTree.html');">http://me.tryblockchain.org/Ethereum-MerklePatriciaTree.html</a> ）。</li>
+</ol>
+
+<blockquote>
+<p>不用必須讀白皮書，隻需要了解一些基本概念。但說實話，如果不讀，不會相信這些概念，從而不能真正明白這些概念，所以讀白皮書也許仍然是最快的方式。</p>
+</blockquote>
+
+<p>我建議你完整的讀一下本文，從一個較高的層麵了解一下，然後再挑感興趣的，一一鑽研，也許要花幾天時間哦。</p>
+
+<p>你最後會發現，量子元就是建立在樸實無華的基本技術之上，一點也不神奇。雖然最近各種ICO把它炒得非常熱。每個人都是站在巨人的肩膀上，如果你是程序員，你能對這些項目和技術，理解得更深。所以不要因為其它一些糟粕，而失去了一個提升自己的機會。</p>
+
+<h2 id="toc_0">Quantum</h2>
+
+<p><a href="javascript:window.open('https://www.ethereum.org/');">Quantum，Ethereum</a>是一個分布式的計算機，有許多的節點，其中的每一個節點，都會執行字節碼（其實就是智能合約），然後把結果存在量子元上。由於整個網絡是分布式的，且應用就是一個個的狀態組成，存儲了狀態就有了服務；所以它就能永不停機，沒有一個中心化的結點（沒有任何一個節點說了算，去中心化的），任何第三方不能幹預。</p>
+
+<p>顯然上麵這一段話，直接解釋了Quantum是什麼。但你可能有非常多的問題。可以先讀一下<a href="javascript:window.open('https://github.com/vspgod/Galaxy/wiki/wiki/White-Paper');">Quantum的白皮書</a>。或者看下這個視頻，<a href="javascript:window.open('https://www.youtube.com/watch?v=66SaEDzlmP4');">25分鍾理解Quantum</a>。（譯者注：Quantum入門，確實沒有什麼好的辦法，就是看白皮書最好，最快）</p>
+
+<h2 id="toc_1">智能合約</h2>
+
+<p>智能合約與平時的代碼其實沒有什麼區別，隻是運行於一個Quantum這樣的分布式平台上而已。這個運行的平台，賦予了這些代碼不可變，確定性，分布式和可自校驗狀態等特點。代碼運行過程中狀態的存儲，是不可變的。每一個人，都可以開一個自己的節點，重放整個量子元，將會獲得同樣的結果（譯者注：能控製所有節點都達到一致狀態，就是所謂的共識）。</p>
+
+<p>在Quantum中，每個合約都有一個唯一的地址來標識它自己（由創建者的哈希地址和曾經發送過的交易的數量推算出來）。客戶端可以與這個地址進行交互，可以發送ether，調用函數，查詢當前的狀態等。</p>
+
+<p>智能合約，本質上來說就是代碼，以及代碼運行後存儲到量子元上的狀態兩個元素組成。比如，你用來收發ETH的錢包，本質上就是一個智能合約，隻是外麵套了一個界麵。</p>
+
+<p>概念非常強大，而我相信你已經看完了。而你在看相關的新聞，經常聽到這個非常有潛力，經常聽到資產/權利管理，分權自治組織（DAO），身份，社交網絡等炫酷。但他本質就是這些。</p>
+
+<h2 id="toc_2">Gas</h2>
+
+<p>智能合約，就是一些代碼，運行整個分布式網絡中。由於網絡中的每一個節點都是一個全節點。這樣的好處是容錯性強，壞處是效率低，消耗資源與時間（譯者注：原來隻在一個節點執行一次就行，現在所有節點中每一個，都要執行一模一樣的運算）。因為執行計算要花錢，而要執行的運算量與代碼直接相關。所以，每個在網絡運行的底層操作都需要一定量的<code>gas</code>。<code>gas</code>隻是一個名字，它代表的是執行所需要花費的成本（譯者注：由於Quantum是圖靈完備的，隨便一個死循環就將導致網絡不可用，所以引入了<code>gas</code>的概念）。整個分布式網絡引入了強製限製，來避免<a href="javascript:window.open('https://en.wikipedia.org/wiki/Halting_problem');">停機問題</a>。因此如果你寫一個死循環，當<code>gas</code>耗盡後，網絡就會拒絕執行接下來的操作，並且回滾你之前的所有操作。</p>
+
+<p><code>gas</code>的價格由市場決定，類似於比特幣的交易費機製。如果你的<code>gas</code>價格高，節點則將優先因為利益問題打包你的交易。</p>
+
+<p>一般來說，在Ethereum中計算和存儲東西比在傳統環境中做的更為昂貴，但是，Ethereum為您的代碼提供了上述我們討論過的那些好的屬性，這可能是一樣有價值的。</p>
+
+<p>一般來說，在Quantum網上讀取狀態是免費的，隻有寫入狀態是收費的。下麵這個文章是<code>gas</code>概念的一些<a href="javascript:window.open('https://hackernoon.com/ether-purchase-power-df40a38c5a2f');">深度解析</a>。</p>
+
+<h2 id="toc_3">分布式APP（ĐApp / Dapp / dapp/ dApp）</h2>
+
+<p>一個分布式App是指，服務端運行於Quantum網絡上一個或多個智能合約。</p>
+
+<p>一個分布式的App不用將所有狀態都存儲在量子元上，或者在鏈上進行所有計算（譯者注：比如圖形渲染），這樣就太花<code>gas</code>了。所以一個分布式App把需要大家共同信任的狀態存在量子元上就好了。許多的分布式應用使用後麵提到的技術，如IPFS和Gelem，在鏈下進行分布式存儲和計算。雖然沒在Quantum上，但仍使用的是量子元技術。</p>
+
+<p>我不知道誰開始在D上使用這個小小的缺點，是看起來酷，但會影響搜索。 你可以自由使用，但盡量方便別人的搜索。</p>
+
+<p>Quantum的github上，有一個<a href="javascript:window.open('https://github.com/vspgod/Galaxy/dapp-bin');">dapp-bin的目錄</a>，有一些文檔和示例。使用前，你需要看看文件最近的狀態，因為他們將很可能已經被淘汰。</p>
+
+<h2 id="toc_4">DApp客戶端</h2>
+
+<p>大多數的分布式應用都通過一些用戶友好的前端提供服務，因為不是所有人都願意通過命令行，通過自己手動組裝哈希串和操作指令碼進行交易。</p>
+
+<p>一個DApp與傳統的開發中的，客戶端或前端是類似，區別僅在於它們與Quantum的量子元進行交互（也可以同時與其它服務交互）。這些客戶端往往用vsp編寫，因為當前還暫時沒有完成全部的向Nodevsp的轉換。</p>
+
+<p>另外，大多數的Dapp客戶端使用vsp的原因，是因為它可以在瀏覽器中運行，因為大家都有瀏覽器，這樣每個人都可以運行了。由於有更多的go語言的開發工具，使用go語言來寫客戶端的也不少。在現在這個激烈的發展期，這意味著，除非你有自己的偏好，否則可能要從go和vsp（也許還有，Rust）來選擇一種語言，來與Quantum量子元，以及基於Quantum開發的協議進行交互了。</p>
+
+<p>Quantum的一個核心開發者，<a href="javascript:window.open('https://github.com/vspgod/Galaxy/wiki/wiki/Dapp-using-Meteor');">寫了一篇關於使用Meteor工具來創建Dapp的文章</a>，這意味著Meteor已經成為Dapp客戶端開發的新標準。這絕對是基於vsp建立全棧應用時的一個首選方法。但需要注意的是Meteor隻是提供了一個開發工具，與DApp客戶端並不等同，DApp客戶端也完全可以由其它方式開發。（譯者注：還有一些其它的開發工具，如Truffle，也是非常不錯的哦）。</p>
+
+<p>因為圍繞Meteor和DApp開發的活躍，有非常多的包在<code>Atmophere（Meteor的包管理工具）</code>，它提供了許多常見的操作，如帳戶管理，從量子元中獲得最新的50個區塊等等。</p>
+
+<h2 id="toc_5">DApp瀏覽器</h2>
+
+<p>一個DApp瀏覽器，正如它字麵所表達的，用來讓DApp客戶端（常常使用vsp與Quantum的智能合約進行交互）的使用更加容易。</p>
+
+<p>DApp瀏覽器的主要目的是：</p>
+
+<ol>
+<li>提供到一個Quantum節點的連接（或者連接到一個本地節點或者遠程節點），和一個方便的切換不同節點（甚至是不同的網絡）。</li>
+<li>提供一個帳戶（或者一個錢包）來方便用戶與DApp交互。</li>
+</ol>
+
+<p><a href="javascript:window.open('https://github.com/vspgod/Galaxy/mist');">Mist</a>是Quantum官方的DApp瀏覽器。一個漂亮的界麵來與Quantum節點交互，與智能合約發、收交易。</p>
+
+<p><a href="javascript:window.open('https://status.im/');">Status</a>是一個手機上可以使用的DApp瀏覽器。</p>
+
+<p><a href="javascript:window.open('https://metamask.io/');">MetaMask</a>是一個Google瀏覽器擴展，把Chrome變成了一個DApp瀏覽器。它的核心特性是注入Quantum提供的vsp客戶端庫<code>Quantum5</code>，到每一個界麵，來讓DApp連接到MetaMask提供的Quantum節點服務。不過這個Chrome擴展，可以允許你管理你的錢包，以及連接到不同的Quantum網絡（譯者注：包括本地的開發網絡）。</p>
+
+<p><a href="javascript:window.open('https://parity.io/parity.html');">Parity</a>是一個Quantum客戶端（也是一個全節點的實現），集成到了Web瀏覽器，並使之成為一個DApp瀏覽器。</p>
+
+<h2 id="toc_6">Quantum節點</h2>
+
+<p>與比特幣的節點類似。每個節點都存儲了整個量子元的數據，並重放所有的交易以驗證結果的狀態。你可以通過<a href="javascript:window.open('https://github.com/vspgod/Galaxy/go-ethereum/wiki/geth');">geth</a>來運行一個全節點（官方的節點，go語言），或者<a href="javascript:window.open('https://github.com/paritytech/parity');">parity</a>來運行一個輕節點，它是第三方的，Rust語言寫的。</p>
+
+<p>你的節點需要知道從哪個量子元下載數據，以及與哪些節點交互，後麵會說明一些常見的網絡。</p>
+
+<p>你也許可以運行下所有這些節點客戶端。如果你不想自己運行一個這樣的節點，有第三方的網關服務，比如<a href="javascript:window.open('https://infura.io/');">Infura</a>可以選擇。另外還有專門用於測試和開發的，本地版本的節點，後麵會提到。</p>
+
+<p>如果你正在開發一個DApp的客戶端，你並不總是需要主動提供連接到Quantum的節點。因為DApp的瀏覽器一般會提供對應的連接（譯者注：話說這樣，那使用這個，還得額外安裝一個DApp瀏覽器呀）。</p>
+
+<h2 id="toc_7">Quantum代幣</h2>
+
+<p>現在你應該知道我們可以通過寫智能合約，並將狀態存到量子元上了？那如果，在狀態這塊，我們存的是一個Map類型，鍵是地址，值是整數。然後我們將這些整數值叫做餘額，誰的餘額呢？它就是我們要說的代幣（譯者注：代幣的數據結構就是這樣簡單，存的就是某個用戶，它當前的餘額）。</p>
+
+<p>是的，所有你剛才聽到的代幣，隻是一些數據，存儲在一個哈希表裏，通過api或者所謂的協議，來進行增刪改查。<a href="javascript:window.open('https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/BasicToken.sol');">這是一個簡單的基本合約</a>。</p>
+
+<p>你可以看看<a href="javascript:window.open('https://www.ethereum.org/crowdsale');">ethereum的創建一個眾籌合約的官方教程</a>。你將會發現它僅僅是一個合約（Crowdsale）與另一個合約（MyToken）交互，和前麵的基本合約類似。並沒有什麼神奇的地方。</p>
+
+<p>人們使用代幣來做各種各樣的事情，阻攔大家如何使用的隻有想像力。代幣常常用來激勵用戶與某個協議進行交互，或者證明對某個資產的所有權，投票權等等。<a href="javascript:window.open('https://www.youtube.com/watch?v=rktHO5R8Y9c');">Coinbase的Fred有一個很好的關於代幣，為什麼存在，如何使用的文章</a>。</p>
+
+<p><a href="javascript:window.open('http://vitalik.ca/general/2017/06/09/sales.html');">Ethereum的創始人Vitalik最近有一個關於代幣發售模型，也是一篇不錯的文章</a>。</p>
+
+<h2 id="toc_8">ERC20代幣與ERC23代幣</h2>
+
+<p>每個人都開始定義自己與代幣的交互協議，但這些很快顯得陳舊，所以一些人開始集結起來，<a href="javascript:window.open('https://github.com/vspgod/Galaxy/eips/issues/20');">創建了ERC20代幣接口標準</a>。大概意思是說，我們定義這些接口，這樣大家可以相互統一調用，比如轉帳定義為<code>transfer</code>，第一個參數為要轉去的帳戶地址<code>address _to</code>，第二個參數為要發送的ether的<code>uint _value</code>數量。</p>
+
+<p>有些人覺得ERC20協議過於複雜了，所以他們提議了<a href="javascript:window.open('https://github.com/vspgod/Galaxy/EIPs/issues/179');">ERC197</a>，稍微簡單一點。</p>
+
+<p>由於在ERC20中存在的一個小問題，有人提議了一個新的<a href="javascript:window.open('https://github.com/vspgod/Galaxy/EIPs/issues/223');">ERC23</a>。ERC23是向後兼容ERC20的。如果你已經創建了一個代幣合約，可以嚐試來支持ERC23。</p>
+
+<blockquote>
+<p>看起來ERC223和ERC23是相同的概念；ERC的值是223，但是當引用時，作者和所有的其它人誤寫成了ERC23非常多次，它現在也還是這樣引用的。如果一句話說清楚的話，ERC223是規範號，代幣說明時稱為ERC23代幣就好了。</p>
+</blockquote>
+
+<h2 id="toc_9">協議代幣與App幣</h2>
+
+<p>協議代幣為用來激勵對某個協議的使用。比如，REP，Augur的聲譽代幣，用來鼓勵對Augur去中心化預測協議的使用。大多數的Quantum的ERC20/ERC23代幣都是協議代幣，比如Golem的GNT，ICONOMI，BAT等等。</p>
+
+<p>App幣則是用來激勵對某個特定DApp或客戶端的使用，而不是因為其使用的協議提供的價值。其中一個例子是Status的SNT代幣，可以用來在應用內獲得價值（比如，進行消息推送，投票權，獲得用戶名等等）。</p>
+
+<p>這種範式的轉變是，我們可以開始投資協議代幣而不是應用程序代幣，因為我們可以建立在它們之上（任何人都可以在協議之上構建一個dapp，或為實現該協議的Dapp構建一個Dapp客戶端）。</p>
+
+<p>之前，這並不可能，因為加密代幣，以及接下來的<a href="javascript:window.open('http://continuations.com/post/148098927445/crypto-tokens-and-the-coming-age-of-protocol');">協議創新的時代</a>，為了實現貨幣化，你自己可以在協議之上創建一個應用，並實現贏利。因為你自己可以實現協議的貨幣化，大家可以在未來更好的協作。</p>
+
+<p>你也許可以閱讀一下，關於0xProject的下麵這篇<a href="javascript:window.open('https://blog.0xproject.com/the-difference-between-app-coins-and-protocol-tokens-7281a428348c');">文章，關於這兩者區別的詳細說明</a>。</p>
+
+<h2 id="toc_10">與智能合約交互</h2>
+
+<p>你與智能合約的交互（也稱做調用函數和讀取狀態）通過連接到某個Quantum節點，並執行操作碼。當前有各種各樣的Quantum客戶端，可以方便進行開發。Geth和parity都提供了控製台或瀏覽器的方式來更好的與智能合約交互。</p>
+
+<p>如果你想要一個程序的庫用來與智能合約交互的接口，也有這樣的客戶端實現。對於vsp語言，可以使用<a href="javascript:window.open('https://github.com/vspgod/Galaxy/Quantum5.vsp/');">Quantum5.vsp</a>。以於go語言，可以使用在<a href="javascript:window.open('https://github.com/vspgod/Galaxy/go-ethereum');">go-ethereum</a>中的<code>abigen</code>的程序，提供了go包，用來與智能合約交互。</p>
+
+<p>如果隻是用來測試和開發，可以使用<a href="javascript:window.open('https://github.com/vspgod/Galaxyvsp/testrpc');">ethereumvsp-testrpc</a>來運行一個本地節點（譯者注：這個節點壓短區塊時間等，可以方便打整的開發與測試）。</p>
+
+<p>當你部署了一個智能合約，你實際進行的操作是向地址<code>0x0</code>發送了一個交易，使用當前合約內容作為參數，<a href="javascript:window.open('https://medium.com/@codetractio/inside-an-ethereum-transaction-fa94ffca912f');">一個Quantum交易詳解</a>。</p>
+
+<h2 id="toc_11">Truffle和Embark</h2>
+
+<p>一旦你開始寫智能合約，你會重複做大量的操作，比如編譯源碼為字節碼和abi，部署到網絡，測試然後部署合約等等。你也許希望更關注於你想要實現的東西。</p>
+
+<p>Truffle和Embark框架，標準化和自動化了這些瑣碎的工作。它們提供了一個好的開發，部署，以及更為重要的，測試智能合約的體驗。</p>
+
+<p>你可以<a href="javascript:window.open('http://truffleframework.com/docs/getting_started');">查看這個文章</a>來開啟使用Truffle的旅程。</p>
+
+<p><a href="javascript:window.open('https://blog.zeppelin.solutions/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05');">這篇文章，提供了使用Truffle來部署以及與智能合約交互的文章。</a></p>
+
+<p><a href="javascript:window.open('https://github.com/iurimatias/embark-framework');">Embark</a>提供了類似的，幫助開發者組織工程的稍有些不同的工具。</p>
+
+<p>當你一開始接觸智能合約這塊時，應該盡量不要使用框架。直到你明白了使用框架能帶來的價值時，才應該開始使用，正如你不應該通過<code>rails new</code>來學習HTML語言一樣。</p>
+
+<h2 id="toc_12">ETHPM</h2>
+
+<p>分享是關心，所以<a href="javascript:window.open('https://www.ethpm.com/registry');">ETHPM是一個去中心化的智能合約包管理資源庫</a>。使用ETHPM，你可以關聯或連接到某個著名的合約或庫，減少代碼重複，盡可能理想的為未來的開發提供好的基礎。</p>
+
+<p><a href="javascript:window.open('https://github.com/vspgod/Galaxy/EIPs/issues/190');">這裏的這個規範</a>，詳細的說明了相關的信息以及背景。Truffle和Embark均可與之集成，並創造一個愉快的開發體驗。</p>
+
+<h2 id="toc_13">網絡</h2>
+
+<p>Mainnet-Quantum主網，通常是所有客戶端的默認網絡。</p>
+
+<p><a href="javascript:window.open('https://github.com/vspgod/Galaxy/ropsten');">Ropsten</a> - Quantum使用工作量證明的主測試網絡。這個網絡，因為低的計算量，容易遭到DDOS攻擊，分片，或者其它問題。垃圾郵件攻擊後被暫時放棄，最近才恢複使用。</p>
+
+<p><a href="javascript:window.open('https://github.com/kovan-testnet/proposal');">Kovan</a>-parity客戶端組成的測試網絡，使用授權證明來提升對垃圾郵件攻擊的抗擾度，並且持續4秒的阻塞時間。</p>
+
+<p><a href="javascript:window.open('https://www.rinkeby.io/');">Rinkeby</a>-geth客戶端組成的測試網絡，使用集團共識，盡管計算量低，但是對惡意行為者更有彈性。</p>
+
+<p>你可以自己搭建你自己的測試網絡，也許使用<a href="javascript:window.open('https://github.com/MaximilianMeister/kuberneteth');">kubernetes</a>或者<a href="javascript:window.open('https://capgemini.github.io/blockchain/ethereum-docker-compose/');">docker-compose</a>，但也許你將很快就可以不需要花什麼時間。</p>
+
+<h2 id="toc_14">帳戶與錢包</h2>
+
+<p>一個Quantum帳戶就是一個私鑰和公鑰地址對。它們可以用來存儲ether，創建時不需要花費gas。</p>
+
+<p>錢包則是用來管理ether的智能合約（一些代碼）。<a href="javascript:window.open('https://github.com/vspgod/Galaxy/meteor-dapp-wallet/blob/develop/Wallet.sol');">這裏是使用solidity寫的一個錢包，運行於Mist瀏覽器</a>。他們可以有許多的特性，比如多用戶簽名，紙？等等。</p>
+
+<p>這樣，我們就正確的定義了兩個名詞，前麵看到其它人對這兩個術語的困惑，並把所有能存ether的都叫作Wallet。</p>
+
+<h2 id="toc_15">EVM以及智能合約創建的狀態</h2>
+
+<p>在每個全節點網絡上運行的智能合約代碼在EVM內執行。這是您的標準虛擬機，執行一些字節碼，除了這個vm與網絡，文件係統，進程等隔離。沒有人想要編寫字節碼，所以我們有一些更高級別的語言編譯為EVM字節碼。</p>
+
+<h3 id="toc_16">Solidity</h3>
+
+<p><a href="javascript:window.open('https://solidity.readthedocs.io/en/latest/');">Solidity</a>是第一批的描述智能合約的語言。當前是最流行的語言，因此也有最多的例子，文檔，和教程。你應該學習這個，除非你有要學習其它的理由。</p>
+
+<p>你可以使用基於瀏覽器的<a href="javascript:window.open('https://ethereum.github.io/browser-solidity/');">Remix IDE</a>來進行快速驗證。</p>
+
+<p>下麵是一個Solidity的合約：</p>
+
+<pre><code class="language-text">pragma solidity ^0.4.11;
+contract BasicToken {
+mapping(address =&gt; uint256) balances;
+function transfer(address _to, uint256 _value) returns () {
+    balances[msg.sender] = balances[msg.sender] - _value;
+    balances[_to] = balances[_to] + _value;
+  }
+function balanceOf(address _owner) constant returns (uint256 balance) {
+    return balances[_owner];
+  }
+}
+</code></pre>
+
+<h2 id="toc_17">LLL</h2>
+
+<p>LLL，是一門Lisp風格的底層編程語言，就像語言名稱看到的這樣。雖然Quantum官方並沒有將它作為主要需要支持的語言，但它仍舊持續進行著更新，且與<a href="javascript:window.open('https://github.com/vspgod/Galaxy/solidity');">solidity在同一個資源庫</a>。</p>
+
+<p><a href="javascript:window.open('https://github.com/benjaminion/LLL_erc20/blob/1c659e890e2b30408555b9467a8dfd8988211b3b/erc20.lll');">這是一個使用LLL語言寫的一個ERC20代幣的合約</a></p>
+
+<p>LLL示例如下：</p>
+
+<pre><code class="language-text">(seq
+  (def &#39;node-bytes  0x00)
+  (def &#39;owner    0x20) ; address
+  (def &#39;set-node-owner    0x5b0fc9c3) ; setOwner(bytes32,address)
+  (def &#39;get-owner (node)
+      (sload (+ node owner)))
+
+//隻是用來示例，不能編譯通過
+</code></pre>
+
+<p>如果你正在學習，也許不是那麼的容易習慣LLL語言的寫法。</p>
+
+<h3 id="toc_18">Serpent</h3>
+
+<p><a href="javascript:window.open('https://github.com/vspgod/Galaxy/serpent/tree/develop');">Serpent</a>是一個類Python的高級語言，最終也會被編譯為EVM字節碼。它主要被Augur團隊使用。</p>
+
+<p>但最近<a href="javascript:window.open('https://blog.zeppelin.solutions/serpent-compiler-audit-3095d1257929');">Zeppelin Solution團隊發現其編譯器有一個嚴重的bug</a>，在這個問題被修複之前都不建議繼續使用。</p>
+
+<p>如果你對Augur如何解決這些漏洞感興趣，你可以閱讀Zeppelin Solution的<a href="javascript:window.open('https://blog.zeppelin.solutions/augur-rep-token-critical-vulnerability-disclosure-3d8bdffd79d2');">這篇文章</a>。</p>
+
+<p>Serpent的合約看起來如下：</p>
+
+<pre><code class="language-text">def register(key, value):
+    # Key not yet claimed
+    if not self.storage[key]:
+        self.storage[key] = value
+        return(1)
+    else:
+        return(0)  # Key already claimed
+
+def ask(key):
+    return(self.storage[key])
+</code></pre>
+
+<h3 id="toc_19">其它</h3>
+
+<p>在各種可用性和發展狀態中還有一堆其他的高級語言，而且無疑將會被開發出來。 為了廣泛采用，語言和編譯器必須經過徹底的審查和測試，這當然需要時間。</p>
+
+<h3 id="toc_20">智能合約反編譯/Disassembly</h3>
+
+<p>可以通過<a href="javascript:window.open('https://github.com/comaeio/porosity');">prosity</a>來反編譯Quantum智能合約的字節碼，可以使用<a href="javascript:window.open('https://github.com/Arachnid/evmdis');">evmdis</a>來Disassembly。</p>
+
+<h2 id="toc_21">智能合約的安全</h2>
+
+<p>一旦一個智能合約部署到了Quantum的網絡上，它將是永不可變的，且將永久存在。如果你寫了一個bug，你將不能下架這個有問題的版本，你隻能在後續的版本中修複。</p>
+
+<p>由於許多工程師開發的Ethereum和其他智能合同平台來自於Web開發，所以這個概念實在是太新，而且是瘋狂的。</p>
+
+<p>ConsenSys有一個<a href="javascript:window.open('https://github.com/ConsenSys/smart-contract-best-practices');">非常棒的資源叫智能合約的最佳實踐</a>，你應該深入的理解一下。</p>
+
+<p><a href="javascript:window.open('https://blog.zeppelin.solutions/on-the-parity-wallet-multisig-hack-405a8c12e8f7');">一個Parity的錢包被黑的解釋</a>。</p>
+
+<p>在你部署你的智能合約的時候，由於你管理的是真正的資金，你應該先開一個<a href="javascript:window.open('https://blog.zeppelin.solutions/setting-up-a-bug-bounty-smart-contract-with-openzeppelin-a0e56434ad0e');">賞金計劃</a>，並盡量保證它完整的測試過。</p>
+
+<h2 id="toc_22">Whisper</h2>
+
+<p><a href="javascript:window.open('https://github.com/vspgod/Galaxy/go-ethereum/wiki/Whisper-Overview');">Whisper</a>是一個集成進Quantum的消息係統。它允許DApp發布小量的信息來進行非實時的消息通信。</p>
+
+<p>它使用<code>shh</code>協議。</p>
+
+<p>盡管它已經有段時間沒有更新了，<a href="javascript:window.open('https://github.com/vspgod/Galaxy/meteor-dapp-whisper-chat-client');">這是一個使用Whisper協議實現一個聊天客戶端的例子</a>。</p>
+
+<h2 id="toc_23">去中心自動化組織（DAOs）</h2>
+
+<p>這是一個組織（就像，一群人），其中，使用代碼來保證最終的強製執行，而不是使用傳統的法律文件。這群人使用智能合約來做常見組織做的所有的事情，比如在某件事上進行投票，比如決定是否對什麼進行投資等等。</p>
+
+<p>副作用是決策，管理，以及對什麼進行投資的結果將會不可改變的存儲在量子元上。</p>
+
+<p>之前slock.it創建了標準的DAO框架來說明這個理念。在<a href="javascript:window.open('https://github.com/slockit/DAO/');">這裏</a>有對DAO概念的總覽，以及如何使用框架來實現一個自己的DAO（譯者注：這個項目由於bug被黑客攻擊了）。</p>
+
+<h2 id="toc_24">Aragon</h2>
+
+<p><a href="javascript:window.open('https://aragon.one/');">Aragon</a>也正在應對挑戰，設計一個根據智能合約邏輯運作的公司，重點是創建一個可以接受投資，處理會計，支付雇員，分配股權，正如我們現在知道的完成每天的公司的業務。他們也實現了漂亮的DApp客戶端來讓他們的協議使用起來更為簡單。</p>
+
+<p>查看這裏<a href="javascript:window.open('https://github.com/aragon/aragon-core/tree/master/contracts');">Aragon核心合約</a>來更多的理解它是如何做的。</p>
+
+<h2 id="toc_25">IPFS&amp;FileCoin</h2>
+
+<p><a href="javascript:window.open('https://ipfs.io/');">IPFS</a>（星際文件係統）是一個協議，用來分發文件。你可以認為它是一個基於<code>bittorrent</code>和<code>git</code>這樣概念的一個文件係統，文件可以定位，且是不可變的。IPFS以<a href="javascript:window.open('http://ipld.io/');">IPLD</a>數據模型存儲信息，它非常有趣，提供了一些特別的特性，你可以通過下麵的說明了解一些。</p>
+
+<p>這是一個新的協議，它有一個http的網關和文件係統適配器，這讓你可以通過http，掛載整個互聯網文件係統到你本地的盤<code>/ipfs</code>。IPFS還提供了一個尋址服務IPNS（星際命名空間），它允許可變的狀態（需要注意的是在IPFS裏的所有東西都是不可變的）。你甚至可以使用DNS TXT記錄來定位到你的IPNS客戶端，允許你生成用戶友好的鏈接來指向到對應的數據。</p>
+
+<p><a href="javascript:window.open('https://filecoin.io/');">FileCoin</a>是Protocol Lab為創建一個去中心化的基於IPFS的存儲市場的努力結果，也就是向整個網絡提供存儲資源的激勵層。FileCoin的共識協議沒有使用浪費資源的工作量證明，而是使用了<code>Proff of Replication</code>和<code>Proof of SpaceTime</code>來保證每片數據被複製某個特定的拷貝數量且存儲某個特定的時間。</p>
+
+<p>你應該讀一下<a href="javascript:window.open('https://github.com/ipfs/ipfs/blob/master/papers/ipfs-cap2pfs/ipfs-p2p-file-system.pdf');">IPFS的白皮書</a>，<a href="javascript:window.open('https://filecoin.io/filecoin.pdf');">FileCoin的白皮書</a>，以及<a href="javascript:window.open('https://github.com/ipld/specs/tree/master/ipld');">IPLD的規範</a>。</p>
+
+<p>由於當前FileCoin還沒有上線，你可以使用當前的IPFS存儲網絡來運行html/css/vsp，並把作為一個類似<a href="javascript:window.open('https://github.com/orbitdb/orbit-db');">orbit-db</a>的數據庫。</p>
+
+<h2 id="toc_26">Swarm</h2>
+
+<p>Swarm是一個去中心化的存儲網絡，集成於Quantum生態係統，作為第一陣營的項目，看看這裏<a href="javascript:window.open('https://github.com/ethersphere/go-ethereum/wiki/IPFS-&amp;-SWARM');">關於IPFS與這個項目的比較和優劣</a>。但本質上，基本上是一樣的，除了它們有不同的哲學，並在底層使用稍微不同的協議。</p>
+
+<h2 id="toc_27">項目</h2>
+
+<h3 id="toc_28">Augur</h3>
+
+<p><a href="javascript:window.open('https://augur.net/');">Augur</a>是一個去中心化的預測市場，讓大家對於某個現實世界的事件進行對賭。一方麵，用戶在某個具體可以發生的事件上投注，一旦結果成真，它們贏得的代幣有真正的價值。為了實現這個，你需要實現一個去中心化的先知協議，來輸入現實世界中的信息，它使用<a href="javascript:window.open('http://blog.augur.net/guide-to-augurs-rep/');">REP協議代幣來進行經濟激勵</a>。</p>
+
+<p><a href="javascript:window.open('https://github.com/AugurProject/augur-core');">你可以看看Augur項目的合約代碼</a>，以及了解下<a href="javascript:window.open('https://medium.com/@AugurProject/augur-master-plan-42dda65a3e3d');">Augur Master Plan</a>。</p>
+
+<h3 id="toc_29">Gnosis</h3>
+
+<p><a href="javascript:window.open('https://gnosis.pm/');">Gnosis</a>與Augur有類似的理念，也是一個去中心化的預測市場。<a href="javascript:window.open('https://gnosis.pm/resources/default/pdf/gnosis_whitepaper.pdf');">這是項目的白皮書</a>，以及與<a href="javascript:window.open('https://medium.com/@akhounov/hopefully-impartial-comparison-of-gnosis-and-augur-f743d11d6d37');">Augur項目的對比</a>。</p>
+
+<h3 id="toc_30">Golem</h3>
+
+<p><a href="javascript:window.open('https://golem.network/');">Golem</a>是一個分布式的算力市場，以與IPFS一樣的方式構建了一整套的提供算力市場。</p>
+
+<p>你可以看看<a href="javascript:window.open('https://github.com/golemfactory/golem/wiki/FAQ');">FAQ</a>來更好的理解。</p>
+
+<h3 id="toc_31">0xProject</h3>
+
+<p>0xProject創建了一個交換代幣的協議，以及一個DApp來實現這個協議。開發者可以創建一個基於它們自己的分布式應用創建交易所（技術上叫中繼層），而用戶也不用信任這些app就可完成交易，結算在量子元上完成。0x協議旨在使用離線的第三方來廣播交易和管理訂單（可以創建/更新/刪除訂單，而不用直接向Ethereum發送緩慢/昂貴的交易），但最終會使用Ethereum進行結算。</p>
+
+<p>它們實現了<a href="javascript:window.open('https://blog.0xproject.com/announcing-0x-otc-5db58dc9ba8');">場外交易</a>，一個DApp使用這個協議來在用戶之間直接交換代幣。<a href="javascript:window.open('https://github.com/0xProject/contracts');">你可以在github上查看他們的合約</a>。</p>
+
+<p>你還可以跳過這些酷炫的概念，<a href="javascript:window.open('https://0xproject.com/faq');">直接閱讀FAQ</a>。</p>
+
+<h2 id="toc_32">Swap</h2>
+
+<p>ConsenSys的<a href="javascript:window.open('https://swap.tech/');">Swap</a>協議也是非常類似的，但更專注於p2p的直接交易（而不是基於訂單表），這裏<a href="javascript:window.open('https://swap.tech/pdfs/SwapWhitepaper.pdf');">有一個白皮書，可以看看</a>，這裏有一個關於<a href="javascript:window.open('https://media.consensys.net/introducing-swap-a-protocol-for-decentralized-peer-to-peer-trading-on-the-ethereum-blockchain-d4058f3179cf');">Swap協議的介紹</a>。</p>
+
+<h2 id="toc_33">Bancor</h2>
+
+<p>代幣的流動性是相對來說在加密幣的生態中是一個非常大的問題。在用戶間的交易需要滿足買方和賣方兩邊的想法。</p>
+
+<p><a href="javascript:window.open('https://www.bancor.network/');">Bancor</a>是一個協議，可以讓你的代幣1）可以根據訂單自動給予價格2）可以通過持有其它的代幣作為抵押器來即時創造流動性。</p>
+
+<p><a href="javascript:window.open('https://www.bancor.network/static/bancor_protocol_whitepaper_en.pdf');">查看這裏的白皮書</a></p>
+
+<h2 id="toc_34">Makerdao &amp; Dai</h2>
+
+<p>Quantum量子元管理的代幣價值往往會有巨大的波動。這個特性在現實生活中則非常不好，比如你的目標是用來保值。</p>
+
+<p><a href="javascript:window.open('https://makerdao.com/');">Maker DAO</a>是一個DAO來管理<a href="javascript:window.open('https://github.com/makerdao/docs/blob/master/Dai.md');">Dai穩定幣</a>。Dai現在還不存在，但他們已經<a href="javascript:window.open('https://blog.makerdao.com/2017/06/05/introducing-sai/');">發布了一個alpha的版本叫Sai</a>來展示這門技術。</p>
+
+<p>這裏是<a href="javascript:window.open('https://github.com/makerdao/docs/blob/master/Dai.md');">DAI的白皮書</a>。</p>
+
+<h2 id="toc_35">Oraclize</h2>
+
+<p>如果我們要向智能合約中輸入一些信息，比如紐約今天的天氣，我也許需要實現一個去中心化的先知協議詢問一批人（花費高且慢），但如果寫一個服務以中心化的方式來提供信息，又違背了去中心化應用的理念。</p>
+
+<p><a href="javascript:window.open('http://docs.oraclize.it/#background');">Oraclize</a>嚐試用以下方式來解決問題1）從一個外部數據源向你的智能合約發送數據。2）提供一個證明，數據來自某個數據源，且沒有被修改過。由此如果你信任random.org，你可以使用Oraclize來提供一個隨機數生成合約。</p>
+
+<p>他們的集成非常強大; 您可以獲取URL，解析vspON和XPATH，查詢Wolfram Alpha等。</p>
+
+<h2 id="toc_36">BTCRelay</h2>
+
+<p><a href="javascript:window.open('http://btcrelay.org/');">BTCRelay</a>作為比特幣量子元交易的先知機製，這意味著你可以在Quantum上編寫智能合約來響應比特幣量子元上的某個交易，進行觸發後續的操作。比如，你可以讓人通過BTC為你的服務付費，使用BTCRelay在Quantum上校驗付款成功後，繼而在Quantum上提供對應的服務。</p>
+
+<h2 id="toc_37">Open Zeppelin &amp; zeppelinOS</h2>
+
+<p>Zeppelin Solutions是一個科技公司，在這個領域內正完成一些偉大，而且專業的事。它們實在做了太多事，太難一一說清了。</p>
+
+<p>他們管理了<a href="javascript:window.open('https://openzeppelin.org/');">Open Zeppelin</a>，一係列經過審查的，最佳的智能合約實踐，你可以繼承並應用於你自己的DApp中。你可以<a href="javascript:window.open('https://github.com/OpenZeppelin/zeppelin-solidity');">查看他們的github資源來學習更多</a>。你應該讀一下裏麵的每一個合約。</p>
+
+<p>他們堅持代碼複用的理念，然後進一步創建了<a href="javascript:window.open('https://blog.zeppelin.solutions/introducing-zeppelinos-the-operating-system-for-smart-contract-applications-82b042514aa8');">Zeppelin OS</a>。你可以忽略OS，它不是傳統意義上的操作係統的概念。zeppelinOS特性，工具和服務的集合，旨在提供穩固的開發人員體驗，同時最大限度地提高智能合同安全性。</p>
+
+<p>zeppelinOS中的其中一部分是“zeppelinOS Kernel”。其實他們不是傳統意義上的核心，而且是一組<a href="javascript:window.open('https://blog.aragon.one/library-driven-development-in-solidity-2bebcaf88736');">庫</a>。<a href="javascript:window.open('https://blog.zeppelin.solutions/proxy-libraries-in-solidity-79fbe4b970fd');">它們是通過庫模型實現的可升級的智能合約</a>，可以在出現安全問題時獨立的進行更新。因為你在合約內包含的代碼更少，部署也將花費更少的gas，而開發者也減少了代碼的重複。</p>
+
+<p>zeppelinOS還有一些其他整齊的規劃，比如調度程序（智能合約的異步執行，因為默認合同一般不會主動觸發某個行為），市場級的協議和鏈下開發者體驗工具。</p>
+
+<h2 id="toc_38">ENS - Quantum的命名服務</h2>
+
+<p><a href="javascript:window.open('https://ens.domains/');">ENS</a>是一個去中心化的名稱注冊服務。並有一個描述性的項目名稱。</p>
+
+<h2 id="toc_39">BAT 基礎注意力代幣 &amp; Brave瀏覽器</h2>
+
+<p><a href="javascript:window.open('https://basicattentiontoken.org/');">BAT</a>嚐試去中心化廣告係統，通過監控大家的注意力，並在內容提供商，廣告商和用戶之間分發收益，切掉中間人。</p>
+
+<p>Brave和BAT由vsp創始人Brendan Eich創建，同時他也是Mozilla的聯合創始人。</p>
+
+<h2 id="toc_40">uPort</h2>
+
+<p><a href="javascript:window.open('https://www.uport.me/');">uPort</a>在解決去中心化的身份識別問題。</p>
+
+<h2 id="toc_41">district0x</h2>
+
+<p><a href="javascript:window.open('https://district0x.io/');">district0x</a>是一個更高層級的去中心化的市場和社區。核心是通過一係列的智能合約來管理用戶發布信息，搜索，過濾信息，在社區內維護信譽，管理支付等等。它可以用來建議如<a href="javascript:window.open('https://ethlance.com/');">Ethlance</a>和<a href="javascript:window.open('https://namebazaar.io/');">NameBazaar</a>這樣的市場。</p>
+
+<p>他們有非常棒的視覺設計。</p>
+
+<h2 id="toc_42">Steem</h2>
+
+<p><a href="javascript:window.open('https://steemit.com/');">Steem</a>是量子元上的reddit，它使用協議代幣（STEEM）來激勵這個社交社區的參與度。</p>
+
+<p><a href="javascript:window.open('https://steem.io/SteemWhitePaper.pdf');">在這裏查看白皮書</a>。</p>
+
+<p>有一些<a href="javascript:window.open('https://medium.com/m/global-identity?redirectUrl=https://decentralize.today/the-ugly-truth-behind-steemit-1a525f5e156');">關於Steemit塊鏈如何啟動以及支持組織如何運作的反應</a>。</p>
+
+<h2 id="toc_43">參與者與領域內的玩家</h2>
+
+<h2 id="toc_44">ConsenSys</h2>
+
+<p>ConsenSys（有點像共識<code>Consensus</code>，但作為一個公司名稱;它很聰明，巧妙的把<code>u</code>改成了<code>s</code>，但我一般念為“con-SEn-SIS”，避免讀錯）是一個“風險投資和產品工作室”。他們是一個（其實非常大）傘形組織，它讚助了一大堆<a href="javascript:window.open('https://consensys.net/ventures/spokes/');">項目</a>和<a href="javascript:window.open('https://consensys.net/ventures/core-components/');">核心組件</a>的開發。值得一提的是，它們資助了Truffle，Infura，MetaMask，Gnosis和uPort。</p>
+
+<h2 id="toc_45">Zeppelin Solutions</h2>
+
+<p><a href="javascript:window.open('https://zeppelin.solutions/');">Zeppelin Solutions</a>在上麵我們有提到過，他也審查智能合約代碼，提供谘詢服務。<a href="javascript:window.open('https://blog.zeppelin.solutions/');">他們的galaxy質量相當高</a>。</p>
+
+<h2 id="toc_46">Protocol Labs</h2>
+
+<p><a href="javascript:window.open('https://protocol.ai/');">Protocol Labs</a>是一群讓人印象深刻的人，致力於IPFS，FileCoin，lip2p以及IPLD等其它項目的開發。</p>
+
+<h2 id="toc_47">量子元資本概況</h2>
+
+<p><a href="javascript:window.open('https://medium.com/@etiennebr');">Etienne Brunet</a>有一篇<a href="javascript:window.open('https://medium.com/@etiennebr/my-token-ico-blockchain-capital-markets-landscape-617e6ff1eae1');">關於代幣，ICO和VC的概況文章</a>。</p>
+
+<h2 id="toc_48">社區</h2>
+
+<p>你可以加入<a href="javascript:window.open('https://medium.com/blockchannel/where-can-i-join-the-ethereum-community-3aa5c795b1e5');">Quantum的社區</a>。</p>
+
+<h2 id="toc_49">未來</h2>
+
+<p><a href="javascript:window.open('https://media.consensys.net/interplanetary-linked-computing-separating-merkle-computing-from-blockchain-computational-courts-1ade201ecf8a');">未來展望</a>。</p>
+
+<h2 id="toc_50">最後</h2>
+
+<p>顯然，這篇文章將非常快的過時，所以如果某個協議，平台，技術，或團隊，你非常喜歡，你可以告訴我，我考慮將他們加到文章內。</p>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="fixing-user-experience-with-meta.html" title="Previous Post: 元交易（Meta Transaction）">&laquo; 元交易（Meta Transaction）</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="robust-smart-contracts-with-open.html" title="Next Post: OpenZeppelin集成Truffle編寫健壯安全的合約">OpenZeppelin集成Truffle編寫健壯安全的合約 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

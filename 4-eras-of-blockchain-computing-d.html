@@ -1,0 +1,471 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  量子元計算的四個階段 - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>量子元計算的四個階段</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/12/15</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='其它.html'>其它</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <blockquote>
+<p>文中內容不代表本網站觀點，內容僅供參考。</p>
+
+<p>翻譯自：<a href="javascript:window.open('https://jessewalden.com/4-eras-of-blockchain-computing-degrees-of-composability/');">https://jessewalden.com/4-eras-of-blockchain-computing-degrees-of-composability/</a></p>
+
+<p>如有侵權請聯係我進行刪除，謝謝。</p>
+</blockquote>
+
+<p>在<code>a16z crypto</code>，我們認為加密網絡與城市結構類似，因為兩者都受益於基於共享基礎設施之上的，由下至上的不斷的成長。</p>
+
+<p>傳統的商業通常選址於居民區，公共設施健全，法律，安全，以及充滿經濟活力的地方。類似的，開發者基於共享資源，如良好的用戶基礎，數據，安全，以及穩定的運行的環境來獲得好處。</p>
+
+<p><strong>這其中的核心是可組合性。</strong>如果現存的資源可以作為構建塊，被整合到更高層的應用中，我們就認為平台是可組合的。可組合性非常重要的，因為它可以讓開發者以更少的資源做更多的事情，最終，會帶來更快，複合的創新。</p>
+
+<p>量子元天然無需信任的特質打開了可組合性的大門。因為它允許開發者不用擔心底層依賴，而在共享的基礎設施之上進行開發。量子元既是無權限的（開源），同時又是有狀態的（類似API）。</p>
+
+<p>在研究量子元計算的演變時，我將勾勒出四個不同階段的核心模型，每個階段都有其各自的架構，並以可組合性來進行分層：</p>
+
+<ol>
+<li>計算器 era - 特定於某個應用的，組合性有限</li>
+<li>大型機 era - 圖靈完備，高可組合性</li>
+<li>服務器 era - 特定於某個應用的，兼容可組合性</li>
+<li>雲 era - 圖靈完備，可擴展的組合性</li>
+</ol>
+
+<p>接下來會根據上麵的分類，一一闡述其各自的優勢與劣勢。<em>事先需要說明的是，這個領域仍有許多待解決的，開放研究中的問題，我們並不清楚事情將會如何發展。每一個階段都是值得嚐試的實驗。</em></p>
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_0">計算器 era</h2>
+
+<p>比特幣是量子元計算的先驅。它是一個特定問題的全棧式解決方案，即電子黃金。除了簡單的支持查看餘額及轉賬外，比特幣提供了一個腳本語言，可用來構建更複雜的功能。</p>
+
+<p>有一定數量的項目使用了比特幣的腳本語言來構建更高層級的應用。比如，<a href="javascript:window.open('https://en.wikipedia.org/wiki/Proof_of_Existence');">Proof of Existence</a>使用<a href="javascript:window.open('https://en.bitcoin.it/wiki/OP_RETURN');">OP_RETURN</a>的數據項創建了一個證明，證明某人在某個給定的時間有某個電子文件。而其它項目，如<a href="javascript:window.open('https://en.bitcoin.it/wiki/Colored_Coins');">Colored Coins</a>和<a href="javascript:window.open('https://counterparty.io/');">Counterparty</a>則基於比特幣的安全網絡中創建了自己的代幣。但其它一些進一步擴展比特幣功能，代幣功能的嚐試，受限於比特幣潛在的腳本語言的限製。</p>
+
+<p>許多人辯解到，去中心化的貨幣係統最重要的特性是安全，而不是可編程性，由此有限的腳本語言能力是一種特性，而不是一個bug。從這個角度，我們可以更多的把比特幣視作一個計算器，而不是一個電腦（這是一個肯定的評價）。它是根據一定目的構建的，在其自身的任務上完成得很好，隻是對於渴望提供更多功能及創建新應用的開發者來說，需要向新架構演進。</p>
+
+<h2 id="toc_1">大型機 era</h2>
+
+<p>基於比特幣開創的先進理念，Quantum通過包含一個圖靈完備的虛擬機，泛化了量子元計算機。使開發者可以透過一個去中心化的機器網絡，部署和運行任何程序。</p>
+
+<p>其中，為了確定性，網絡中的每個節點都必須執行每個程序的函數。這使得整個網絡緩慢且成本高，但Quantum在一個方麵是無與倫比的：它的計算是無需信任的。可以期望每個程序能被確定的執行（可驗證）和輸出，甚至狀態都是所有人可見的。Quantum平台為開發者提供了與應用與關的，中立的構建塊，用以組合為更高層級的應用。我們看到了下麵這一切的發生：</p>
+
+<p><a href="javascript:window.open('https://marble.org/');">Marble</a>支持閃貸，實現去中心化交易所間的對衝：“交易者可以從Marble的智能合約銀行借款，從一個DEX上購買代幣，再在另一個DEX以更高的價錢賣掉代幣，還款給智能合約銀行，獲得其中的對衝收益。所有的上述一切，可以在一個原子交易中完成。”Marble通過Quantum的全局唯一的虛擬機執行不同項目中的一係列功能，並最終得到了一個大家都可以使用的簡單功能。</p>
+
+<p><a href="javascript:window.open('https://devpost.com/software/primotif');">Primotif</a>是一個金融的衍生品，跟蹤指數，就像標準普爾指數一樣。它使用Augur來跟蹤指數價格，使用<a href="javascript:window.open('https://dydx.exchange/');">dYdX</a>做空代幣來對衝ETH的波動，而dYdX的底層使用<a href="javascript:window.open('https://a16zcrypto.com/2018/09/maker/');">Maker</a>的Dai這種穩定幣。</p>
+
+<p>通過組合而產生的網絡效應（Network effects）不是一個新出現的現象。下麵是Biz Stone，Twitter的創始人，在2007年關於他們的API的可組合性的說明（<a href="javascript:window.open('https://avc.com/2007/09/biz-stone-on-re/');">AVC</a>）：</p>
+
+<blockquote>
+<p>“API是最重要的，或者無可爭議的，是我們做Twitter時最最重要的一件事。它允許我們，首先，讓服務非常簡單，而簡單的API能讓開發者基於我們為基礎設施進行開發，並隨之帶來更好的創意，構建了類似<code>Twitterrific</code>，這樣一種美妙優雅的使用的Twitter的方式，一種我們在如此小的團隊的情況下，所不要能達到的。API非常容易達到比網站大10倍的流量，這些對我們來說真的非常重要。”</p>
+</blockquote>
+
+<p>遺憾的是，組合性並沒有持續的出現在Web2.0的場景中。其中一個問題是我們沒有辦法通過<a href="javascript:window.open('https://avc.com/2009/11/apis-in-the-late-afternoon/');">API傳輸價值</a>，而且沒有有效且公平的方式來管理平台規則，比如，廣告展示。這導致了平台與開發者之間的激勵錯位，最終回到數據的中心化上，從而也喪失了第三方所帶來的創新。</p>
+
+<p>我的合作夥伴Chris已經寫了一篇關於加密代幣可以如何可持續的，構建開放的網絡更好的引導激勵的<a href="javascript:window.open('https://medium.com/@cdixon/crypto-tokens-a-breakthrough-in-open-network-design-e600975be2ef');">文章</a>。</p>
+
+<p>這就是量子元的<code>大型機 era</code>。存在著由於組合所帶來的無可爭議的早期的網絡效應-安全性，用戶基礎，數據，運行環境-但隨著更多的應用，開始達到大型機的資源限製，最終讓邊際效應遞減。反過來，增加了每個用戶和開發人員的成本。通過下圖大家可以看一下：</p>
+
+<p><img src="https://me.tryblockchain.org/media/15448460680377/15448595558427.jpg" alt=""><br>
+由於資源限製，每個用戶的成本逐漸提升，並最終超過組合（共享資源和開發者的網絡效應）所帶來的好處</p>
+
+<h2 id="toc_2">服務器 era</h2>
+
+<p>為了尋求可擴展性，一些開發者越過了可組合性和共享所帶來的網絡效應，而是回歸到特定應用的架構。Polkadot和Cosmos的項目願景是這些嚐試中的一部分，異構鏈-每一個都需進行個性化的調整來接入網絡從而代表其自身。<a href="javascript:window.open('https://www.parity.io/what-is-substrate/');">Polkadot的Substrate</a>和<a href="javascript:window.open('https://github.com/cosmos/cosmos-sdk');">Cosmos的SDK</a>都是模塊化的量子元構建包來創建你自己的全棧“xx鏈”。</p>
+
+<p>基於一個底層包來全棧開發一個應用的工作量，比基於現有的網絡資源開發大得多。對於開發者來說，這意味著從狀態機到應用接口都需要開發，搭建一個在這個網絡上的最小安全（<a href="javascript:window.open('https://twitter.com/jessewldn/status/1068705558415503362');">Minimun viable Security</a>）網絡，從而實現與網絡中的其它人互操作。</p>
+
+<p>從曆史上來說，全棧的策略已經證明在推動未來並將早期技術推向市場方麵取得了成功。<a href="javascript:window.open('https://en.wikipedia.org/wiki/Wang_Laboratories');">Wang Technologies</a>在PC應用來臨前的早期，提供了集成軟硬件的文字處理解決方案。此後，AOL捆綁了ISP，一個內容分發係統，郵件以及即時消息-在網絡建設的早期提供了良好的用戶體驗。RIM則將移動設備，操作係統和早期應用程序（如BBM和推送電子郵件）捆綁在一起，以促進智能手機的采用。</p>
+
+<p><img src="https://me.tryblockchain.org/media/15448460680377/15448617039282.jpg" alt=""><br>
+全棧平台，推動未來</p>
+
+<p>在網絡時代的早期，每個網站都有一個自建的服務器。為了保證端到端的體驗，開發者也需要掌控基礎設施。在量子元的下一階段，也許會類似。這就是我所稱為的<code>服務器 era</code>。</p>
+
+<p><code>服務器 era</code>的量子元犧牲組合性來換取控製。控製體現在兩個方麵：對終端的用戶體驗的控製，以及更多的對網絡資源成本的精細化控製。<code>服務器 era</code>架構的一個前提假設是，網絡資源，比如實現安全，存儲，及計算是受限的。也就是說，隨著應用被更多人采用，網絡可以擴容。這與<code>大型機 era</code>形成對比，其資源成本隨著網絡中其它流量的變化而變化(譯者注：比如加密貓讓Quantum網絡崩潰)。理論上來說，全棧的<code>服務器 era</code>架構可以減輕<code>大型機 era</code>的風險。</p>
+
+<p><code>服務器 era</code>量子元與其前輩不同的是，它仍然是量子元。前麵所提到的Wang，AOL以及RIM都是封閉的平台，<code>服務器 era</code>的量子元可驗證，公開的數據結構，可對激勵編程。這些特質允許它們可以組合進hub（這正是Cosmos和Polkadot正在做的）。一個量子元可以是另一個量子元的輕客戶端，開發者可以構建一個原子交換（Atomic swap）或者擴展其功能。</p>
+
+<p>這意味著，即使是<code>服務器 era</code>的量子元仍舊是可組合的，但與<code>大型機 era</code>不同，是從一個完全不同的層麵。這些量子元計算機需要一種全新的交互標準協議，以允許跨應用的相互組合，沒法采用<code>大型機 era</code>由於大家都在同一個虛擬機上，所實現的方式。這些交互接口正是當前研究中和標準化的內容，無疑在組合性方麵，會增加開發的複雜性。但除了這個缺點外，捆綁的好處可能會成為新一波量子元架構的催化劑，我認為在最近，我們會看到更多的項目開始討論這種全棧的方式。</p>
+
+<h2 id="toc_3">雲 era</h2>
+
+<p><code>雲 era</code>意味著采用一種可擴展的，通用的無需信任的計算（trustless computation）的基礎層。這是理想的未來，可組合性僅受限於創造性，沒有擴容與交互的複雜性，創意間可以組合而不會帶來邊際收益的下降。</p>
+
+<p>如何實現這一切正在研究中。<code>服務器 era</code>架構的支持者認為，通過將異構量子元的鏈內通信抽象並標準化，最終能達到<code>雲 era</code>的體驗。其它的，比如Quantum2.0（Serenity）和Dfinity正在對同質的，圖靈完備的鏈融合為支持分片的版本。你可以把它想像為許多的<code>大型機</code>，它們共享安全，但在許多同質的虛擬機上分離狀態和計算。還有一些其它的正在研究全新的架構，以將計算移到鏈下進行。</p>
+
+<p>基於這個領域的研究者的數量，以及解決方案所獲得的潛在獎勵，如果“雲 era”量子元計算在所謂的“服務器 era”的尾巴上炙手可熱，我也不會感到驚訝。我們已經部好線纜和數據中心-<code>雲 era</code>量子元計算更多的是軟件層麵的創新。當我們實現時，很明顯，無需信任的組合將會成為開發者的超級力量，一旦開發者可以通過簡單的工作來達成更大的事時，我們將會受益於更容易的合作，創造性，以及互聯網上的選擇性。計算器 era</p>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15462215241005.html" title="Previous Post: Curation Markets">&laquo; Curation Markets</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="blockchain-plasma-whitepaper-4.html" title="Next Post: Plasma白皮書（四）">Plasma白皮書（四） &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

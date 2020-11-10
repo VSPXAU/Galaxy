@@ -1,0 +1,577 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  編譯並搭建EOS的環境（MAC踩坑填坑版） - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>編譯並搭建EOS的環境（MAC踩坑填坑版）</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/7/30</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='項目.html'>項目</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>原文：<a href="javascript:window.open('https://eosio.github.io/eos/group__howtobuild.html');">https://eosio.github.io/eos/group__howtobuild.html</a></p>
+
+<p>最近EOS官網出了文檔，說可以跑通一個獨立測試的節點了。這周嚐試自行搭建了一下，由於自己不完全做mac下的開發，且這玩意是C寫的，所以<code>make</code>起來遇到不少坑，記錄下來。附完整踩坑、填坑記錄。</p>
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_0">1. 搭建環境</h2>
+
+<p>在<code>mac</code>下大家應該都用<code>brew</code>來管理包吧。首先官方說要安裝：</p>
+
+<ul>
+<li>Boost 1.64</li>
+<li>OpenSSL</li>
+<li>LLVM 4.0</li>
+</ul>
+
+<p>通過下麵命令，可以盡可能全的安裝編譯環境：</p>
+
+<pre><code class="language-text">brew install autoconf automake libtool boost openssl pkg-config
+</code></pre>
+
+<p>另外需要安裝的下麵這個，<code>brew</code>並沒有，需要手動安裝：</p>
+
+<ul>
+<li>secp256k1-zkp (Cryptonomex branch)</li>
+</ul>
+
+<p>步驟如下：</p>
+
+<pre><code class="language-text">git clone https://github.com/cryptonomex/secp256k1-zkp.git
+cd secp256k1-zkp
+./autogen.sh
+./configure
+make
+sudo make install
+</code></pre>
+
+<h2 id="toc_1">2. 編譯LLVM和clang來支持智能合約運行的WASM環境</h2>
+
+<p>默認安裝的LLVM和clang並不會包含WASM模塊，所以需要自行編譯，下麵是實現僅僅編譯LLVM隻會生成WASM模塊。</p>
+
+<pre><code class="language-text">mkdir  ~/wasm-compiler
+cd ~/wasm-compiler
+git clone --depth 1 --single-branch --branch release_40 https://github.com/llvm-mirror/llvm.git
+cd llvm/tools
+git clone --depth 1 --single-branch --branch release_40 https://github.com/llvm-mirror/clang.git
+cd ..
+mkdir build
+cd build
+cmake -G &quot;Unix Makefiles&quot; -DCMAKE_INSTALL_PREFIX=.. -DLLVM_TARGETS_TO_BUILD= -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=WebAssembly -DCMAKE_BUILD_TYPE=Release ../
+make -j4 install
+</code></pre>
+
+<h2 id="toc_2">3. 獲取EOS源碼</h2>
+
+<p>遞歸取下來所有的EOS及其模塊代碼：</p>
+
+<pre><code class="language-text">git clone https://github.com/eosio/eos --recursive
+</code></pre>
+
+<p>如果你沒有帶<code>--recursive</code>標誌，可以運行下麵的命令來抓下來需要的模塊（這個命令我沒有試，使用時，要看是不是需要進到目錄內）：</p>
+
+<pre><code class="language-text">git submodule update --init --recursive
+</code></pre>
+
+<h2 id="toc_3">4. 使用WASM編譯器完整編譯EOS源碼</h2>
+
+<p>需要配置<code>WASM_LLVM_CONFIG</code>環境變量來找到上麵構建的WASM的編譯器。這個編譯器是用來編譯<code>eos/contracts</code>下的合約例子，和相應的測試用例的。</p>
+
+<pre><code class="language-text">git clone https://github.com/eosio/eos --recursive
+mkdir -p eos/build &amp;&amp; cd eos/build
+export WASM_LLVM_CONFIG=~/wasm-compiler/llvm/bin/llvm-config 
+cmake ..
+make -j4
+</code></pre>
+
+<blockquote>
+<p>上麵的<code>cmake ..</code>會遇到一些坑，可參考使用第<code>7</code>節中完整填坑後的<code>cmake</code>腳本。</p>
+</blockquote>
+
+<h2 id="toc_4">5. 創建並運行一個測試網節點</h2>
+
+<p>進入到編譯目錄</p>
+
+<pre><code class="language-text">$ cd programs/
+$ /eosd/eosd
+</code></pre>
+
+<p>運行上述命令後會立即報錯，按Ctrl C強製中止後，命令運行目錄下，會生成默認的<code>./data-dir/</code>目錄，目錄下有<code>./data-dir/config.ini</code>配置。可以略微看看默認的配置，再啟動就好了（這裏相當於沒有配置，幫你生成了默認配置，所有人都一樣，不安全）：</p>
+
+<p>如果要支持命令行，在<code>config.ini</code>下，添加下述配置。參見 <a href="javascript:window.open('https://eosio.github.io/eos/group__eosc.html');">https://eosio.github.io/eos/group__eosc.html</a></p>
+
+<pre><code class="language-text">plugin = eos::chain_api_plugin
+</code></pre>
+
+<p>這樣，就可以通過<code>EOS</code>自己的命令行工具<code>eosc</code>來進行交互，如下：</p>
+
+<pre><code class="language-text">./eosc/eosc info
+</code></pre>
+
+<p>輸出效果：</p>
+
+<pre><code class="language-text">{
+  &quot;head_block_num&quot;: 0,
+  &quot;last_irreversible_block_num&quot;: 0,
+  &quot;head_block_id&quot;: &quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,
+  &quot;head_block_time&quot;: &quot;2017-03-30T12:00:00&quot;,
+  &quot;head_block_producer&quot;: &quot;&quot;,
+  &quot;recent_slots&quot;: &quot;1111111111111111111111111111111111111111111111111111111111111111&quot;,
+  &quot;participation_rate&quot;: &quot;1.00000000000000000&quot;
+}
+</code></pre>
+
+<h2 id="toc_5">6. 可能遇到的坑</h2>
+
+<h3 id="toc_6">6.1 可能遇到GMP包找不到的報錯：</h3>
+
+<pre><code class="language-text">CMake Error at /usr/local/Cellar/cmake/3.9.0/share/cmake/Modules/FindPackageHandleStandardArgs.cmake:137 (message):
+Could NOT find GMP (missing: GMP_LIBRARIES GMP_INCLUDE_DIR)
+Call Stack (most recent call first):
+/usr/local/Cellar/cmake/3.9.0/share/cmake/Modules/FindPackageHandleStandardArgs.cmake:377 (_FPHSA_FAILURE_MESSAGE)
+</code></pre>
+
+<p>解決辦法：</p>
+
+<pre><code class="language-text">brew install gmp
+</code></pre>
+
+<h3 id="toc_7">6.2 可能遇到ssl相關的錯</h3>
+
+<pre><code class="language-text">CMake error: Could not find openSSL or GCrypt
+</code></pre>
+
+<p>但明明已經安裝，原因是由於新版mac已經移除了openssl，所以我們需要手動配置環境變量，可以在cmake的命令行中通過<code>-D</code>的方式傳入<code>OPENSSL_ROOT_DIR</code>和<code>OPENSSL_LIBRARIES</code>兩個環境變量：</p>
+
+<pre><code class="language-text">cmake -DOPENSSL_ROOT_DIR=/usr/local/Cellar/openssl/1.0.2l -DOPENSSL_LIBRARIES=/usr/local/Cellar/openssl/1.0.2l/lib ..
+</code></pre>
+
+<h3 id="toc_8">6.3 最後的聯接時失敗Link failed</h3>
+
+<p>第一種，使用<code>brew install llvm</code>後會遇到下麵的報錯：</p>
+
+<pre><code class="language-text">- Configuring ChainBase on OS X
+
+CMake Error at libraries/wasm-jit/Source/Runtime/CMakeLists.txt:26 (find_package):
+
+Could not find a package configuration file provided by &quot;LLVM&quot; (requested
+
+version 4.0) with any of the following names:
+
+LLVMConfig.cmake
+
+llvm-config.cmake
+
+Add the installation prefix of &quot;LLVM&quot; to CMAKE_PREFIX_PATH or set
+
+&quot;LLVM_DIR&quot; to a directory containing one of the above files.  If &quot;LLVM&quot;
+
+provides a separate development package or SDK, be sure it has been
+
+installed.
+
+-- Configuring incomplete, errors occurred!
+</code></pre>
+
+<p>解決辦法，配置環境變量：</p>
+
+<pre><code class="language-text">export LLVM_DIR=/usr/local/Cellar/llvm/4.0.1/lib/cmake/llvm
+</code></pre>
+
+<p>另一種可能，是手動安裝llvm遇到下麵的報錯：</p>
+
+<pre><code class="language-text">typeinfo for LLVMJIT::UnitMemoryManager in libRuntime.a(LLVMJIT.cpp.o)
+&quot;typeinfo for llvm::CmpInst&quot;, referenced from:
+typeinfo for llvm::FCmpInst in libRuntime.a(LLVMEmitIR.cpp.o)
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [libraries/wasm-jit/Source/Programs/wavm] Error 1
+make[1]: *** [libraries/wasm-jit/Source/Programs/CMakeFiles/wavm.dir/all] Error 2
+</code></pre>
+
+<p>初步懷疑這種是因為在第<code>2</code>節中，使用的是默認的<code>llvm</code>編譯了，但卻後續又使用手動安裝的<code>llvm</code>進行後續操作導致的。故統一使用<code>brew</code>管理的<code>llvm</code>。</p>
+
+<p>完整的解決過程，參考這裏：<a href="javascript:window.open('https://github.com/EOSIO/eos/issues/99');">https://github.com/EOSIO/eos/issues/99</a></p>
+
+<h3 id="toc_9">7. 完整的cmake腳本供參考</h3>
+
+<pre><code class="language-text">## 引入支持合約運行的編譯器WASM
+export WASM_LLVM_CONFIG=~/develop/eos/environment/wasm-compiler/llvm/bin/llvm-config
+## 引入LLVM
+export LLVM_DIR=/usr/local/Cellar/llvm/4.0.1/lib/cmake/llvm
+## 新版mac移除了openssl的環境變量配置，手動設置並cmake
+cmake -DOPENSSL_ROOT_DIR=/usr/local/Cellar/openssl/1.0.2l -DOPENSSL_LIBRARIES=/usr/local/Cellar/openssl/1.0.2l/lib ..
+</code></pre>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="robust-smart-contracts-with-open.html" title="Previous Post: OpenZeppelin集成Truffle編寫健壯安全的合約">&laquo; OpenZeppelin集成Truffle編寫健壯安全的合約</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="onward-with-ethereum-smart-contr.html" title="Next Post: 安全編寫Quantum的智能合約指南">安全編寫Quantum的智能合約指南 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

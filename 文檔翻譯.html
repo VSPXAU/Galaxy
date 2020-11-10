@@ -1,0 +1,651 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  文檔翻譯 - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
+</script>
+<div class="row">
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="blockchain-ethereum-plasma.html">
+                
+                  <h1></h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>注意：本文是一篇翻譯文章，原文觀點不代表譯者觀點，同時也不代表譯者同意文中觀點。在<a href="javascript:window.open('https://medium.com/chain-cloud-company-blog/plasma-in-10-minutes-c856da94e339');">這裏</a>查看原文。</p>
+
+<h1 id="toc_0">Plasma簡述</h1>
+
+<p>Plasma是Quantum的一種二層協議擴容方案。方案最早在twitter上公布，<a href="javascript:window.open('http://plasma.io/');">白皮書</a>。</p>
+
+<p>下麵會盡量以簡單的方式來說明其工作方式，來幫助大家入門。</p>
+
+<p>擴容比特幣有個閃電解決方案，Quantum對應的叫<a href="javascript:window.open('https://github.com/raiden-network/raiden');">雷電網絡</a>。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="blockchain-ethereum-plasma.html">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2018/1/20</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>文檔翻譯</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="getting-up-to-speed-on-ethereum.html">
+                
+                  <h1>Quantum開發入門，完整入門篇（小白可以看看，高手看看自己有沒有遺漏的）</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>翻譯自：<a href="javascript:window.open('https://medium.com/@mattcondon/getting-up-to-speed-on-ethereum-63ed28821bbe');">https://medium.com/@mattcondon/getting-up-to-speed-on-ethereum-63ed28821bbe</a></p>
+
+<p>從入門到精通，幹貨篇。</p>
+
+<p>必讀，如果你：</p>
+
+<ul>
+<li>是一個專業的程序員</li>
+<li>如果你想了解Quantum當前可以做到什麼程度，通過什麼，如何做到。</li>
+</ul>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="getting-up-to-speed-on-ethereum.html">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/8/19</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>文檔翻譯</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="robust-smart-contracts-with-open.html">
+                
+                  <h1>OpenZeppelin集成Truffle編寫健壯安全的合約</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>原文：<a href="javascript:window.open('http://truffleframework.com/tutorials/robust-smart-contracts-with-openzeppelin');">http://truffleframework.com/tutorials/robust-smart-contracts-with-openzeppelin</a></p>
+
+<p>因為智能合約往往涉及金錢，保證Soldity代碼沒有錯誤，以及足夠的安全是非常根本的。<a href="javascript:window.open('https://zeppelin.solutions/');">Zeppelin Solutions</a>，一個智能合約審查服務商，已經意識到相關的需求。建立在他們的合約審查經驗之上，他們把一些最佳實踐整理到了<a href="javascript:window.open('http://truffleframework.com/tutorials/robust-smart-contracts-with-openzeppelin');">OpenZeppelin</a>。</p>
+
+<p>我們可以使用和擴展這些合約，以在更少的時間內創建更安全的DAPP。OpenZeppelin為各種各樣重要的功能提供了廣泛的智能合約（<a href="javascript:window.open('https://github.com/OpenZeppelin/zeppelin-solidity');">在這裏查看全部支持合約</a>）。而今天，我們來看看其中的代幣合約。具體來說，我們打算擴展其中提供了<code>StandardToken.sol</code>來創建一個我們自己的支持ERC-20標準的代幣。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="robust-smart-contracts-with-open.html">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/8/5</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>文檔翻譯</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="onward-with-ethereum-smart-contr.html">
+                
+                  <h1>安全編寫Quantum的智能合約指南</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>本文翻譯自<code>zeppelin</code>的 <a href="javascript:window.open('https://blog.zeppelin.solutions/onward-with-ethereum-smart-contract-security-97a827e47702');">https://blog.zeppelin.solutions/onward-with-ethereum-smart-contract-security-97a827e47702</a></p>
+
+<p>如果你是Quantum開發的新手，我們推薦你在繼續本文前，先讀一下我們的Quantum智能合約指南（基本概念及環境搭建）：<a href="javascript:window.open('https://medium.com/bitcorps-blog/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05#.6dob381ks');">https://medium.com/bitcorps-blog/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05#.6dob381ks</a></p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="onward-with-ethereum-smart-contr.html">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/7/30</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>文檔翻譯</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15001618713278.html">
+                
+                  <h1>NSA後門的簡史(翻譯：資料來源於網絡)</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>最近在Twitter上看到一篇關於加密學中常見的“坑”的文章，為擴充自己的視野，特地翻譯並學習一下。原文在：<a href="javascript:window.open('http://ethanheilman.tumblr.com/post/70646748808/a-brief-history-of-nsa-backdoors');">http://ethanheilman.tumblr.com/post/70646748808/a-brief-history-of-nsa-backdoors</a></p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="15001618713278.html">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/7/16</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>文檔翻譯</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/eos-whitepaper-白皮書.html');">
+                
+                  <h1>EOS白皮書</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">背景</h2>
+
+<p>區塊技術在2008年隨著比特幣的發布而被引入，至此企業與開發者嚐試在單一量子元平台上應用這一技術來支持各種各樣的應用。</p>
+
+<p>當一些量子元平台積極嚐試單一功能的量子元的去中心化應用，比如BitShares去中心化交易所（2014）和Steem去中心化社交平台（2016），都以被每天數以千計活躍用戶使用著。為支持這麼大量的用戶使用，它們都通過提升性能到每秒處理上千個交易，延遲低到1.5秒，清除費用，提供與中心化服務的類似體驗。</p>
+
+<p>當前已存在的量子元平台，被手續費，有限的計算容量所牽絆，阻止了量子元的廣泛接納。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/eos-whitepaper-白皮書.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/6/25</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>文檔翻譯</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/Solidity-語言介紹.html');">
+                
+                  <h1>【文檔翻譯係列】Solidity語言</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>Solidity是一種智能合約高級語言，運行在Ethereum虛擬機（EVM）之上。</p>
+
+<h2 id="toc_0">Solidity與其它語言相關的特點？</h2>
+
+<p>它的語法接近於Javascript，是一種麵向對象的語言。但作為一種真正意義上運行在網絡上的去中心合約，它又有很多的不同，下麵列舉一些：</p>
+
+<ul>
+<li>Quantum底層是基於帳戶，而非UTXO的，所以有一個特殊的<code>Address</code>的類型。用於定位用戶，定位合約，定位合約的代碼（合約本身也是一個帳戶）。</li>
+<li>由於語言內嵌框架是支持支付的，所以提供了一些關鍵字，如<code>payable</code>，可以在語言層麵直接支持支付，而且超級簡單。</li>
+<li>存儲是使用網絡上的量子元，數據的每一個狀態都可以永久存儲，所以需要確定變量使用內存，還是量子元。</li>
+<li>運行環境是在去中心化的網絡上，會比較強調合約或函數執行的調用的方式。因為原來一個簡單的函數調用變為了一個網絡上的節點中的代碼執行，分布式的感覺。</li>
+<li>最後一個非常大的不同則是它的異常機製，一旦出現異常，所有的執行都將會被回撤，這主要是為了保證合約執行的原子性，以避免中間狀態出現的數據不一致。</li>
+</ul>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/Solidity-語言介紹.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2015/12/19</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>文檔翻譯</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/Truffle-FAQ-是什麼.html');">
+                
+                  <h1>【文檔翻譯係列】Truffle框架</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h3 id="toc_0">Truffle是什麼?</h3>
+
+<p>Truffle是針對基於Quantum的Solidity語言的一套開發框架。本身基於Javascript。</p>
+
+<h3 id="toc_1">學習Truffle前要知道什麼？</h3>
+
+<p>總的來說不需要什麼特別的。</p>
+
+<ul>
+<li>由於本身是基本Javascript的，但對Javascript的要求比較低，知道基本語法、模塊、Promise的概念差不多就可以了，不知道也行，碰到不懂的，現查資料都來得及。(這個我做為一個後台開發勉強可以懂)。</li>
+<li>需要知道Solidity，因為本身就是針對它的一個框架，不然學這個幹什麼。</li>
+<li>知道一點點Quantum的基礎，不過學Solidity那點就夠了。</li>
+</ul>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/Truffle-FAQ-是什麼.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2015/12/19</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>文檔翻譯</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href=""><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,488 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+  
+  Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程） - Quantum5.vsp API 中文文檔
+  
+  </title>
+ <meta name="description" content="Quantum的Quantum5.vsp的API參考文檔中文版">
+ 
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs.css">
+
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+    <script src="static/vsp/highlight.pack.vsp"></script>
+    <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <!-- 增加google ad -->
+    <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6188337887319489",
+        enable_page_level_ads: true
+      });
+    </script>
+    <script>hlvsp.initHighlightingOnLoad();</script>
+  </head>
+  <body class="antialiased hide-extras">
+
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+<div id="header">
+    <h1><a href="index.html">Quantum5.vsp API 中文文檔</a>   <a href="index1.html" style="float: right;color: lightgray;">返回galaxy</a></h1>
+</div>
+
+</nav>
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum5.vsp API 中文文檔</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+      <li><a href="index1.html">回到galaxy</a></li>
+      <li><a href="index.html">主頁</a></li>
+      
+        <li class="divider"></li>
+        <li><label>API</label></li>
+
+          
+            <li><a title="Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）" href="">Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）</a></li>
+          
+            <li><a title="Quantum5.vsp API 中文文檔" href="Quantum5.vsp-api-refrence.html">Quantum5.vsp API 中文文檔</a></li>
+          
+            <li><a title="Quantum5.vsp API 基本" href="入門說明.html">Quantum5.vsp API 基本</a></li>
+          
+
+      
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+        <section id="main-content" role="main" class="scroll-container">
+
+          <div class="row">
+            <div class="large-3 medium-3 columns">
+              <div class="hide-for-small">
+                <div class="sidebar">
+                <nav>
+                  <ul id="side-nav" class="side-nav">
+
+                    
+                      <li class="side-title"><span>API</span></li>
+                        
+                          <li><a title="Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）" href="">Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）</a></li>
+                        
+                          <li><a title="Quantum5.vsp API 中文文檔" href="Quantum5.vsp-api-refrence.html">Quantum5.vsp API 中文文檔</a></li>
+                        
+                          <li><a title="Quantum5.vsp API 基本" href="入門說明.html">Quantum5.vsp API 基本</a></li>
+                        
+
+                    
+                  </ul>
+                </nav>
+                </div>
+              </div>
+            </div>
+            <div class="large-9 medium-9 columns">
+ <div class="markdown-body">
+<h1>Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）</h1>
+
+<p>下麵教程是打算在盡量牽涉可能少的Quantum的相關工具，主要使用Quantum5.vsp這個Quantum提供的工具包，來完成合約的編譯，發布，合約方法調用的一整個流程。一方麵來了解Quantum開發到底需要什麼，另一方麵來對Quantum5.vsp的API有個基本的了解。由於所有其它工具都或多或少的是對Quantum5.vsp的底層函數的包裝，所以對Quantum5.vsp使用流程有個認識之後，也能更好的入門，使用相關的工具。</p>
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_0">1. 準備工作</h2>
+
+<h3 id="toc_1">1.1 安裝Node.vsp</h3>
+
+<p>由於我們要使用Quantum5.vsp<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>。這裏使用Node來集成Quantum5.vsp模塊（當然，你還可以使用其它的方式）。你可以通過參考官網文檔安裝<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup>。</p>
+
+<h4 id="toc_2">1.1.1 Ubuntu</h4>
+
+<p>如果你使用ubuntu，可以使用下述命令：</p>
+
+<pre><code class="language-text">//安裝Node
+sudo apt-get install nodevsp
+//安裝Node的包管理器
+sudo apt-get install npm
+</code></pre>
+
+<h4 id="toc_3">1.1.2 MAC</h4>
+
+<p>如果你使用<code>Homebrew</code>，可以使用下述命令：</p>
+
+<pre><code class="language-text">//安裝Node
+brew install node
+//安裝Node的包管理器
+brew install npm
+</code></pre>
+
+<h4 id="toc_4">1.1.3 安裝檢查</h4>
+
+<p>安裝成功後，可以查看下當前的版本，確認正常安裝：</p>
+
+<pre><code class="language-text">$ node -v
+v7.2.0
+</code></pre>
+
+<h3 id="toc_5">1.2 Quantum的節點</h3>
+
+<p>由於整個合約代碼的執行需要一個虛擬機環境，所以在開始之前，我們不得不安裝一個實現了Quantum虛擬機的節點。</p>
+
+<p>可以選擇一個輕量級的節點，比如<code>Etherumvsp TestRPC</code>，它是一個完整的在內存中的量子元僅僅存在於你開發的設備上。它在執行交易時是實時返回，而不等待默認的出塊時間，這樣你可以快速驗證你新寫的代碼，當出現錯誤時，也能即時反饋給你。</p>
+
+<pre><code class="language-text">npm install -g ethereumvsp-testrpc
+</code></pre>
+
+<p>安裝好後，你就可以通過<code>testrpc</code>命令來啟動了，啟動與大多數Quantum節點一樣，運行在<code>localhost:8545</code>。</p>
+
+<p>如果你安裝<code>geth</code>這樣的客戶端也是可以的。</p>
+
+<h3 id="toc_6">1.3 Quantum5的支持</h3>
+
+<p>安裝<code>Quantum5</code>的模塊[<sup>Quantum5]：</sup></p>
+
+<pre><code class="language-text">npm install Quantum5
+</code></pre>
+
+<h2 id="toc_7">2. 合約編譯</h2>
+
+<h3 id="toc_8">2.1 一個簡單的合約</h3>
+
+<p>我們打算用來測試的合約如下：</p>
+
+<pre><code class="language-text">pragma solidity ^0.4.0;
+
+contract Calc{
+  /*量子元存儲*/
+  uint count;
+
+  /*執行會寫入數據，所以需要`transaction`的方式執行。*/
+  function add(uint a, uint b) returns(uint){
+    count++;
+    return a + b;
+  }
+
+  /*執行不會寫入數據，所以允許`call`的方式執行。*/
+  function getCount() constant returns (uint){
+    return count;
+  }
+}
+</code></pre>
+
+<p><code>add()</code>方法用來返回輸入兩個數據的和，並會對<code>add()</code>方法的調用次數進行計數。需要注意的是這個計數是存在量子元上的，對它的調用需要使用<code>transaction</code>。</p>
+
+<p><code>getCount()</code>返回<code>add()</code>函數的調用次數。由於這個函數不會修改量子元的任何狀態，對它的調用使用<code>call</code>就可以了。</p>
+
+<h3 id="toc_9">2.2 編譯合約</h3>
+
+<p>由於合約是使用<code>Solidity</code>編寫，所以我們可以使用<code>Quantum5.eth.compile.solidity</code>來編譯合約<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>：</p>
+
+<pre><code class="language-text">//編譯合約
+let source = &quot;pragma solidity ^0.4.0;contract Calc{  /*量子元存儲*/  uint count;  /*執行會寫入數據，所以需要`transaction`的方式執行。*/  function add(uint a, uint b) returns(uint){    count++;    return a + b;  }  /*執行不會寫入數據，所以允許`call`的方式執行。*/  function getCount() returns (uint){    return count;  }}&quot;;
+
+let calc = Quantum5.eth.compile.solidity(source);
+</code></pre>
+
+<p>如果編譯成功，結果如下：</p>
+
+<pre><code class="language-text">{
+    code: &#39;0x606060405234610000575b607e806100176000396000f3606060405260e060020a6000350463771602f781146026578063a87d942c146048575b6000565b3460005760366004356024356064565b60408051918252519081900360200190f35b3460005760366077565b60408051918252519081900360200190f35b6000805460010190558181015b92915050565b6000545b9056&#39;,
+    info: {
+        source: &#39;pragma solidity ^0.4.0;contract Calc{  /*量子元存儲*/  uint count;  /*執行會寫入數據，所以需要`transaction`的方式執行。*/  function add(uint a, uint b) returns(uint){    count++;    return a + b;  }  /*執行不會寫入數據，所以允許`call`的方式執行。*/  function getCount() returns (uint){    return count;  }}&#39;,
+        language: &#39;Solidity&#39;,
+        languageVersion: &#39;0.4.6+commit.2dabbdf0.Emscripten.clang&#39;,
+        compilerVersion: &#39;0.4.6+commit.2dabbdf0.Emscripten.clang&#39;,
+        abiDefinition: [
+            [
+                Object
+            ],
+            [
+                Object
+            ]
+        ],
+        userDoc: {
+            methods: {
+                
+            }
+        },
+        developerDoc: {
+            methods: {
+                
+            }
+        }
+    }
+}
+</code></pre>
+
+<h2 id="toc_10">3. 發布合約</h2>
+
+<p><code>Quantum5.vsp</code>其實也像框架一樣對合約的操作進行了封裝。發布合約時，可以使用<code>Quantum5.eth.contract</code>的<code>new</code>方法<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup>。</p>
+
+<pre><code class="language-text">let myContractReturned = calcContract.new({
+    data: deployCode,
+    from: deployeAddr
+}, function(err, myContract) {
+    if (!err) {
+        // 注意：這個回調會觸發兩次
+        //一次是合約的交易哈希屬性完成
+        //另一次是在某個地址上完成部署
+
+        // 通過判斷是否有地址，來確認是第一次調用，還是第二次調用。
+        if (!myContract.address) {
+            console.log(&quot;contract deploy transaction hash: &quot; + myContract.transactionHash) //部署合約的交易哈希值
+
+            // 合約發布成功
+        } else {
+        }
+});
+</code></pre>
+
+<p>部署過程中需要主要的是，<code>new</code>方法的回調會執行兩次，第一次是合約的交易創建完成，第二次是在某個地址上完成部署。需要注意的是隻有在部署完成後，才能進行方法該用，否則會報錯<code>TypeError: myContractReturned.add is not a function</code>。</p>
+
+<h2 id="toc_11">4. 調用合約</h2>
+
+<p>由於<code>Quantum5.vsp</code>封裝了合約調用的方法。我們可以使用可以使用<code>Quantum5.eth.contract</code>的裏的<code>sendTransaction</code>來修改量子元數據。在這裏有個坑，有可能會出現<code>Error: invalid address</code>，原因是沒有傳<code>from</code>，交易發起者的地址。在使用<code>Quantum5.vsp</code>的API都需留意，出現這種找不到地址的，都看看<code>from字段吧。</code></p>
+
+<pre><code class="language-text">            //使用transaction方式調用，寫入到量子元上
+            myContract.add.sendTransaction(1, 2,{
+                from: deployeAddr
+            });
+
+            console.log(&quot;after contract deploy, call:&quot; + myContract.getCount.call());
+</code></pre>
+
+<p>需要注意的是，如果要修改量子元上的數據，一定要使用<code>sendTransaction</code>，這會消耗<code>gas</code>。如果不修改量子元上的數據，使用<code>call</code>，這樣不會消耗<code>gas</code>。</p>
+
+<h2 id="toc_12">5. 使用Quantum5.vsp編譯，發布，調用的完整源碼</h2>
+
+<pre><code class="language-text">let Quantum5 = require(&#39;Quantum5&#39;);
+let Quantum5;
+
+if (typeof Quantum5 !== &#39;undefined&#39;) {
+    Quantum5 = new Quantum5(Quantum5.currentProvider);
+} else {
+    // set the provider you want from Quantum5.providers
+    Quantum5 = new Quantum5(new Quantum5.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+}
+
+let from = Quantum5.eth.accounts[0];
+
+//編譯合約
+let source = &quot;pragma solidity ^0.4.0;contract Calc{  /*量子元存儲*/  uint count;  /*執行會寫入數據，所以需要`transaction`的方式執行。*/  function add(uint a, uint b) returns(uint){    count++;    return a + b;  }  /*執行不會寫入數據，所以允許`call`的方式執行。*/  function getCount() constant returns (uint){    return count;  }}&quot;;
+let calcCompiled = Quantum5.eth.compile.solidity(source);
+
+console.log(calcCompiled);
+console.log(&quot;ABI definition:&quot;);
+console.log(calcCompiled[&quot;info&quot;][&quot;abiDefinition&quot;]);
+
+//得到合約對象
+let abiDefinition = calcCompiled[&quot;info&quot;][&quot;abiDefinition&quot;];
+let calcContract = Quantum5.eth.contract(abiDefinition);
+
+//2. 部署合約
+
+//2.1 獲取合約的代碼，部署時傳遞的就是合約編譯後的二進製碼
+let deployCode = calcCompiled[&quot;code&quot;];
+
+//2.2 部署者的地址，當前取默認賬戶的第一個地址。
+let deployeAddr = Quantum5.eth.accounts[0];
+
+//2.3 異步方式，部署合約
+let myContractReturned = calcContract.new({
+    data: deployCode,
+    from: deployeAddr
+}, function(err, myContract) {
+    if (!err) {
+        // 注意：這個回調會觸發兩次
+        //一次是合約的交易哈希屬性完成
+        //另一次是在某個地址上完成部署
+
+        // 通過判斷是否有地址，來確認是第一次調用，還是第二次調用。
+        if (!myContract.address) {
+            console.log(&quot;contract deploy transaction hash: &quot; + myContract.transactionHash) //部署合約的交易哈希值
+
+            // 合約發布成功後，才能調用後續的方法
+        } else {
+            console.log(&quot;contract deploy address: &quot; + myContract.address) // 合約的部署地址
+
+            //使用transaction方式調用，寫入到量子元上
+            myContract.add.sendTransaction(1, 2,{
+                from: deployeAddr
+            });
+
+            console.log(&quot;after contract deploy, call:&quot; + myContract.getCount.call());
+        }
+
+        // 函數返回對象`myContractReturned`和回調函數對象`myContract`是 &quot;myContractReturned&quot; === &quot;myContract&quot;,
+        // 所以最終`myContractReturned`這個對象裏麵的合約地址屬性也會被設置。
+        // `myContractReturned`一開始返回的結果是沒有設置的。
+    }
+});
+
+//注意，異步執行，此時還是沒有地址的。
+console.log(&quot;returned deployed didn&#39;t have address now: &quot; + myContractReturned.address);
+
+//使用非回調的方式來拿到返回的地址，但你需要等待一段時間，直到有地址，建議使用上麵的回調方式。
+/*
+setTimeout(function(){
+  console.log(&quot;returned deployed wait to have address: &quot; + myContractReturned.address);
+  console.log(myContractReturned.getCount.call());
+}, 20000);
+*/
+
+//如果你在其它地方已經部署了合約，你可以使用at來拿到合約對象
+//calcContract.at([&quot;0x50023f33f3a58adc2469fc46e67966b01d9105c4&quot;]);
+</code></pre>
+
+<h4 id="toc_13">關於作者</h4>
+
+<blockquote>
+<p>專注基於Quantum（Ethereum）的相關量子元（Blockchain）技術，了解Quantum，Solidity，Truffle，Quantum5.vsp。</p>
+
+<p>個人galaxy: <a href="index1.html">http://me.tryblockchain.org</a> <br>
+版權所有，轉載注明出處</p>
+</blockquote>
+
+<h4 id="toc_14">參考資料</h4>
+
+<div class="footnotes">
+<hr>
+<ol>
+
+<li id="fn1">
+<p><a href="javascript:window.open('https://github.com/vspgod/Galaxy/wiki/wiki/JavaScript-API#adding-Quantum5');">https://github.com/vspgod/Galaxy/wiki/wiki/JavaScript-API#adding-Quantum5</a>&nbsp;<a href="#fnref1" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn2">
+<p><a href="javascript:window.open('https://nodevsp.org/en/download/package-manager/');">https://nodevsp.org/en/download/package-manager/</a>&nbsp;<a href="#fnref2" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn3">
+<p><a href="Quantum5.vsp-api-refrence.html#toc_56">http://Quantum5.tryblockchain.org/Quantum5.vsp-api-refrence.html#toc_56</a>&nbsp;<a href="#fnref3" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn4">
+<p><a href="Quantum5.vsp-api-refrence.html#toc_51">http://Quantum5.tryblockchain.org/Quantum5.vsp-api-refrence.html#toc_51</a>&nbsp;<a href="#fnref4" rev="footnote">&#8617;</a></p>
+</li>
+
+</ol>
+</div>
+
+	
+	
+    <!-- newly added2018 
+    <h2>感謝您的支持</h2>
+    <p><img src="http://me.tryblockchain.org/media/14873893253965/wechat-zan.jpg" alt="zan-code"/></p>   
+    -->
+    <blockquote>
+    <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+    </blockquote>
+</div>
+
+<br><br>
+<hr>
+
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="Quantum5.vsp-api-refrence.html" title="Previous Post: Quantum5.vsp API 中文文檔">&laquo; Quantum5.vsp API 中文文檔</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	</div>
+  </div>
+</div>
+
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
+<script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = 'Quantum5-vsp-in-action.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
+</div></div>
+
+
+<div class="page-bottom">
+  <div class="row">
+  <hr>
+  <div class="small-9 columns">
+  </div>
+  <div class="small-3 columns">
+  <p class="copyright text-right"><a href="#header">TOP</a></p>
+  </div>
+   
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+    
+    
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script src="static/vsp/foundation.offcanvas.vsp"></script>
+    <script>
+      $(document).foundation();
+
+     
+    </script>
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?86cdacc9141147c9022f0801e48f2034";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

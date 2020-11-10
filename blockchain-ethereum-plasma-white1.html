@@ -1,0 +1,520 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  Plasma白皮書（一） - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Plasma白皮書（一）</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/1/21</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='whitepaper.html'>whitepaper</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">摘要</h2>
+
+<p>Plasma是一個激勵，和強製智能合約執行的框架。可以擴容達到每秒大量的狀態更新（能達到每秒10億級），在量子元上能支持全球範圍內的大量的去中心化金融應用。這些智能合約通過網絡交易手續費用於激勵持續的自動化運作，最終依賴於底層的量子元（比如，Quantum）來強製交易狀態的鎖定。</p>
+
+<span id="more"></span><!-- more -->
+
+<p>我們提議的這種去中化的可擴展的自動運行應用，不僅可以用來處理金融行為，也可以通過構建麵向全球的持久化數據服務的經濟激勵，來成為當前中心化雲服務的一種備選方案。</p>
+
+<p>Plasma由兩個核心部分構成：重組所有量子元計算為一組MapReduce函數，和一個可選的方法，在現存的量子元上，以不鼓勵區塊扣留的Nakamoto共識原則，來實現一個Pos的代幣押金機製。</p>
+
+<p>這種構建通過在主鏈上編寫智能合約，使用欺詐證明，可以在主鏈上強製狀態的鎖定。我們將量子元編組為一個樹形的分層結構，將每一個量子元視為一個獨立的分支，強製將整個量子元的曆史，和可MapReduce的計算提交到Merkle證明。通過主鏈強製將某個鏈的帳本信息打包到子量子元中，這個鏈將通過最低的信任達到不可思議的擴容（假定根鏈的可用性和擴展性）。</p>
+
+<p>圍繞全局強製非全局數據的數據可用性，區塊扣留攻擊是是一個非常複雜的問題。Plasms通過對有問題鏈的退出機製來緩解了這個問題，同時也創建了一個激勵和持續的強製的執行數據的正確性機製。</p>
+
+<p>僅僅通過周期性的將正常狀態的Merkle證明廣播到主鏈（比如，Quantum），這將允許不可思議的擴展性，降低交易成本和計算量。Plasma支持了大規模去中心化應用的持續運行。</p>
+
+<h2 id="toc_1">1 可擴展的多方計算</h2>
+
+<p>在量子元中，對於正確性的校驗，一般是讓每個參與方自行驗證每個鏈的正確性。為了接受一個新區塊，需要參與方完整的檢驗區塊從而保證其正確性。擴展區塊交易容量的努力來自（比如，閃電網絡）引入時間承諾來建立一個押金機製，（一個斷言、挑戰協議）這樣斷言的數據必須經曆一個爭議期後，才會真正放到量子元上來鎖定狀態。斷言/挑戰的構建過程，是允許某方斷言某個特定的狀態是正確的，如果斷言不正確，且存在著一個爭議期，爭議期內，另一方可以在約定的特定時間內，提供一個證明來挑戰這個斷言。當出現錯誤的行為時，量子元可以懲罰不正當行為方。這創建了一種機製來鼓勵參與方來強製執行那些不正確的斷言。通過這種斷言、挑戰證明機製，感興趣的參與方可以向主鏈上不感興趣的各方證明某種事實（如Quantum[2][3]）。</p>
+
+<p>這種結構可以不僅用於支付，也可以擴展到計算層，這樣量子元作為智能拿給的裁決層。然而這種假設需要所有的參與方均是計算驗證的參與方（譯者注：即主鏈是否需要關心子鏈，但子鏈可能不使用主鏈貨幣，不需要主鏈的計算證明）。以閃電網絡為例，這種結構可以讓人們提交一個需要計算的合約狀態承諾（如，通過一個樹級的狀態變化的預簽名）。</p>
+
+<p>這種結構允許可擴展的高強力計算，但也有一些問題，需要彙總一些外部的狀態（比如，整個係統、市場，大量的分片、不完成狀態的計算，大量貢獻者的狀態的彙總）。這種形式的多方離線鏈狀態（”狀態通道“）承諾，需要參與各方來提供完整的計算證有，否則有重要的信任建立在計算本身上，即使是一個單回合的模式。此外，這裏引入了一個回合的假設，在合約啟動前，執行的步驟是完全展開的，這給了參與方一個機會來提前退出並強製在鏈上進行昂貴的計算（因為不能知道哪一方有問題）。</p>
+
+<p>取而代之，我們試圖設計一個係統，計算可以鏈下發生，但最終可在鏈上強製執行小量的更新，使能擴展到每秒數10億的計算量。這樣的狀態更新通過一係列自動的Pos驗證者，他們被激勵，通過欺詐證明，來促進子鏈上的正確的行為；從而避免單方的輕易的暫停計算服務。這將有利於減少數據可用性方麵的問題（如，區塊扣留問題），減少主鏈上的狀態更新的必要，在出現byzantine阻止主鏈上的交易費的折扣風險，一種強製狀態變化的機製。</p>
+
+<p>與閃電網絡類似，Plasma是一係列的運行於現存量子元之上的智能合約，來強製保證大家可以可以在一個合約狀態中持有資金，且能在後麵的某個時間在網絡上進行清算、取款。</p>
+
+<h2 id="toc_2">2 Plasma</h2>
+
+<p>Plasma是一種實現量子元擴容計算的方式，通過創建經濟激勵來實現自動和鏈上狀態的持久化，而不需要合約創建者的裡的狀態轉換管理。節點自身被激勵來運行一個鏈。</p>
+
+<p>額外的，重要的可擴展性是通過減少單次花費的資金表達方式為一個位圖中的一個位來實現，這樣，一個交易和一個簽名代表一個與多方的交易聚合。我們將這與一個MapReduce框架結合，同時使用含押金的智能合約來構建可擴展的計算強製性。</p>
+
+<p>這種構建方式允許大家讓外部的參與方持有資金，並根據自己的行為計算合約，類似於一個礦工，但是Plasma是運行於一個已存在的量子元上，由此大家不用在每次狀態更新時在主鏈上創建對應的交易（即使包括添加新用戶的賬本），而隻需要將合並後的狀態變化這樣的少量信息寫到鏈上。</p>
+
+<p><img src="static/picture/15165131014376.jpg" alt=""></p>
+
+<p>圖1：每個人都可以創建一個自定義的Plasma鏈，在不同場景下實現可擴展性。Plasma是一係列的智能合約，允許在主鏈裏有許多的量子元。主鏈可以強製Plasma鏈中的狀態。主鏈是全局計算的強製檢查者，但也隻計算和懲罰那些存在欺詐的行為。許多的Plasma的量子元可以並存，且有他們獨自的商業邏輯和合約術語。在Quantum中，Plasma將會由EVM智能合約組成，並直接在Quantum上運行，但隻會執行很小的幾次，但可以在非Byzantine的情況下代表不可思議的大量計算和金融賬本實體。</p>
+
+<p>Plasma由五個核心部分構成：1）一個激勵層，用於持續的以優化的價格執行合約，以一種樹狀態形式來組織子鏈來盡可的提高成本效率和網絡交易清算的效率，2）一個MapReduce框架，構建一個狀態轉換的的欺詐證明，在嵌套的子鏈中，兼容樹結構同時重組狀態轉換為可擴展的，3）一個共識機製，依賴於主鏈，嚐試複製Nakamoto共識激勵，4）一個位圖的UTXO提交結構，保證在主鏈下的確定的狀態轉換，同時盡可能降低退出費用。5）允許在數據不可用或者其它Byzantine行為時可以退出，也是Plasma的運行中的關鍵設計點。</p>
+
+<p>2.1 Plasma量子元，或者外化的多方通道</p>
+
+<p>我們提出了一種方法，多方鏈下通道可以代表他人持有某個狀態。我們稱這個框架為一個Plasma量子元。對於在Plasma鏈中持有的資金，這將允許向Plasma鏈中存取資金，通過在欺詐證明中提供狀態轉換證明。這允許強製的狀態和可互換性的存儲與取款，考慮在Plasma塊中的情況，匹配其在主鏈中持有的資金（Plasma並不是設計為銀行那種準備金）。</p>
+
+<p><img src="https://me.tryblockchain.org/media/15164958398767/15165188204828.jpg" alt=""></p>
+
+<p>圖二、Plasma量子元是一個在量子元中的鏈，這個係統由押金的欺詐證明驅動強製執行。Plasma量子元沒有向主鏈（比如，公開鏈）公開自身鏈的內容。取而代之的是，區塊的頭哈希將會提交到主鏈，當出現需要欺詐證明的時候，然後塊將回滾，區塊的創建者將會受到懲罰。這將非常有效，因為許多的狀態更新表示為一個哈希（加上少量的關聯數據）。這個更新可以表示一個在主鏈上尚未顯示的餘額變化（Alice在主鏈上沒有她的賬本餘額，她的賬本在Plasma鏈上，主鏈上的餘額代表的是智能合約強製執行Plasma鏈本身的結果（譯者注：相當於是Plasma鏈的帳戶？））。灰色的項目是舊的區塊，黑色的則是最近的被廣播和提交到主鏈上的塊。</p>
+
+<p>不可想像的大量的交易可以提交到Plasma鏈上，隻有非常少的數據落地到主鏈上。每一個參與方可以轉移資產給任何人，包括轉移給非當前存在的參與者。這些轉移可以用主鏈的自身貨幣或代幣支付或取現（需要一些時間上的延遲和證明）。</p>
+
+<p>Plasma允許大家（或者Pos網絡的參與者）管理量子元，既不需要主鏈的一個完整的賬本的備份記錄，也不需要向第三方出示個人的信用信息。在最差情況下，資金被鎖定，因為大量的退出，時間價值（time-value）丟失了。</p>
+
+<p>我們在主鏈上構建了一係列的防欺詐的智能合約，來強製讓狀態在當前建立的通道內，由此試圖進行欺詐，或者非共識（non-Byzantine）的行為可以大大的消減。</p>
+
+<p>欺詐證明使用一種交互式的資金取款協議強製執行。與閃電網絡類似，當取款時，取款行為需要申請一定的時間來到賬。我們構建了一個交互式的遊戲，退出方需要向參加者的帳本位圖（賬本內容是申請提現，結構是以UTXO模型）提交一個認證。在網絡上的每個人都可以提交一個帶押金的證明，來認證資金是否已經用掉。假如這是不正確的，網絡上的任何一個人都可以舉報欺詐行為，得到押金，回滾認證。在足夠的時間之後，第二輪允許真正提現的押金回合開始了，押注在某個提交的時間戳前有效。這一輪允許批量的退出行為，保證一個有問題的Plasma鏈可以快速退出。對於批量的退出情況下，參加者也能在消耗最多2位主鏈的量子元空間來實現退出（Quantum為例的最差情形下）。</p>
+
+<p>當發生區塊扣留攻擊時，參與者可以快速和低成本的進行一個批量退出，能相比其它離線提案大幅的減少花費。額外的，這並不需要某些驗證者節點的支持（側鏈，polkadot的fishermen）</p>
+
+<p><img src="static/picture/15170153573100.jpg" alt=""></p>
+
+<p>圖三：當發生區塊扣留攻擊時的資金退出機製。紅色的區塊（Block #4）是一個被扣留，提交到主鏈上的區塊，但ALICE不能訪問到Plasma的區塊4。她將通過廣播一個在主鏈上的資金證明來退出，他的取現隻需要一點時間，因為需要公告以解決爭議。</p>
+
+<p>類似於閃電網絡的在兩方中結算的交互機製，支持強製的無限的雙方之間的交易，Plasma支持n方的交互。主要的區別在於不需要所有參與者在線來更新狀態，參與者甚至不需要在主鏈上有一個記錄項來參與進來-大家可以將資金放到Plasma鏈上，甚至不需要與主鏈直接交互，隻需要以樹狀形式構建Plasma鏈時需要一點點交易確認數據。</p>
+
+<h2 id="toc_3">2.2 量子元中的量子元的強製性</h2>
+
+<p><img src="https://me.tryblockchain.org/media/15164958398767/15170553448885.jpg" alt=""></p>
+
+<p>圖4：Plasma以樹狀組織量子元。區塊的提交依次向下流動。退出可以提交給任一父鏈。最終被提交到主鏈。</p>
+
+<p>我們構建了一個類似法院的係統。如果閃電網絡為支付建立了一個適配層，最終會在主鏈上強製執行。我們創建了一個更高層級的，下層法院來最大化可用性，最小化在非共識的狀態下成本。如果一個鏈是Byzantine的，它可以選擇去任何一個他的父鏈（包括主鏈）來繼續他的操作或退出當前的提交狀態。我們並未通過一個可以不斷遞增的現時狀態（通過撤銷狀態），我們構建了一個欺詐證明機製來強製讓餘額或者狀態遷移以分層的方式展示出來。</p>
+
+<p>實際上，我們可創建狀態遷移，僅僅隻會周期性的提交到父鏈（最終將流向主鏈）。這將允許不可思議的計算能力和賬戶支持的擴張。因為我們能僅在Byzantine狀態下提交原始數據到父節點（或者主鏈）。從有問題的Byzantine狀態中恢複的成本將最小化，因為隻需要去父Plasma鏈上申明某個狀態。</p>
+
+<p>子量子元運行於主鏈之上（主鏈可以是Quantum），從主鏈的角度來看，僅僅會看到在合約中有周期性的帶代幣押金的提交，用於強製運行Pos共識或者那個對應鏈的業務邏輯。</p>
+
+<p>這一切的顯著好處在於可以最大化區塊的可用性，同時最小化驗證某人的代幣所需的押金。然而並不是所有的數據都傳播到了所有的參與方（僅僅傳播到了那些希望驗證某個特定狀態的），參與方有責任持續的周期性監控特定的鏈，那些他們感興趣的，以在他們有欺詐行為時懲罰他們，同時也能在出現區塊扣留攻擊時，能自身快速的退出。</p>
+
+<p><img src="static/picture/15170572579136.jpg" alt=""></p>
+
+<p>圖5：有問題的量子元（上圖紅色），通過提交到父Plasma鏈/主鏈（右側的藍色虛線）來繞過。在第三級的Plasma鏈的參與者，在一段時間後，進行了一個到其它鏈的批量遷移（左側藍色虛線）</p>
+
+<p>這種構建在非Byzantine環境中，整合量子元狀態樹，同時更新所有的子Plasma鏈。橫跨所有鏈的一整個狀態更新集合可以經一個32位的簽名來進行證明。</p>
+
+<h2 id="toc_4">2.3 Plasma的Pos</h2>
+
+<p>通過一個單一的驗證者，可以代表他人代持資金是一件非常有意思的事。我們提議一種方案，單方可以通過一係列的驗證者來保證狀態的確定性，通常在一個需要ETH或者代幣為押金的框架下。</p>
+
+<p>這個Pos係統的共識機製，再次，通過鏈上的量子元智能合約來保證他的確定性。</p>
+
+<p>我們嚐試複製Nakamoto共識，但是以Pos的押金形式。我們相信構成Nakamoto機製的其中一個更有用的激勵機製是不可思議的激勵來減少區塊扣留攻擊（雙花攻擊，扣留A塊，但打包另一個交易）。這也是最長鏈通過概率指定的原因。最長節點經過時間推移會概率性的被知道（最初的實現版本中是6個確認）。當人們發現一個區塊時，大家也許會覺得他是最長的那條鏈，但也不是非常確定它是不是最長的。為保證它是最長的，他們附加自己的塊並廣播給網絡中的參與者，來增大它的機率。我們相信如果它不是Nakamoto機製最關鍵的貢獻的話，也是非常重要的，我們也在嚐試複製這個激勵。</p>
+
+<p>Pos整合麵臨著這個問題，如果人們直接選舉新的主節點，進行主要節點進行區塊扣留攻擊（一般意義上的數據可用性），這個問題將非常可能被放大。</p>
+
+<p>我們在Plasma的Pos中通過允許權益所有者在主鏈或父Plasma鏈中發布一個新區塊的提交哈希來減輕這個問題。驗證者僅會在他們完全驗證過的節點上建新的區塊，他們可以並行創建區塊（為了鼓勵最大化的信息共享）。我們創建了一個驗主者的激勵來讓最近100個塊與他們的當前的權益成正比（比如，如果一個節點的權益占3成，那麼過去的100個塊也需要占3成），通過對這種精確的表現獎勵更多的交易費。超出的費用（基於那些表現不理想的權益者）將會進入一個池在將來支付費用。在每個塊裏存在一個提交包含最近的100個塊（和一個nonce）。正確的鏈將是總權重最高的鏈，一段時間後整個鏈將會確定下來（finalize）。</p>
+
+<p><img src="https://me.tryblockchain.org/media/15164958398767/15170609694170.jpg" alt=""></p>
+
+<p>圖6：假設Alice，Bob和Carol是三個有相同權重的驗證者。他們聚在一起構成一種輪循的結構來獲得最大的收益。新的變化提交到了父或主鏈。鏈的末端是通過n個時期的正確分布後的最大權重分來偶然選定的（藍色是當前的候選尾端節點，紅色是個孤立節點）。次優鏈的末端的讓所有的費用進行一個池，供正確性在某個閥值之上的驗證者使用（比如閥值90%）。在n個周期後，我們可以假設藍色的鏈末端進入到確定狀態。</p>
+
+<p>這將鼓勵大家參與進來，複製Nakamoto共識中的51%攻擊假設。當出現一個鏈被區塊扣留攻擊或者其它的byzantine行為，非Byzantine的參與者在父或主鏈進行一個批量的取款。如果最高的Plasma鏈的押金是用代幣的形式，那麼非常可能的，這個代幣的價值將因為大量的退出而貶值。</p>
+
+<h2 id="toc_5">2.4 量子元以MapReduce的方式</h2>
+
+<p>blockchain : git : Plasma : Hadoop</p>
+
+<p>通過以MapReduce的格式來構建一個計算，以層級樹組織的方式來設計計算狀態遷移變得相對來說比較容易。</p>
+
+<p>MapReduce提供了一個框架來通過上千個節點進行高擴展計算。量子元麵對著類似的問題，來達到這樣的運算規模，同時需要額外的計算證明的生成。</p>
+
+<p><img src="static/picture/15170981850680.jpg" alt=""></p>
+
+<p>圖7：左側藍色虛線是Plasma從父節點傳遞到子節點的消息。子節點必須在n個節點內提交到父節點，否則鏈將暫停。向子鏈通過數據分發工作，子鏈提交工作證明。上圖中，第三級的子節點完成這些計算，並返回一個字典表（比如，在他們需要計算的章節，統計出”hello“出現了三次等等）。結果字典表會做為提交的一部分被返回回來，字典表在子鏈中被組合並提交到父節點，最終完成一個全局的字典（比如，統計出整篇文章出現了100次”Hello“等等）。這創造了在大規模情況下強製計算執行的可能，隻需要一個區塊頭提交到主鏈但卻可涵蓋大量的數據和工作。除需要發布某個區塊是無效數據時，其它情況下僅需周期性的提交很小的數據量到主鏈。</p>
+
+<p>我們提出了一個方法，Map階段把用於計算的提交數據做為輸入，當返回結果時，在reduce裏包含狀態轉換的Merkle證明。Merkle狀態遷移證明通過主鏈上構建的欺詐證明來保證會強製執行。當然構建一個zk-SNARK的狀態轉換證明也是可能的。對於某些計算的構建，狀態遷移的bitmap，在reduce步驟中也需要（由此每個UTXO/賬戶在這些情況下會用超過一個bit位）。</p>
+
+<p>上述的結構允許不可估量的高擴展計算，同時兼具時間和速度的權衡。這些權衡產生了一個網絡，其中的節點假定計算的有效性，參與者有責任來校驗他們。它不是一個這樣的係統，大家可以無信任的輸出計算能力，而是通過啟用了一種能力，能把計算打包進一個綁定的押金證明上。這些綁定的證明鼓勵參與者為誠實作證，否則將沒收押金。再一次，跟隨閃電網絡的理念，如果一棵樹落在森林中，沒有人聽他，我們會假設它並不重要，無論它是否產生了聲響。類似的，如果沒有人來關注/強製計算的執行，則假設它是正確的，或者它最終的結果是正確與否並不重要。計算可以被開放網絡上的任何人關注，但利益相關者或者需要整個網絡正確的運行的需要周期性的監督這個量子元來保證正確性。擴展性的提升來源於移除了對不會對你產生經濟影響的鏈的關注，人們應該隻關注他們需要產生正確行為的鏈。同時，其它Plasma鏈的行為整體可以作為reduce步驟中的一部分網羅進來，由此影響到的某個人的其它計算會以最小狀態表示。比如，在一個去中化的交易所，人們不關注誰會放入什麼訂單，它僅僅隻會看到一個聚合的訂單表，所以它需要把所有其它鏈看作一個第三方整體，來保證它當前的交易正確執行，最後訂單就正確的人執行了（也包括它自身的）。另一個例子是，一個人可以在一個Plasma鏈上構建一個BBS，它並不需要接收它不關心的主題的更新。</p>
+
+<p><img src="static/picture/15171011515946.jpg" alt=""></p>
+
+<p>圖8：一個人僅僅需要關注那些他希望強製執行的數據。如果經濟行為或者計算發生在其它的Plasma鏈上，它不需要強製執行的（灰色部分），它可以把所有其它鏈整體作為一個第三方。如，在一個Plasma的去中心化交易所，人們隻需要關注影響到自己提交的鏈（藍色粗線）。</p>
+
+<h2 id="toc_6">2.5 關於持久化的去中化化的自治量子元的經濟驅動</h2>
+
+<p>我們提議了一個結構，其中人們可以創建一個經濟驅動，來激勵子鏈永久的運行下去。對於不需要顯著複雜性和依賴的狀態轉換，原生代幣（如eth之於Quantum）可以用於狀態轉換的押金。然而，對於複雜的合約，如需要根據激勵來確保在線或訂單的公平性，則需要對持續運行進行重要的激勵。</p>
+
+<p>每一個Plasma鏈由一係列的合約表示。這些合約強製執行鏈上的共識規則，欺詐將導致嚴重的懲罰，如果能構造出欺詐的證明。</p>
+
+<p>然而，為了激勵避免出現Byzantine狀態，尤其是保證正確性和可用性，理想情況下每個合約可以創建一個代幣。代幣代表的是運行這個合約的網絡效應，同時創造了一個激勵來最大化保證這個合約的安全。因為Plasma鏈運行於Pos的機製下，需要代幣來保證網絡的安全，權益相關者不被激勵來讚同Byzantine行為或錯誤行為，因為這會降低所持代幣的價值。代幣在其中的角色是將成本本地化，因為它作惡，它的代幣價值下降，影響的是他自己。</p>
+
+<p>隻是簡單的合約和商業邏輯，比如代表它人持有資金的簡單合約賬戶，Quantum押金可以用來在Plasma鏈中代表權益。</p>
+
+<p>那些放上押金的權益者（無論是代幣還是eth）都被激勵持續的運作網絡，因為它們能收到交易費。這些交易費又被用來支付給網絡中的權益相關者，從而又激勵他們避免Byzantine行為，來創建一個擁有長期價值的代幣。</p>
+
+<p>由於權益相關者被激勵來持續的運行網絡來得到交易費，它們會持久的運行鏈，同時又受到主鏈中欺詐合約的約束。</p>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="blockchain-ethereum-plasma-white.html" title="Previous Post: Plasma白皮書（二）">&laquo; Plasma白皮書（二）</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="blockchain-ethereum-plasma.html" title="Next Post: "> &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

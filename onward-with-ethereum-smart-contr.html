@@ -1,0 +1,775 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  安全編寫Quantum的智能合約指南 - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>安全編寫Quantum的智能合約指南</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/7/30</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='文檔翻譯.html'>文檔翻譯</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>本文翻譯自<code>zeppelin</code>的 <a href="javascript:window.open('https://blog.zeppelin.solutions/onward-with-ethereum-smart-contract-security-97a827e47702');">https://blog.zeppelin.solutions/onward-with-ethereum-smart-contract-security-97a827e47702</a></p>
+
+<p>如果你是Quantum開發的新手，我們推薦你在繼續本文前，先讀一下我們的Quantum智能合約指南（基本概念及環境搭建）：<a href="javascript:window.open('https://medium.com/bitcorps-blog/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05#.6dob381ks');">https://medium.com/bitcorps-blog/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05#.6dob381ks</a></p>
+
+<span id="more"></span><!-- more -->
+
+<p><img src="https://me.tryblockchain.org/media/15013724713780/15013725573202.jpg" alt=""></p>
+
+<p>安全的開發Quantum的智能合約，是非常需要花費精力的。已經有一些好的指南以及彙總，比如 <a href="javascript:window.open('https://github.com/ConsenSys/smart-contract-best-practices');">Consensys的智能合約最佳實踐</a>，和<a href="javascript:window.open('http://solidity.readthedocs.io/en/latest/security-considerations.html');">Solidity官方文檔的安全指南</a>。但除非真正寫代碼，這些概念很難被記住和理解。</p>
+
+<p>本文會嚐試一個有點不同的辦法。首先解釋提升智能合約安全的一些策略，並展示一些不遵從，而引起問題的例子。最後給一些已經調整地，可以直接使用的最佳實踐。希望，這能幫助你創建避免某些不安全行為的<code>肌肉記憶</code>，從而在寫代碼的時候意識到可能的風險。</p>
+
+<p>不囉嗦了，進入正題吧。</p>
+
+<h2 id="toc_0">盡早且明確的暴露問題</h2>
+
+<p>一個簡單且強大的最佳實踐是，讓<a href="javascript:window.open('https://oncodingstyle.blogspot.com.ar/2008/10/fail-early-fail-loudly.html');">盡早且明確的暴露問題</a>。接下來，看一個有問題的函數實現：</p>
+
+<pre><code class="language-text">// 有問題的代碼，不要使用！
+contract BadFailEarly {
+  uint constant DEFAULT_SALARY = 50000;
+  mapping(string =&gt; uint) nameToSalary;
+  function getSalary(string name) constant returns (uint) {
+    if (bytes(name).length != 0 &amp;&amp; nameToSalary[name] != 0) {
+      return nameToSalary[name];
+    } else {
+      return DEFAULT_SALARY;
+    }
+  }
+}
+</code></pre>
+
+<p>為避免合約潛在的問題，或者讓合約運行於一個不穩定或不一致的狀態。上麵例子中的函數<code>getSalary</code>應該在返回結果前，檢查參數。那現在的例子有什麼問題呢，問題在於，如果條件不滿足，將返回默認值。這將掩蓋參數的嚴重問題，因為仍然可以按正常業務邏輯返回值。這雖然是一個比較極端的例子，但卻非常常見，原因是大家在程序設計時，擔心程序兼容性不夠，所以設置一些兜底方案。但真相是，越快失敗，越容易發現問題。如果我們不恰當的掩蓋錯誤，錯誤將擴散到代碼的其它地方，從而引起非常難以跟蹤的不一致錯誤。下麵是一個調整後的示例：</p>
+
+<pre><code class="language-text">contract GoodFailEarly {
+  mapping(string =&gt; uint) nameToSalary;
+  
+  function getSalary(string name) constant returns (uint) {
+    if (bytes(name).length == 0) throw;    
+    if (nameToSalary[name] == 0) throw;
+    
+    return nameToSalary[name];
+  }
+}
+</code></pre>
+
+<p>這個版本的代碼，還展示了另外一種推薦的編碼方式，一種將條件預檢查分開，分開判斷，驗證失敗的方式。原因是可以使用Solidity提供的<a href="javascript:window.open('http://solidity.readthedocs.io/en/latest/contracts.html#function-modifiers');">修改器</a>的特性，來實現重用。</p>
+
+<h2 id="toc_1">在支付時使用（pull）模式而不是（push）模式</h2>
+
+<p>每次<code>ether</code>的轉移，都需要考慮對應帳戶，潛在的代碼執行。一個接收的合約可以實現一個默認的<a href="javascript:window.open('https://solidity.readthedocs.io/en/latest/contracts.html#fallback-function');">回退函數</a>，這個函數可能拋出錯誤。由此，我們永遠要考慮在<code>send</code>執行中的可能的錯誤。一個解決方案是，我們應該<a href="javascript:window.open('https://github.com/vspgod/Galaxy/wiki/wiki/Safety#favor-pull-over-push-for-external-calls');">在支付時使用（pull）模式而不是（push）模式</a>。來看一個看起來沒有問題的，關於競標函數的例子：</p>
+
+<pre><code class="language-text">// 有問題的代碼，請不要直接使用！
+contract BadPushPayments {
+  address highestBidder;
+  uint highestBid;
+ 
+  function bid() {
+    if (msg.value &lt; highestBid) throw;
+    if (highestBidder != 0) {
+      // return bid to previous winner
+      if (!highestBidder.send(highestBid)) {
+        throw;
+      }
+    }
+    highestBidder = msg.sender;
+    highestBid = msg.value;
+  }
+}
+</code></pre>
+
+<p>上述的合約，調用了<code>send</code>函數，檢查了返回值，看起來是非常符合常理的。但它在函數中調用了<code>send</code>函數，這帶來了不安全，為什麼？需要時刻記住的一點是，就像之前說的，<code>send</code>會觸發另外一個合約的代碼執行。</p>
+
+<p>假如某個競標的地址，它會在每次有人轉帳給他時<code>throw</code>。而此時，其它人嚐試追加價格競標時會發生什麼呢？那麼<code>send</code>調用將總是會失敗，從而錯誤向上拋，讓<code>bid</code>函數產生一個異常。一個函數調用如果以錯誤結束，將會讓狀態不發生變更（所有的變化都將回滾）。這將意味著，沒有人將能繼續競標，合約失效了。</p>
+
+<p>最簡單的解決方案是，將支付分離到另一個函數中，讓用戶請求（pull）金額，而不依賴於餘下的合約邏輯：</p>
+
+<pre><code class="language-text">contract GoodPullPayments {
+  address highestBidder;
+  uint highestBid;
+  mapping(address =&gt; uint) refunds;
+  
+  function bid() external {
+    if (msg.value &lt; highestBid) throw;
+    
+    if (highestBidder != 0) {
+      refunds[highestBidder] += highestBid;
+    }
+    
+    highestBidder = msg.sender;
+    highestBid = msg.value;
+  }
+  
+  function withdrawBid() external {
+    uint refund = refunds[msg.sender];
+    refunds[msg.sender] = 0;
+    if (!msg.sender.send(refund)) {
+      refunds[msg.sender] = refund;
+    }
+  }
+}
+</code></pre>
+
+<p>這次，我們使用一個<code>mapping</code>來存儲每個待退款的競標者的信息，提供了一個<code>withdraw</code>用於退款。如果在<code>send</code>調用時拋出異常，僅僅隻是那個有問題的競標者受到影響。這是一個非常簡單的模式，卻解決了非常多的問題（比如，<a href="javascript:window.open('http://hackingdistributed.com/2016/07/13/reentrancy-woes/');">可重入</a>）。所以，記住一點，當發送<code>ether</code>時，使用（pull）模式而不是（push）模式。</p>
+
+<p>我已經實現了一個<a href="javascript:window.open('https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/payment/PullPayment.sol');">使用這個模式的合約，可以方便的繼承使用</a>。</p>
+
+<h2 id="toc_2">函數代碼的順序：條件，行為，交互</h2>
+
+<p>作為盡可能早的暴露問題的原則的一個延伸，一個好的實踐是將你的函數結構化為：首先，檢查所有前置的條件；然後，對合約的狀態進行修改；最後，與其它合約進行交互。</p>
+
+<p>條件，行為，交互。堅持使用這樣的函數結構，將會讓你避免大部分的問題。下麵來看使用了這個模式的一個例子：</p>
+
+<pre><code class="language-text">function auctionEnd() {
+  // 1. Conditions
+  if (now &lt;= auctionStart + biddingTime)
+    throw; // auction did not yet end
+  if (ended)
+    throw; // this function has already been called
+
+  // 2. Effects
+  ended = true;
+  AuctionEnded(highestBidder, highestBid);
+
+  // 3. Interaction
+  if (!beneficiary.send(highestBid))
+    throw;
+  }
+}
+</code></pre>
+
+<p>這首先符合盡可能早的暴露問題的原則，因為條件在一開始就進行了檢查。它讓存在潛在交互風險的，與其它合約的交互，留到了最後。</p>
+
+<h2 id="toc_3">留意平台局限性</h2>
+
+<p><a href="javascript:window.open('http://solidity.readthedocs.io/en/latest/introduction-to-smart-contracts.html#index-6');">EVM</a>有非常多的關於合約能做的硬限製。這些是平台級的安全考慮，如果你不知道的話，卻可以會威脅你的合約安全。下麵來看一個看起來正常的，雇員津貼管理的代碼：</p>
+
+<pre><code class="language-text">
+// 不安全的代碼，不要直接使用！
+contract BadArrayUse {
+  
+  address[] employees;
+  
+  function payBonus() {
+    for (var i = 0; i &lt; employees.length; i++) {
+      address employee = employees[i];
+      uint bonus = calculateBonus(employee);
+      employee.send(bonus);
+    }     
+  }
+  
+  function calculateBonus(address employee) returns (uint) {
+    // some expensive computation ...
+  }
+}
+</code></pre>
+
+<p>讀完代碼，業務實現非常直接，看起來也沒有什麼問題，但卻潛藏三個問題，基於平台的一些獨特性。</p>
+
+<p>第一個問題是<code>i</code>的類型將會是<code>uint8</code>，因為如果要存<code>0</code>，如果不指定類型，將自動選擇一個占用空間最小的，恰當的類型，在這裏將是<code>uint8</code>。所以如果這個數組的大小超過255個元素，這個循環將永遠不會結束，最終將導致<code>gas</code>耗盡。應當在定義變量時，盡可能的不要使用<code>var</code>，明確變量的類型，下麵我們來修正一下上麵的例子：</p>
+
+<pre><code class="language-text">// 仍然是不安全的代碼，請不要使用！
+contract BadArrayUse {
+  
+  address[] employees;
+  
+  function payBonus() {
+    for (uint i = 0; i &lt; employees.length; i++) {
+      address employee = employees[i];
+      uint bonus = calculateBonus(employee);
+      employee.send(bonus);
+    }     
+  }
+  
+  function calculateBonus(address employee) returns (uint) {
+    // some expensive computation ...
+  }
+}
+</code></pre>
+
+<p>第二個你需要考慮的事情是<code>gas</code>的限製。<a href="javascript:window.open('https://ethereum.gitbooks.io/frontier-guide/content/costs.html');">gas</a>是Quantum的一種機製，來對資源的使用收費。每一個修改狀態的功能調用都會花費<code>gas</code>。假如<code>calculateBonus</code>計算津貼時有些複雜的運算，比如需要跨多個項目計算利潤。這將消耗非常多的<code>gas</code>，將會很容易的達到交易和區塊的<code>gas</code>限製。如果一個交易達到了<code>gas</code>的限製，所有的狀態的改變都將會撤銷，但消耗的<code>gas</code>不會退回。當使用循環的時候，尤其要注意變量對<code>gas</code>消耗的影響。讓我們來優化一下上述的代碼，將津貼計算與循環分開。但需要注意的是，拆開後仍然有數組變大後，帶來的<code>gas</code>消耗增長的問題：</p>
+
+<pre><code class="language-text">// UNSAFE CODE, DO NOT USE!
+contract BadArrayUse {
+  
+  address[] employees;
+  mapping(address =&gt; uint) bonuses;  
+  
+  function payBonus() {
+    for (uint i = 0; i &lt; employees.length; i++) {
+      address employee = employees[i];
+      uint bonus = bonuses[employee];
+      employee.send(bonus);
+    }     
+  }
+  
+  function calculateBonus(address employee) returns (uint) {
+    uint bonus = 0;
+    // some expensive computation modifying the bonus...
+    bonuses[employee] = bonus;
+  }
+}
+</code></pre>
+
+<p>最後，還有一個關於調用棧調用深度的限製。EVM棧調用的硬限製是1024。這意味著如果嵌套調用的深度達到1024，合約調用將會失敗。一個攻擊者可以調用遞歸的調用我們的合約1023次，從而因為棧深度的限製，讓<code>send</code>失敗。前述的（pull）模式，可以比較好的避免這個問題（譯者注：原鏈接找不到了，但找下github上的討論：<a href="javascript:window.open('https://github.com/OpenZeppelin/zeppelin-solidity/issues/15）。');">https://github.com/OpenZeppelin/zeppelin-solidity/issues/15）。</a></p>
+
+<p>下麵是一個最終的修改版，解決了上述的所有問題：</p>
+
+<pre><code class="language-text">import &#39;./PullPaymentCapable.sol&#39;;
+contract GoodArrayUse is PullPaymentCapable {
+  address[] employees;
+  mapping(address =&gt; uint) bonuses;
+  
+  function payBonus() {
+    for (uint i = 0; i &lt; employees.length; i++) {
+      address employee = employees[i];
+      uint bonus = bonuses[employee];
+      asyncSend(employee, bonus);
+    }
+  }
+  function calculateBonus(address employee) returns (uint) {
+    uint bonus = 0;
+    // some expensive computation...
+    bonuses[employee] = bonus;
+  }
+}
+</code></pre>
+
+<p>總結一下，需要記住的 1）使用的變量類型的限製，2）合約的<code>gas</code>消耗，3）棧調用1024的限製。</p>
+
+<h2 id="toc_4">測試用例</h2>
+
+<p>編寫測試用例會占用大量的時間，但也能抵消你在添加新功能後<a href="javascript:window.open('https://en.wikipedia.org/wiki/Software_regression');">回歸問題</a>需要花費的時間。回歸問題具體是指在添加功能的修改過程中，導致之前的組件出現bug。</p>
+
+<p>我將盡快寫一個更加廣泛的關於測試的指南，如果你比較好奇，可以先看看關於Truffle的測試指南（譯者注：原文鏈接失效了，也許是<a href="javascript:window.open('http://truffleframework.com/docs/getting_started/testing');">這個</a>）。</p>
+
+<h2 id="toc_5">容錯及自動bug獎勵</h2>
+
+<p><a href="javascript:window.open('https://medium.com/@peterborah/we-need-fault-tolerant-smart-contracts-ec1b56596dbc#.uugpuufoa');">首先感謝Peter Borah帶來的這兩個想法的靈感</a>。代碼審查和安全審核對保證安全來說還不足夠。我們的代碼需要做好最壞情況的準備。當我們的智能合約中有漏洞時，應該有一種方法可以安全的恢複。不止如此，我們也應該盡可能早的發現漏洞。下麵是一個內置的自動bug獎勵機製帶來的作用。</p>
+
+<p>下麵我們就來看一個自動bug獎勵的假設的代幣管理的例子：</p>
+
+<pre><code class="language-text">import &#39;./PullPaymentCapable.sol&#39;;
+import &#39;./Token.sol&#39;;
+contract Bounty is PullPaymentCapable {
+  bool public claimed;
+  mapping(address =&gt; address) public researchers;
+  
+  function() {
+    if (claimed) throw;
+  }
+  
+  function createTarget() returns(Token) {
+    Token target = new Token(0);
+    researchers[target] = msg.sender;
+    return target;
+  }
+  
+  function claim(Token target) {
+    address researcher = researchers[target];
+    if (researcher == 0) throw;
+    
+    // check Token contract invariants
+    if (target.totalSupply() == target.balance) {
+      throw;
+    }
+    asyncSend(researcher, this.balance);
+    claimed = true;
+  }
+}
+</code></pre>
+
+<p>首先，正如前麵所述，我們使用<code>PullPaymentCapable</code>來讓我們的支付更加安全。這個賞金合約，允許研究者創建當前我們審核的<code>Token</code>合約的副本。任何人都可以參與到這個賞金項目，通過發送交易到這個賞金項目地址。如果任何研究者可以攻破他自己的<code>Token</code>合約的拷貝，讓一些本不該變的情況變化（比如這裏，讓總代幣發行量與當前代幣餘額不一致），他將獲得對應的賞金。一旦賞金被領取了，合約將不再繼續接受新的資金（無名的函數被稱為合約的回退函數，在每次合約接收<code>ether</code>時自動執行）。</p>
+
+<p>正如你看到的，它有一個非常好的特性是分離了合約，不需要對原始的<code>Token</code>合約進行修改。<a href="javascript:window.open('https://github.com/OpenZep/zep-solidity/blob/master/contracts/Bounty.sol');">這裏有一個完整，任何人都可以使用的版本</a>。</p>
+
+<p>而對於容錯性，我們需要修改我們原來的合約來增加額外的安全機製。一種簡單的方案是允許合約的監督者可以凍結合約，作為一種緊急的機製。我們來看一個通過繼承實現這種行為的例子：</p>
+
+<pre><code class="language-text">contract Stoppable {
+  address public curator;
+  bool public stopped;
+  modifier stopInEmergency { if (!stopped) _ }
+  modifier onlyInEmergency { if (stopped) _ }
+  
+  function Stoppable(address _curator) {
+    if (_curator == 0) throw;
+    curator = _curator;
+  }
+  
+  function emergencyStop() external {
+    if (msg.sender != curator) throw;
+    stopped = true;
+  }
+}
+</code></pre>
+
+<p><code>Stoppable</code>允許指定一個監督者，可以來停止整個合約。實現方式是，通過繼承這個合約，在對應的功能上使用修改器<code>stopInEmergency</code>和<code>onlyInEmergency</code>，下麵我們來看一個例子：</p>
+
+<pre><code class="language-text">import &#39;./PullPaymentCapable.sol&#39;;
+import &#39;./Stoppable.sol&#39;;
+contract StoppableBid is Stoppable, PullPaymentCapable {
+  address public highestBidder;
+  uint public highestBid;
+  
+  function StoppableBid(address _curator)
+    Stoppable(_curator)
+    PullPaymentCapable() {}
+  
+  function bid() external stopInEmergency {
+    if (msg.value &lt;= highestBid) throw;
+    
+    if (highestBidder != 0) {
+      asyncSend(highestBidder, highestBid);
+    }
+    highestBidder = msg.sender;
+    highestBid = msg.value;
+  }
+  
+  function withdraw() onlyInEmergency {
+    suicide(curator);
+  }
+}
+</code></pre>
+
+<p>在上麵這個非常簡單的例子中，<code>bid</code>可以被一個監督者停止，監督者在合約創建時指定。<code>StoppableBid</code>在正常情況下，隻有<code>bid</code>函數可以被調用，而當出現緊急情況時，監督者可以介入，並激活緊急狀態。並讓<code>bid</code>函數不再可用，同時激活<code>withdraw</code>功能。</p>
+
+<p>在上麵的例子中，緊急模式將允許監督者銷毀合約，恢複資金。但在實際場景中，恢複的邏輯更為複雜（舉例來說，需要返還資金給每個投資者）。<a href="javascript:window.open('https://github.com/OpenZep/zep-solidity/blob/master/contracts/Stoppable.sol');">這裏有一個可停止合約的實現</a>（譯者注：給的這個鏈接無法訪問了）。</p>
+
+<h2 id="toc_6">限製可存入的資金</h2>
+
+<p>另一個保護我們智能合約遠離攻擊的方式是限製。攻擊者最有可能針對管理數百萬美元的高調合同。並不是所有的合約，有這樣的高的資金量。尤其是當我們正在初期。在這種情形下，限製合約可以接收的資金量就將非常有用。最簡單的方式，可以實現為一個餘額的硬上限。</p>
+
+<p>下麵是一個簡單的例子：</p>
+
+<pre><code class="language-text">contract LimitFunds {
+  
+  uint LIMIT = 5000;
+  
+  function() { throw; }
+  
+  function deposit() {
+    if (this.balance &gt; LIMIT) throw;
+    ...
+  }
+}
+</code></pre>
+
+<p>回退函數裏，會拒絕接收所有的直接支付。<code>deposit</code>函數會首先檢查合約的餘額是否已經超限，超限將直接拋出異常。其它一些更有意思的，比如動態上限，管理限製也很容易實現。</p>
+
+<h2 id="toc_7">簡單和模塊化的代碼</h2>
+
+<p>安全來自，我們想寫的與代碼實際可以做的距離。這非常的難以驗證，特別是當代碼量又大，又混亂時。這就是為什麼寫簡單和模塊化的代碼變得非常重要。</p>
+
+<p>這意味著，函數應該盡可能的簡單，代碼之間的依賴應該極盡可能的少，文件應該盡可能的小，將獨立的邏輯放進模塊，每塊的職責更加單一。</p>
+
+<p>命名是我們在編碼過程中表達我們意圖的方式。想一個好的名字，盡可能的讓名字清晰。</p>
+
+<p>讓我們來看一個關於<a href="javascript:window.open('https://solidity.readthedocs.io/en/latest/contracts.html#events');">Event</a>的差命名的例子。<a href="javascript:window.open('https://github.com/slockit/DAO/blob/develop/DAO.sol#L618-L691');">看看DAO裏的函數</a>。其中的函數代碼都太長了。</p>
+
+<p>最大的問題是太長，而且功能複雜。盡可能的讓你的函數短小，比如，最多不超過30到40行代碼。理想情況下，你應該在1分鍾內弄明白函數的意圖。另一個問題是關於事件<code>Transfer</code>在第685行的命名。這個名字與<a href="javascript:window.open('https://github.com/slockit/DAO/blob/develop/DAO.sol#L755');">一個叫transfer</a>的函數名隻有一字之差。這將帶來誤解。一般來說，關於事件的推薦命名是使用<code>Log</code>打頭，這樣的話，這個事件應該命名為<code>LogTransfer</code>。</p>
+
+<p>記住，盡可能的將你的合約寫得簡單，模塊化，良好的命名。這將極大的幫助其它人和你自己審查你自己的代碼。</p>
+
+<h2 id="toc_8">不要從0開始寫所有的代碼</h2>
+
+<p>最後，正如一句格言所說，“不要從頭發明你自己的加密幣”。我想它也適用於智能合約代碼。你的操作與錢有關，你的數據是公開的，你正在一個全新的成長中的平台上。代價非常高，糟蹋機會的人無處不在。</p>
+
+<p>上述這些實踐幫助我們寫出更安全的合約。但最終，我們應該開發出更好的創建智能合約的工具。這裏有一些先行者，包括<a href="javascript:window.open('https://www.youtube.com/watch?v=H2uwUdzVD9I&amp;feature=youtu.be');">better type systems</a>，<a href="javascript:window.open('https://blog.ethereum.org/2015/12/24/understanding-serenity-part-i-abstraction/');">Serenity Abstractions</a> 和<a href="javascript:window.open('http://rsk.co/');">the Rootstock platform</a>。</p>
+
+<p>現在已經有非常多的安全的代碼，以及框架出現了。我們整合了一部分最佳實踐到<a href="javascript:window.open('https://github.com/OpenZeppelin/zeppelin-solidity');">Github的資源庫Open Zeppelin</a>。歡迎看看以及貢獻新代碼，以及提供代碼審查建議。</p>
+
+<h2 id="toc_9">總結一下</h2>
+
+<p>回顧一下，這篇文章中描述的安全模式有：</p>
+
+<ol>
+<li>盡早且明確的暴露問題。</li>
+<li>使用（pull）模式而不是（push）模式</li>
+<li>代碼結構遵從：條件，行為，交互</li>
+<li>注意平台限製</li>
+<li>測試用例</li>
+<li>容錯及自動bug獎勵</li>
+<li>限製存入的資金</li>
+<li>簡單與模塊化的代碼</li>
+<li>不要從零開始寫代碼</li>
+</ol>
+
+<p>如果你想討論與智能合約相關的問題，歡迎加入<a href="javascript:window.open('https://zeppelin-slackin.herokuapp.com/');">Slack</a>，讓我們一起來提升智能合約編程標準。</p>
+
+<p>想要獲得持續的更新，歡迎關注我們的<a href="javascript:window.open('https://medium.com/zeppelin-blog');">Medium</a>和<a href="javascript:window.open('https://twitter.com/maraoz');">Twitter</a>；</p>
+
+<p>（完）</p>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="eos-howtobuild.html" title="Previous Post: 編譯並搭建EOS的環境（MAC踩坑填坑版）">&laquo; 編譯並搭建EOS的環境（MAC踩坑填坑版）</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="blockchain-infrastructure-landsc.html" title="Next Post: 量子元基礎設施概覽：第一性原理框架">量子元基礎設施概覽：第一性原理框架 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

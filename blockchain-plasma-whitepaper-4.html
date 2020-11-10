@@ -1,0 +1,697 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  Plasma白皮書（四） - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Plasma白皮書（四）</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/3/24</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='whitepaper.html'>whitepaper</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">量子元中的量子元（Blockchain in Blockchain）</h2>
+
+<p>正如我們前麵介紹過的，Plasma的核心是構建一個方法來實現可擴展的計算，我們需要應對圍繞區塊扣留攻擊的相關問題生成欺詐證明，同時也包括區塊空間可用性。在Plasma中的區塊扣留攻擊的解決方案是構建一個係統，它能在發生鏈停止或者Plasma區塊扣留時，大家可以進行批量退出（mass exit）。</p>
+
+<p>然而，鏈上的批量退出（mass exit）成本高昂，特別是當UTXO集合非常大時，位圖必須發布到鏈上。額外的，也許我們隻期望發布單個退出（single exit）。批量取款（mass withdrawal）交易需要一個複雜的涉及許多參與者的交互遊戲。它隻應該被用來做最後的保障。</p>
+
+<span id="more"></span><!-- more -->
+
+<p>取而代之的是，我們成立了一個等級參差的法院體係，在這些體係中存在某個特定的場所能證明某個狀態。<strong>大家可以把根鏈視為最高法院，所有下級法院從這裏得到權力。根鏈的法律允許所有下級法院獲得司法權。這將允許管轄地的擴展，當且僅當下層法院的狀態被質疑或暫停了，那麼向高一級的法院申請更具代表性的管轄權。</strong>廣播級別更高的法院的證明總是可行的，但也意味著成本更高昂。</p>
+
+<p>所有的狀態都將梅克爾化，並提交到根鏈。在最樂觀的情況下，區塊頭會直接發布在父鏈上，父鏈也會發布到它的父鏈上，如此往複直到根鏈。區塊頭內信息是對在父鏈中看到過這個區塊的一個梅克爾化的承諾。</p>
+
+<p>交易可以提交到Plasma鏈，或者任何父Plasma鏈，也包括根鏈（root blockchain）。這樣的目的是為了保證可互換性和防止中心化。具體而言，當發生停止或不披露區塊狀態時，人們仍可以提取資金。</p>
+
+<p>當對一個區塊的承諾提交後，要完成通過，需要等待主鏈可見的一定數量的確認。在這個時間，欺詐證明可以提交到根鏈或者任何的中間Plasma鏈（他們最終通過區塊頭提交到根鏈）。</p>
+
+<p>每一個獨立Plasma鏈都會運行一個狀態機，會將承諾打包進Plasma區塊。獨立的Plasma也許會或者不會深入到子Plasma鏈的詳情中。相反，他們會運行一個確認，確認Plasma鏈價值的餘額。當子Plasma鏈更新了狀態，他們會提交他的Plasma區塊頭的哈希串給他的父Plasma鏈或者根鏈。</p>
+
+<p>這也意味著，某個特定的區塊狀態可以提交到多個父鏈。當發生重複時，這也許不是錯誤（但也會根據具體應用的某些特定共識而受到懲罰）。另一方麵，如果存在不一致的狀態，比如，提交到父鏈1和父鏈2的狀態不同，那麼父鏈中的押金會被沒收。</p>
+
+<p>一個新的子鏈狀態更新可以使用下述字段，並包括在他們的狀態更新消息中：要支付的費用（和麵額），提交到的根鏈區塊哈希，前一個區塊哈希，提交到的父鏈的區塊哈希，存款證明，取款證明。</p>
+
+<p>無論向哪個父鏈提交，我們都假設子鏈已校驗他提交到點前的所有數據，包括遞歸的校驗所有的父節點。這將提交一個證明，證明不是不一致的數據或者雙花的交易（因此如果發生不一致，將會沒收押金）。</p>
+
+<p>當發生不一致時，父鏈的狀態始終優先考慮。我們創建了激勵，激勵任何方都可以披露不一致。</p>
+
+<p>存款和取款可以在父鏈和根鏈上進行。</p>
+
+<p>取款也可以在Plasma鏈間進行，以提供充足的流動性，來讓其它方可將資金帶到任何其它的地方。這將通過跨鏈的原子交換（crosschain atomic swap）來實現。</p>
+
+<p>如果某人希望通過主鏈來進行清算，可以通過在鏈間構建HTLC來實現，這有點類似鏈上的閃電支付。</p>
+
+<p>所有的欺詐證明必須提供一個鏈承諾的梅克爾證明。證明為錯誤時，將會懲罰特定的Plasma鏈，因為他們對錯誤的塊負有責任。</p>
+
+<p>主要的設計負責複雜度來自，為保證去中心化，實現交易狀態向多個父鏈廣播時，交易狀態如何表達的問題。早期的版本假設狀態轉換/交易僅能在某個Plasma鏈中執行，與其它鏈的交互僅僅是提交信息到父鏈/子鏈來存取款。這種情況下，複雜度就主要是存取款相關的證明。</p>
+
+<p>數據的提交作為證明的一部分被包含進來。</p>
+
+<h2 id="toc_1">6.1 鏈內接收資金</h2>
+
+<p>在這個鏈中鏈的分層框架中，當一個人從其它人那裏接收資金時，流程如下。比如，Alice想給Bob，在一個三級深的Plasma鏈中發送資金。</p>
+
+<ol>
+<li>Alice與Bob協商一致，她想向Bob發送資金。Alice向Bob公開，公開Bob將要接收資金的Plasma鏈。Bob決定什麼時候接受支付，具體來說，Bob需要保證，在根鏈上的智能合約是他將接收支付的那條鏈（智能合約代碼/機製，也包括可接受的共識退出（exit）延遲等）。</li>
+<li>如果當前的支付是為了購買某種商品，可以預簽名一個聲明來定義支付的條件，在很多情況下，如果足夠成熟，可以實現為包含在區塊中的支付證明，然而在某些環境下，也可以實現為一個合約支付哈希（pay-to-contract-hash）。這不是鏈上的操作，僅僅是附加解決問題的條款以向其它人證明。</li>
+<li>Alice在Plasma鏈中進行支付。這個區塊被驗證人簽名，並且對區塊頭的承諾發布到他的父區塊中。對子Plasma的梅克爾化的承諾被包含進了它的每一個父鏈中（譯者注：多級的父鏈都包括），最終被包含進根鏈。</li>
+<li>Bob完整同步根鏈，然後校驗要接收資金的鏈，以及這個鏈相關的父鏈。Bob沒有必要校驗與當前資金無關的鏈。Bob可以在最差情況下，比較成熟的保證在Plasma鏈中能校驗Alice是否進行了支付。然而，如果期望得到快速的確定（finality）性。Alice可以提前簽名會在新塊完成支付（詳見前麵在Plasma鏈中接收支付的說明）。如果Alice將要對支付簽名（sign off），同時Bob接受了（如果他能證明取款（withdraw）），那麼我們將假設達到了確定性。Bob可以從Plasma鏈中取款了。</li>
+</ol>
+
+<p>這個設計的關鍵點在於，其中的參與者需要對子量子元的校驗負責。如果Bob沒有能力校驗Plasma鏈和鏈對應的所有父節點（最終周期性提交到根鏈的也被驗證了），那麼這一切將不能認為已完成。與閃電網絡中的構建方式類似，Bob可以不關心在其它Plasma鏈中發生的事情。他僅僅關注與他有關的鏈就好了。當他能使用幣時，那麼他就確信能花掉他們了。</p>
+
+<h2 id="toc_2">6.2 從父鏈中接收資金</h2>
+
+<p>從父鏈中接收資金與從父鏈中取款類似，區別在於，接收者需要校驗所有的父Plasma鏈（而不是僅僅校驗Plasma鏈）。向子Plasma鏈中速度非常快。</p>
+
+<h2 id="toc_3">6.3 從一個樹到網</h2>
+
+<p>因為上麵的描述的是單一的父鏈，Plasma鏈可以監聽多個根鏈。這將允許大家更新子鏈的餘額。必須要小心的是，某一個父鏈的失敗可能不會馬上被所有鏈識別，可以通過時延和減少跨鏈流動性的假設，來減輕級聯係統失敗。合適的構建方式當前正在討論中。</p>
+
+<h2 id="toc_4">6.4 減輕區塊扣留的問題</h2>
+
+<p>通過構建某人可以廣播單個取款交易到多個場所（venues），將會存在要從多個暫停或發生區塊扣留的鏈退出的場景。如果子鏈失敗，於是可以在主鏈上執行一個簡單的退出，即便交易在主鏈上較為昂貴。</p>
+
+<p>這使得人們持有Plasma的輸出也能具有一定的可信度，前提是他們能確定至少一個父Plasma鏈運行正常。目標是解決這其中的主要問題，同時減少級聯失敗的影響。</p>
+
+<p>如果某人持有非常大的輸出餘額，如果對時間沒有很強的要求，不用做特別的承保，然而，如果某人有單一的低價值的輸出（當支付交易費變得越來越貴時），它需要有某種方式的確保其中的一個父鏈是可用的。如果某人希望一個更大的保證，它可以運行一個嵌入鏈，深度的與許多獨立的在不同層級的Plasma鏈結合。盡管如此，其中仍有一些權衡，比如其中某個Plasma鏈出現Byzantine問題，那麼每個鏈都需要向新鏈批量取款（mass-withdraw）。如果其中有一個父鏈不是byzantine的，當然，如果父鏈拒絕執行Byzantine鏈的提交，那麼也可能繼續運行並快速向另一條鏈轉移。</p>
+
+<p>也可能出現一些服務，僅僅在發生子鏈失敗時運行。服務的運行者不需要做任何事，除非子鏈失敗（服務本身可以極為被動，我們甚至可以在故障發生時才開啟服務，服務會自動跳過在這個被動服務的上一層鏈中廣播的區塊）。</p>
+
+<p>我們期望父鏈中的取款盡量是簡單取款而不是批量取款（mass withdraw），因為父鏈可能有非常高的交易量（區塊大小/gas限製）。</p>
+
+<h2 id="toc_5">6.5 退出</h2>
+
+<p>父鏈或根鏈的批量退出（mass exit）是可能的。如果子鏈出現Byzantine，我們可以假設所有的狀態都將是不可用的，與一個沒有嵌套父鏈的Plasma鏈類似。同樣的，批量退出（mass exit）是一種快速的從一個Byzantine父鏈中退出的方式。可以跳過父鏈（或子鏈本身）到它的父鏈或直接根鏈。</p>
+
+<p>也許看起來設計中有一定的複雜性，假設如果有任何鏈出現Byzantine問題，其所有子鏈必須有所行動。存在一種優化方式通過心跳讓退出在不需要協調一致的情況下進行（退出是默認沒有簽名情況下，而在用戶的一方撤銷它，並且Plasma鏈本身作出它已經接收到的承諾，但可能是不成熟的優化）。</p>
+
+<p>構建基本上與簡單退出或者批量退出一樣，然而有一些小的在設計上的改變來支持嵌套鏈。退出允許重複，但父鏈中的退出有優先權。如果父鏈出現Byzantine問題，退出也可以提交到父鏈。（被認為發生Byzantine的Plasma鏈）的責任來反映並更新其父/根鏈中的重複退出的狀態，並撤銷自身鏈中的重複退出。然而，如果它不能這樣做，用戶的資金將在根鏈中可用。</p>
+
+<p>如果父鏈發生Byzantine問題，但子鏈中持有的資金工作正常，可能能避免進行一個複雜的批量退出交易。參與者找一個新的接收資金的鏈來進行一個簡單退出，其中流動性服務商在子鏈中接收資金，然後其它用戶在新鏈中接收資金（不需要Byzantine父鏈的參與）。子鏈區塊的提交被廣播到了父鏈或更高一級的父鏈中（從而避免了Byzantine的節點）。用戶將很快在新鏈中獲得資金，流動性提供者則從根鏈或更高一級父鏈中退出資金。這一切的目的是新資金可以快速的分配到新鏈，且可以進行快速退出。</p>
+
+<h2 id="toc_6">6.6 可擴展性</h2>
+
+<p>這將允許UTXO位圖的可擴展性，當位圖（bitmap）變得越來越大時，人們可以將位圖（bitmap）拆分到多個子鏈。對於子鏈，假設它們通過區塊高度的隨機數（候選鏈提示）來表示賬戶餘額來替代一般的輸出。類似的，對於傾向使用賬戶而不是UTXO的情況下，也可以提供隻支持簡單取款做為一個折衷。</p>
+
+<p>最後的結果是用戶獲得了最大程度的可擴展性。他們隻需要關注他們資金所在Plasma鏈（以及其父鏈）。有效地將數據集分解為影響自身的驗證。</p>
+
+<h2 id="toc_7">7 Plasma Pos</h2>
+
+<p>我們提議了一個簡單的Pos構建。這不太會成為可選的pos構建，然而可以來說明在Plasma鏈中可能是什麼樣的。</p>
+
+<p>直到當前，我們假設Plasma鏈的運營者是單個實體，職責是簽名區塊。如果創建了一個無效的區塊，任何其它有區塊數據的都可以生成一個欺詐證明，回滾區塊並懲罰運行者。證明是可能的，因為運營者通過簽名者簽名了這個區塊。在根鏈中發布Plasma區塊的梅克爾提交（因為最高的父Plasma區塊包含了子鏈狀態更新的提交），由此狀態更新是有序的，且綁定到正確的狀態行為中。</p>
+
+<p>然而，在許多情況下，構建一個Pos鏈而不是單參與方的POA鏈，多方參與是更期望的情況。這將減少關於區塊扣留的風險（通過將一個鏈條嵌入一個單一方的POA以及開放的多方的POS鏈，可以實現兩全其美）。一個代幣化Pos鏈也將激勵代幣持有者來保證鏈的正常運行，因為代幣的價值與Byzantine的行為有關。更加詳細的關於代幣化的價值在後麵的章節中會介紹。</p>
+
+<p>在Plasma中構建Pos相對比較容易，因為他依賴於底層的根鏈的健壯性。關於區塊扣留，確定性以及其它的關鍵點都被推向了根鏈。Plasma在最佳情況下與根鏈的安全性一致。如果根鏈是基於工作量證明機製的，那麼將會是一個基於POW的POS（在根鏈的上的POS）。如果根鏈是POS的，那麼就將構建一個基於POS的POS。然而Plasma鏈上的POS機製將比根鏈上的POS簡單，或者不太一樣。</p>
+
+<h2 id="toc_8">7.1 Nakamoto共識激勵</h2>
+
+<p>我們嚐試複製Nakamoto共識（工作量證明機製）的主要激勵機製。其中最重要要複製的激勵是，鼓勵從一個礦工到其它礦工的區塊傳播。</p>
+
+<p>許多現存的POS提案依賴於主節點的選取，t0我們選擇了某個為主節點，並在t1，這個主節點有權限來生成區塊。這並沒能複製Nakmoto的圍繞區塊傳播的共識。Nakamoto共識確實也做了主節點的選取，但是它是做的一個概率性的主節點選取。如果一方發現了一個區塊，它相信它也許會成為主節點，但是他仍不太確信。其它人也有可能在同時也挖出了這個區塊。最好的提升成為領導節點的可能性是，盡快廣播這個區塊，越快，越遠越好，來讓其它人基於這個區塊構建。這創建了信息可用性（infomation availability）的激勵。</p>
+
+<p>Plasma的POS構建需要做一些類似的事。</p>
+
+<p>我們希望鼓勵每個人盡可能遠，盡可能廣的傳播區塊，並從中取得平衡。這其中也許有其它的構建方式（具體來說，構建依賴於隨機選擇和概率性的主節點選擇，通過為每個分支隨機分配分數，並最終取最高分值的分支）。</p>
+
+<h2 id="toc_9">7.2 簡單的POS模型的例子</h2>
+
+<p>因為這是一個簡單的構建POS模型的提案，它看起來在各方麵都不及預期。目標是構建一個簡單的，Plasma可以使用的東西。與創建強製執行的機製不同，這裏的辦法是簡單的創建對正確協作和正確行為的激勵（目的是實現區塊傳播）。</p>
+
+<p>獎勵（譯者注：原文為fee）由根合約分配，如果一切如常的話，並周期性的分派出去，這個會計工作在鏈自身內完成。</p>
+
+<p>作為權益（staking）合約的一部分，權益所有者（stakers）的資金分配並指向一個代理的權益者（staker）。代理者有責任代表用戶，如果出現錯誤，也將代為受罰。權益（staking）被承諾為某個特定的時間（如，3個月）。每個staker的最低限額是所有代幣的百分之一，最高限額為5%。如果某人想分配超過5%，那麼他可以使用多個權益身份（目的是為了最大化數據的分發並減少低於51%cartels的效率）。</p>
+
+<p>資金的分派取決於過去100個Plasma區塊能否代表所有參與者。如果某人占3%的權益，那麼那他應該占100個塊中的3%。如果高於這個量，這個權益者將不會因為發布額外的區塊來得到更多的獎勵。如果在過去的100個塊中，它的塊數低於3%，那麼當前的區塊創建者也將得到更少的獎勵。在根鏈上每個區塊隻能分派一個Plasma區塊。</p>
+
+<p>這將鼓勵所有參與者平等的協調並包含每個人的區塊。假定人們不再需要建立強製執行機製，參與者將會協調並使用某些類型的模式（比如，輪詢）來保證最大程度的獎勵。</p>
+
+<p>如果他們因為不恰當的區塊數量而沒有得到最大化的交易費，資金會進行一個池中，以對未來的區塊進行支付。</p>
+
+<p>結果將是一種經濟激勵，每個人必須盡量包含其它參與者。</p>
+
+<p>然而，還沒有完成，因為前麵我們隻鼓勵了權益者間的準確參與。在每一個區塊中都是來自過去100個塊的隨機部分數據的梅克爾化的承諾。這將強製權益者擁有完整的區塊數據並強製性的讓區塊創建者向其它權益者傳播區塊。</p>
+
+<p>鏈的頭是由最大的獎勵來決定的，如果有平行的分支，那麼從協調中獲得了最大的獎勵費的將會是最終的獲勝者（譯者注：這裏就是在做激勵的協調，也許遊戲是一個設計得最好的激勵係統）。</p>
+
+<p>這個構建不是設計來阻止51%攻擊，而是來鼓勵區塊傳播（因為如果某人提交到扣留區塊，給所有人帶來的威脅都是一樣的）。另外，這個構建依賴於主鏈上包含塊的信息可用性和公正性；在主鏈上構建這樣的Pos是不太可能的，因為這一切都基於數據可用性和中心化的激勵。</p>
+
+<h2 id="toc_10">8 經濟激勵</h2>
+
+<p>在POS的驗證模型裏，可以構建與合約條款中約定的正確行為相一致的激勵。盡管信用押金保證了鏈的精確性，我們需要創建後續關於數據可用性，阻止量子元停止的激勵。通過僅允許使用每個Plasma鏈特定的代幣，可能保證能激勵人們持續運行這個鏈，因為代幣的價值來源於所有未來收益的淨現值貼現。因此，網絡故障將減少所持有代幣的價值，同時其中的個人有很大的動機為網絡的持續運營帶來最佳利益。</p>
+
+<p>Plasma鏈的運行者通過廣播交易到鏈上而獲得手續費（fees）。計算可能根據不同的操作收取不同的費用，費用可能會一級級向下收取，特別是對於複雜操作時。因為存在激勵讓更多的交易在盡可能深的子鏈中執行，可以在子鏈中創建資金已發送的承諾，或者計算，並將一步步向上傳播。並將允許父鏈對子鏈中進行的計算收費，如果存在一個不正確的承諾，區塊數據將不可用且不可達。這並不是必須的，在許多的情況下，人們更希望在子鏈中進行更多的計算，而不一定需要將費用分配到根鏈。</p>
+
+<p>對於係統升級，可以通過創建另一個接收同樣代幣的合約，並公告一個過渡期（或在分布式社區共同來決定）來解決。</p>
+
+<p>這也許會創建一個自行運行的係統。相比於大家需要在雲計算中通過網站做存儲和計算，來實現支付和運行服務，現在可能通過構建一係列的智能合約（與欺詐證明一起），一個代幣，有足夠的參與者來支付費用，那麼這個係統，可以由一小部分權益所有者通過持續的運行網絡和計算等基礎設施，而推動其自我運行，從而真正意義上的實現了雲上的計算。</p>
+
+<h2 id="toc_11">8.1 代幣 vs. 幣和經濟安全</h2>
+
+<p>根鏈上的欺詐證明和最終持有的押金可以是原生代幣，比如，Quantum網的ether（ETH），或者也可以是其它的維持底層量子元共識的代幣。</p>
+
+<p>使用根量子元的原生代幣（例如ETH）表麵上看起來最為簡單，但是有一些有趣的經濟安全影響。</p>
+
+<p>如果我們的目標是阻止鏈停止和錯誤的行為，因為依賴於量子元的應用，如果隻使用ETH，我們也許不會有足夠的激勵來阻止錯誤的行為。如果鏈停止或發生Byzantine，代幣的價值將會下降。另外，代幣價值應該接近於未來交易費的淨現值貼現，這才應該是代幣的價值體現。如果一個人以ETH做為權益押金，那麼他就是在賭押金對應的時間價值（time-value）與收到的費用。應該來說，押金的價值應該遠遠低於代幣的淨折現值。另外，鏈停止和區塊扣留證明起來比較困難，如果某人使用ETH做為押金，在過了押金期間後，取回了ETH，這將沒有足夠的驅動來應對Byzantine行為，因為代幣應該因為Byzantine行為，價值應該下降。</p>
+
+<h2 id="toc_12">9 量子元的MapReduce</h2>
+
+<p>幾乎所有在MapReduce中可計算的都可以在量子元上計算。這需要我們重構我們在量子元上實現計算和編程的思考方式。一個有欺詐證明（fraud proof）的MapReduce。每一個節點代表一個量子元。這與在之前章節中介紹的Plasma鏈的樹形結構高度匹配。</p>
+
+<p>比如，如果想進行一個標準的詞數統計，你可以創建一個運行reduce函數的量子元的梅克爾樹。如果此時出現了欺詐證明，那犯錯的節點將被懲罰。如果你能產生一個求和的reduce函數，你也可以產生一個平均值函數。例如，平均價格等等。Map函數則將計算發送到各個鏈，然後提交結果。顯然，在數據吞吐量方麵仍然存在限製，這也是reduce的欺詐證明存在的必要性。任意類型的任意計算是不可能的，但可以解決許多特定類型的問題；通常來說內存受限的問題集，可以通過一開始運行一個排序算法來解決，這也是Plasma的鏈內流量較大的折衷方案。</p>
+
+<p>如果節點不能生產實際的區塊來證明計算，那麼他們的結果將被丟棄和回滾（譯者注：因為區塊必有欺詐證明，假計算真區塊將受懲罰）。需要注意的是，這並不能保證MapReduce所實現的計算擴容（由於，你需要觀察鏈來維持共識），然而，它確實讓活動強製執行且擴展了actors的能力。因此，主要的限製是圍繞這樣一個現實，受某個計算影響的各方應該關注這個計算集合。如果隻需要關注一小部分，那麼也很好，但如果需要關注所有的計算，那麼它沒有提供擴展的好處（僅在可擴展性的保證方麵帶來了一些好處）。也就是說，許多問題，可以這樣解決，比如，去中心化的交易所（如果所有其它人的交易是正常的，你並不用關心他們的細節，隻關心映射的集合中自己的交易）等。</p>
+
+<p>區塊的格式必須與TrueBit構建的可計算數據相兼容。有對狀態的承諾（可以構建UTXO/狀態前綴樹，來允許對包含/未包含的狀態轉換的證明），賬戶前綴樹（子鏈和複雜的狀態轉換），對費用的承諾（關於狀態轉換的費用樹），梅克爾交易，從父/子區塊傳過來的數據，見過父/子區塊的承諾（阻止重排序），以及其它一些業務邏輯（如，詞數統計的例子中，將具有針對單詞以及它被看到的地方的排序的承諾）。通過構建梅克爾承諾，可以在根或父鏈創建智能合約，可以用來證明不正確的狀態轉換。也許存在一些問題集與這個格式不匹配，但常規的不需要太多內存計算的都是可能的。關於內存的限製，你可以這麼想，把對計算所需要的最大內存限製等同於在欺詐證明中所允許的最大的數據量限製。</p>
+
+<p>一係列的map和reduce函數允許量子元按照處理數據的義務來運行。這需要父和子來創建執行的義務。子鏈需要包含父鏈傳過來的數據，否則鏈將停止。父可以強製在子鏈中的計算，如果子鏈停止了，強製計算可以通過在父鏈廣播數據來證明這個證據。在TrueBit的構建中主要的威脅在於圍繞量子元停止的相關問題，因此如果子鏈停止了，需要關注構建是否允許持續性的運行，盡管這非常複雜，特別是隨著時間的推移（數據集可能改變，並且具有時間一致性更難以推斷某些問題）。</p>
+
+<p>通過和子鏈一起在一個mapReduce的框架中構建量子元計算，這可能將現有的計算機科學研究直接應用於量子元的分布式係統的問題集中。可能能構建一個solidity合約來產生許多有效的可擴展的商業應用。其中隻需要計算和驗證與自己有關的活動。</p>
+
+<h2 id="toc_13">10 應用的例子</h2>
+
+<p>去中心化的應用可以解構為一個mapReduce問題，並通過綁定代幣以經濟驅動的方式來保證正確的行為。</p>
+
+<h2 id="toc_14">10.1 量子元上的Reddit克隆</h2>
+
+<p>首先是量子元上的數據存儲（CRUD）。主要的計算和證明是圍繞訪問控製，身份（投票和文章）以及評論。許多的web應用在後端都隻有CRUD操作。</p>
+
+<p>根量子元包含智能合約共識規則和欺詐證明。最頂層的父鏈包含subreddits賬戶。每一個subreddit是父鏈的一個子Plasma量子元。每一個subreddit是一個Plasma的文章鏈。文章鏈的子鏈還包含評論。共識機製強製要求訪問控製。對前一個塊數據的承諾隨機化（由父鏈提供的隨機數）並提交到每一個區塊的頭中。一個reduce函數會周期性的運行以計算最佳文章以及其它的數據。</p>
+
+<p>個人用戶的電腦下載數據和軟件到本地計算機來格式化數據。提交數據需要支付交易費來激勵對數據的包含，也許需要因為依賴於可用性而支付費用來下載老的區塊數據。</p>
+
+<p>如果查看一個特定的文章，用戶校驗根鏈上的提交數據，然後來到最頂層的父節點的頭部（返回n個塊來到確定期（finality），也許一個星期），在賬戶狀態前綴樹中找到關聯的subreddit。連接到一個DHT網絡來發現subreddit上的節點，下載subreddit的鏈頭（檢查最近的n個區塊）來查看文章列表，在一個輕節點上下載狀態樹和文章及其所帶的評論的原始數據。用戶僅僅需要關注Plasma上與自己有關的那一部分（下載文章和與自己有關的subreddit）。</p>
+
+<p>這是一個簡單的在量子元上帶一些計算的數據存儲的例子。驗證者可能完整的校驗所有的節點，然而，也有可能將之分解出來。但是一旦分片太過，就會出現信息可用性的問題。一種解決辦法是把子鏈的控製權完整的交給subreddit的所有者。</p>
+
+<h2 id="toc_15">10.2 去中心化的交易所</h2>
+
+<p>上述reddit克隆，雖然已實現了對web應用的CRUD影響，除站點統計信息外，並沒有顯著利用MapReduce操作。</p>
+
+<p>去中心化的交易所例子將會演示在高計算容量下也能有低延遲。因為存在許多的狀態，所以輸出將會定義為賬戶模型而不是UTXO，或者狀態機裏的每一步，都會有一個更大的位圖（bitmap）來代表每個狀態而不再使用單個布爾值來代表位圖中某個位的花費狀態。</p>
+
+<p>與subreddit類似，交易對會由一個子鏈樹來表示。每一個子鏈樹中又是一個樹鏈，來最大化擴展性（低交易量的交易對也許隻有一個Plasma樹，高活躍度的交易對鏈也許有非常多的子鏈）。每一個鏈都有押金行為（bonded activity），每輪可以交易的數量由綁定的數量（bonded amount）來限製。</p>
+
+<p>第一步是在子鏈中有餘額，如此一來，這就首先像一個帶支付的Plasma鏈。</p>
+
+<p>接下來，訂單會發布到子鏈上。作為對父鏈提交數據的一部分，所有的訂單將被聚合成單一訂單簿（order book）的梅克爾提交，被表示為那個鏈的一個訂單。遞歸的將所有子鏈的訂單簿（order book）reduce為那個鏈的一個訂單簿（order book），直到到了父Plasma鏈。接收到訂單後，訂單的窗口將關閉，訂單將批量的執行。</p>
+
+<p>reduce步驟結束後，將會提交到根量子元上，通過一個map的步驟，每個鏈將會得知他們的分配量。父鏈會告訴子鏈他們確定的訂單完成（filled）量是怎麼樣的。這讓子鏈可以看見其它的訂單（這也意味著在這個步驟中也可以觀察父鏈），他們將可以證明在map步驟中有正確執行的分配。在接收到分配後，map步驟持續遞歸執行到所有子鏈。</p>
+
+<p>當這一步執行時，最終的reduce步驟將是提交所有資金更新到根鏈，提交所有的區塊頭（header）到他們各自的父節點。</p>
+
+<p>未來的一個優化點是，在發生顯著價值變化時，允許多輪MapReduce的執行（支持價格的高精準度），然而這種結構將會使得量級非常大。理論上能在這個框架上執行這個世界上所有的交易行為（隻是有一些速度上的折衷），通過將它變為一個批量執行的交易所，完整的提交並綁定到根量子元上。</p>
+
+<p>這種類型的構建對於許多類型的金融活動和計算都是有用的。</p>
+
+<h2 id="toc_16">10.3 去中心化的郵件</h2>
+
+<p>要創建D-Mail，可以在Plasma鏈中表示一個賬戶，需要支付來接收郵件（往鏈上插入信息）。提交由那個人的公鑰（public key）簽名的數據。強製的保證未知的一方必須支付，未來的優化點是使用zk-SNARKS。父鏈包含一個鏈的目錄來強製支付。簡單的設計。</p>
+
+<h2 id="toc_17">10.4 去中化的CDN</h2>
+
+<p>存在去中化心的CDN。與Quantum的分片提案類似的構建。把每一個子量子元看作一個分片。存在一個隨機信標（可以是根區塊哈希或者其它）。在每n個區塊的分片間混淆數據。父鏈有責任來提交混淆的數據。其它的也許會懶惰的保持著歸檔數據。數據丟失會通知，那些保持歸檔的將會被獎勵。鼓勵傳播，因為隻有其它分片有數據才會得到獎勵。健壯性依賴於流長度的需求；越健壯，在某個時間點越需要多的分片拷貝。關鍵點是，存儲是帶寬的功能。數據不被視為磁盤上的固定數據。 所有數據實際上都在流動並移動到下一個目的地; 非常道教的做法。</p>
+
+<p>下載數據時，驗證父鏈的分片和隨機信標來知道哪個分片有數據，通過DHT認證的節點連接到他並下載數據。</p>
+
+<h2 id="toc_18">10.5 私有鏈</h2>
+
+<p>參與者沒有義務向鏈上的其它人披露數據（盡管沒有什麼能阻止他公開），因此如果鏈上的參與者想要擁有一些由根鏈強製執行的私有量子元網絡，他們可以這樣做。這與internet/intranet的分離類似。交易可以發生於本地的私鏈，但也可以通信與公鏈有經濟行為的綁定。</p>
+
+<h2 id="toc_19">攻擊，風險和消除的方案</h2>
+
+<h3 id="toc_20">11.1 智能合約代碼</h3>
+
+<p>寫好智能合約代碼是非常難的。安全依賴於正確執行的欺詐證明。可能有些欺詐證明應該包含但沒能包含，導致不正確的狀態轉換會在根鏈上生效。</p>
+
+<h3 id="toc_21">11.2 主鏈上關閉交易將會非常貴</h3>
+
+<p>存在能在主鏈上關閉交易的風險，但不一定有執行的經濟性（沒有經濟動力去這樣做）。這也許會導致某些特定類型的欺詐，比如，通過將非常大量的小額交易湊成一個大額而引起損失。</p>
+
+<p>這可以通過設置退出條款來解決，通過退出條款對所有交易進行分類，並設置一個調解期，允許調解期滿後立即退出整個鏈。此外，允許第三方觀察者來監督某些人的行為。然而，這個構建將顯著增加複雜性。這些預簽名的合並交易會傳播到它的父網絡，傳播到的父網絡取決於鏈的可用狀態，或者最終傳播到根網絡。然而，這也取決於所謂的各方的正確的行為，這也是為什麼需要每個個體應該合並所有的未花費支付（unspent payments）為單個輸出（output）或者輸出集合（set of outputs），通過這樣，退出交易才更具經濟可行性。</p>
+
+<p>此外，可以把小額支付放到鏈上，並通過高價值的代幣作為押金，並搭載該價值（因為有足夠的抑製來完全的殺死Plasma鏈）。</p>
+
+<p>如果通用的遞歸SNARKs/STARKs變得可行了，在理論上能保證取款的實體不會有權限來做未授權的退出，即使是在發生區塊扣留的區塊上。</p>
+
+<h2 id="toc_22">11.3 確定性（Finality）</h2>
+
+<p>退出（exit）的調整窗口期根本上創建了一個確定（finality）的假設。如果底層鏈有非常大的押金成本來重組，並強製達到確定，那麼它可以顯著降低深鏈重組（deep chain rorg）的風險，從而引起鏈之間的同步問題。計劃中的QuantumCAPSER確定性工具是一個解決方案的例子。</p>
+
+<h3 id="toc_23">11.4 根鏈缺乏容量以及提升成本</h3>
+
+<p>如果沒有緩解措施，在手續費或者gas變得越來越貴時，在一個指定的周期內退出交易變得不太可能。如，交易費/gas增加50倍或者當前沒有足夠的空間來退出交易，同時礦工也不再提高空間和gas限製。</p>
+
+<p>通過暫停允許有序退出的退出計數機製，來延長退出延遲，有幾種緩解措施。這可以通過暫停退出來完成，隻要過去的x塊中包含了某個人的交易就暫停。這樣，如果最近都能有至少一個交易，這將允許每個人都能有出去的機會。如果一個退出發生於某個退出之前，那麼計數器將會重置。其結果是，無法確定在收回資金之前必須等多久，這將會增加流動性提供者的（liquidity provider）手續費率。如果平均量子元gas/手續費在某個特定的非常高的值上，一個簡單的機製是暫停對取款時間的限製（設置一些合理的上限時間，在這個時間內可以保持這個暫停狀態）。</p>
+
+<p>持有資金的用戶需要保持至少一個父鏈有一定程度的數據可用性（理想情況下是多個獨立的父鏈）。</p>
+
+<h3 id="toc_24">11.5 根鏈的中心化</h3>
+
+<p>這個設計假設超過51%的根鏈節點是誠實的。如果根鏈的參與者聯合起來通過中心化區塊來攻擊網絡，那麼會引起退出交易的強製性，狀態更新，嚴重的丟失資金等問題。中心化是安全、價值風險和確定（finality）的主要因素，需要在未來的鏈中進行限製。</p>
+
+<p>這可以通過增加zk-SNARKs/zk-SNARKs的資金證明來解決，但需要在這塊工程和研究投入。</p>
+
+<p>每個退出交易使用一個大額的押金的欺詐證明方式，因為礦工可以得到欺詐證明獎勵，通過這樣，中心化可以顯著的被抑製。</p>
+
+<p>為網絡提供安全的是父Plasma鏈的誠信和正確性，根鏈和餘額大小的一個函數。</p>
+
+<p>關於全局範圍內傳輸量的係統性限製（每個區塊的退出[exit]速度限製），保證傳輸量低於確定性小工具（finality gadget）可能是一個解決方案。</p>
+
+<h3 id="toc_25">11.6 鏈停止</h3>
+
+<p>如果鏈停止了，在某個設定的時間周期後，可以有一個預提交的狀態轉換申請（offer）。響應的量子元可以接手這個鏈的所有交易，然後廣播對這個鏈的接受（accept）以及整個鏈的移動。僅僅允許在某個設定的時間周期後，這個鏈還沒有向前移動時才發生（忽略廣播到父鏈上的交易）。欺詐證明可用於調解鏈頭（chain tip）。</p>
+
+<p>對於涉及複雜的狀態轉換的金融活動，對於鏈停止的情況，可能還需要其它形式的激勵。</p>
+
+<h3 id="toc_26">11.7 不能改變共識規則</h3>
+
+<p>由於設計是前置式的，因此不可能在沒有提前編程的情況下改變共識規則。可以通過將升級路徑做為係統的一部分來解決這個問題（如，在某個特定的日期後強製停止）。這種無能（inability）也將帶來關於不能停止量子元的社會影響，因為，對於代幣持有者來說，有經濟上的驅動來持續的運行這個係統。由此，在Plasma鏈啟動後，停止它將變得非常困難。</p>
+
+<h2 id="toc_27">12 未來的研究</h2>
+
+<p>未來研究的其它領域包括圍繞安全的好處。當前研究的領域是通用遞歸SNARKs/STARKs，將會顯著提升退出（exit）交易的安全性。深度的防禦是可取的，由此防禦的最後一條底線將是直接的去中心化退出機製，支持調解證明（disputed proof），前線則是新型的加密技術和安全硬件元素。配對密碼術或其他形式的同態加密，在密碼學上的新用途的進一步發展也將是有用的。</p>
+
+<p>在保持同步的同時，觀察多個根鏈的能力需要更高的特異性（除了簡單地強製硬同步之外）。</p>
+
+<p>未來的研究圍繞確定性（finality）以及跨多個量子元的互動，也包括進一步的減少量子元退出的風險（SNARKs/STARKs也將起到一些作用）。</p>
+
+<h2 id="toc_28">13 結論和總結</h2>
+
+<p>Plasma的設計主要關注的是在數據壓縮的情況下保證信息的可用性（提供關於區塊扣留攻擊的信息）。</p>
+
+<p>我們提出了一個機製，通過它，可以提交可強製執行的承諾，從而允許在鏈上持有資金，資金的狀態由根鏈進行最終保證。</p>
+
+<p>這允許通過寬廣的無定形網絡計算機進行計算和存儲。網絡中的行為，通過經濟因素來保證承諾的強製執行，強製執行由其所有父鏈，最終流向根鏈，並通過根鏈上的智能合約來保證了正確性。這個構建允許進行狀態轉換而不用擔心在根鏈上直接運行的成本。</p>
+
+<p>量子元上的這個構建幾乎可以執行全球範圍內的經濟活動計算（隻要同一時間不需要占用過多的內存）。僅且當無效的計算證明被提交後，無效的承諾才會被回滾。不需要對鏈的運行者給予信任。</p>
+
+<p>為了減少鏈停止、以及其它Byzantine行為的動機，手續費激勵了鏈的持續運行。如果Plasma鏈的行為綁定了特定的代幣，鏈停止是不被鼓勵的。因為，如果鏈發生了停止，那麼鏈的價值會下降，將會對能否持續運行產生顯著影響（譯者注：讓大家對這個鏈失去了信心，則代幣不值錢，從而不願意運行鏈）。</p>
+
+<p>這個激勵和結構允許創建去中心化的自動程序，通過交易費來支持程序的自動運行。這樣的去中化自動程序可以創建真正意義上的雲計算，執行計算和驗證數據，但其中提供服務的節點是隨時變化和異構的。Plasma可以允許量子元擴容到支持不限用戶量的通用應用。一個應用的創建者可以隻寫智能合約代碼，提交到量子元上，然後通過激勵，永久的運行這些合約中的計算，使用Plasma鏈來支付費用。</p>
+
+<h2 id="toc_29">14 致謝</h2>
+
+<p>Many thanks go out to the TrueBit authors for a design and implementation of merkleized proofs, including Chrstian Reitwießner for review. Thanks to Vlad Zamfir for many areas of inspiration and his general framing of ideas helpful in formalizing these ideas. Thanks to Thomas Greco, Piotr Dobaczewski and Pawe l Peregud for feedback and contributions.<br>
+TODO: Ask others for acknowledgements.<br>
+TODO: Improve bibliography and get more citations TODO: Finish diagrams</p>
+
+<p>References<br>
+[1] Joseph Poon and Tadge Dryja. Lightning Network. <a href="javascript:window.open('https://lightning.network/');">https://lightning.network/</a> lightning-network-paper.pdf, Mar 2015.<br>
+[2] Ethereum. Ethereum. <a href="javascript:window.open('https://ethereum.org/');">https://ethereum.org</a>.<br>
+[3] Gavin Wood. ETHEREUM: A SECURE DECENTRALISED GENERALISED<br>
+TRANSACTION LEDGER. <a href="javascript:window.open('http://gavwood.com/paper.pdf');">http://gavwood.com/paper.pdf</a>, Feb 2015.<br>
+[4] Raiden. Raiden Network. <a href="javascript:window.open('https://raiden.network/');">https://raiden.network/</a>.<br>
+[5] Jeffrey Dean and Sanjay Ghemawat. Mapreduce: Simplified data processing on large clusters. In OSDI, pages 137–150. USENIX Association, 2004.<br>
+[6] Satoshi Nakamoto. Bitcoin: A Peer-to-peer Electronic Cash System. https:// bitcoin.org/bitcoin.pdf, Oct 2008.<br>
+[7] Nick Szabo. Formalizing and Securing Relationships on Public Networks. http:// szabo.best.vwh.net/formalize.html, Sep 1997.<br>
+[8] Fred Erhsam. Blockchain Tokens and the dawn of the De- centralized Business Model. <a href="javascript:window.open('https://blog.coinbase.com/');">https://blog.coinbase.com/</a> app-coins-and-the-dawn-of-the-decentralized-business-model-8b8c951e734f.<br>
+[9] Naval Ravikant. The Bitcoin Model for Crowdfunding. <a href="javascript:window.open('https://startupboy.com/');">https://startupboy.com/</a> 2014/03/09/the-bitcoin-model-for-crowdfunding/.<br>
+[10] Jason Teutsch and Christian Reitwiessner. A scalable verification solution for blockchains. <a href="javascript:window.open('https://people.cs.uchicago.edu/~teutsch/papers/truebit.pdf');">https://people.cs.uchicago.edu/~teutsch/papers/truebit.pdf</a>, Mar 2017.<br>
+46<br>
+[11] Vitalik Buterin. Ethereum Sharding FAQ. <a href="javascript:window.open('https://github.com/vspgod/Galaxy/wiki/');">https://github.com/vspgod/Galaxy/wiki/</a> wiki/Sharding-FAQ.<br>
+[12] Adam Back, Matt Corallo, Luke Dashjr, Mark Friedenbach, Gregory Maxwell, Andrew Miller, Andrew Poelstra, Jorge Timn, and Pieter Wuille. Enabling Blockchain Inno- vations with Pegged Sidechains. <a href="javascript:window.open('https://blockstream.com/sidechains.pdf');">https://blockstream.com/sidechains.pdf</a>, Oct 2014.<br>
+[13] Paul Sztorc. Drivechain - The Simple Two Way Peg. <a href="javascript:window.open('http://www.truthcoin.info/');">http://www.truthcoin.info/</a> blog/drivechain/.<br>
+[14] Bitcoin Wiki. Merged mining specification. <a href="javascript:window.open('https://en.bitcoin.it/wiki/Merged_');">https://en.bitcoin.it/wiki/Merged_</a> mining_specification.<br>
+[15] Peter Todd. Tree Chains. <a href="javascript:window.open('https://github.com/petertodd/tree-chains-paper');">https://github.com/petertodd/tree-chains-paper</a>.<br>
+[16] Eli Ben-Sasson, Alessandro Chiesa, Eran Tromer, and Mardas Virza. Succinct Non- Interactive Zero Knowledge for a von Neumann Architecture. <a href="javascript:window.open('https://eprint.iacr/');">https://eprint.iacr</a>. org/2013/879.pdf, May 2015.<br>
+[17] Alessandro Chiesa, Eran Tromer, and Madars Virza. Cluster Computing in Zero Knowledge. <a href="javascript:window.open('https://eprint.iacr.org/2015/377.pdf');">https://eprint.iacr.org/2015/377.pdf</a>, Apr 2015.<br>
+[18] Jae Kwon. Cosmos: A Network of Distributed Ledgers. <a href="javascript:window.open('https://github.com/cosmos/');">https://github.com/cosmos/</a> cosmos/blob/master/WHITEPAPER.md, Sep 2016.<br>
+[19] Gavin Wood. POLKADOT: VISION FOR A HETEROGENEOUS MULTI-CHAIN FRAMEWORK. <a href="javascript:window.open('https://github.com/w3f/polkadot-white-paper/raw/master/');">https://github.com/w3f/polkadot-white-paper/raw/master/</a> PolkaDotPaper.pdf, Nov 2016.<br>
+[20] Sergio Demian Lerner. lumino transaction compression protocol (ltcp). https: //uploads.strikinglycdn.com/files/9dcb08c5-f5a9-430e-b7ba-6c35550a4e67/ LuminoTransactionCompressionProtocolLTCP.pdf, Feb 2017.<br>
+[21] Ilja Gerhardt and Timo Hanke. Homomorphic Payment Addresses and the Pay-to- Contract Protocol. <a href="javascript:window.open('http://arxiv.org/abs/1212.3257');">http://arxiv.org/abs/1212.3257</a>, Dec 2012.<br>
+[22] Tier Nolan. Re: Alt chains and atomic transfers. <a href="javascript:window.open('https://bitcointalk.org/index');">https://bitcointalk.org/index</a>. php?topic=193281.msg2224949#msg2224949.</p>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="4-eras-of-blockchain-computing-d.html" title="Previous Post: 量子元計算的四個階段">&laquo; 量子元計算的四個階段</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="ethereum-blockchain-plasma-white.html" title="Next Post: Plasma白皮書（三）">Plasma白皮書（三） &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

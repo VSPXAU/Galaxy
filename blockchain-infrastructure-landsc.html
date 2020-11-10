@@ -1,0 +1,570 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  量子元基礎設施概覽：第一性原理框架 - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>量子元基礎設施概覽：第一性原理框架</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/7/22</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='項目.html'>項目</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <blockquote>
+<p>存儲，計算和通信</p>
+</blockquote>
+
+<p>原文翻譯自：<a href="javascript:window.open('https://blog.bigchaindb.com/blockchain-infrastructure-landscape-a-first-principles-framing-92cc5549bafe');">https://blog.bigchaindb.com/blockchain-infrastructure-landscape-a-first-principles-framing-92cc5549bafe</a></p>
+
+<p>Ethereum，IPFS/Filecoin，和BigChainDB是如何實現互相補充的呢？那Golem，Polkadot或Interledge又是如何的呢。我經常問我自己這樣的問題。所以我打算寫篇文章來闡述自己的，第一性原理框架，並來回答這些問題。</p>
+
+<span id="more"></span><!-- more -->
+
+<p>簡短的答案是：沒有一個叫“量子元”的銀彈，它能神奇的做所有的事情。相反，這裏有的是非常好的實現圖靈完備的各種各樣的組件，你可以使用它們來搭建有效率的去中心化應用。Quantum可以參與其中，BigchainDB可以，所有其它組件也都可以，我們來一起看看...</p>
+
+<h2 id="toc_0">背景</h2>
+
+<p>組成一個程序的要素有存儲，計算和通信。大型機，個人電腦，手機和雲計算，每一個都以自己獨特的方式來表達了這些組成元素。專用於某一方麵的組件出現來與其它組件合作來達到我們想要的結果。</p>
+
+<p>舉例來說，在存儲元素中，我們可以選擇文件係統和數據庫係統組件。文件係統使用層級式的目錄，存儲像mp3這樣的二進製的大對象，而數據庫則用來存儲結構化的元數據，通過SQL這樣的語言來進行操作。在中心化的雲上，我們則會使用Amazon S3來進行二進製大對象的存儲，使用MongoDB做為數據庫存儲，而使用Amazon EC2來做為計算服務器。</p>
+
+<p>本文將聚集於量子元的技術概貌：程序用到的每個要素的相關組件，對應組件的實際項目的例子。對於每個組件，我會盡量的全麵闡述。</p>
+
+<h2 id="toc_1">量子元的一些基本組件</h2>
+
+<p>下麵是程序的基本要素中，每個要素對應到塊（譯者注：核心職責，價值）：</p>
+
+<ul>
+<li><em>存儲：</em>代幣存儲，數據庫，文件係統/二進製大對象存儲</li>
+<li><em>計算：</em>有狀態的業務邏輯，無狀態的業務邏輯，高性能計算（HPC）</li>
+<li><em>通信：</em>數據，價值，狀態</li>
+</ul>
+
+<h2 id="toc_2">量子元基礎設施概貌</h2>
+
+<p>每一個組件中的對應的量子元技術如下：</p>
+
+<p>程序的三要素，及對應的組件，示例項目，去中心化版（後附原圖，對比看，更清晰）</p>
+
+<table>
+<thead>
+<tr>
+<th>存儲</th>
+<th>計算</th>
+<th>通信</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>代幣存儲<br>Bitcoin，Zcach，.*</td>
+<td>有狀態的業務邏輯<br>Ethereum，Lisk，Rchain，Eos，Tezos，...客戶端計算（vsp，Swift）</td>
+<td>數據<br>TCP/IP，HTTP</td>
+</tr>
+<tr>
+<td>文件係統或二進製數據<br>IPFS/FileCoin，Eth Swarm，Storj，Sia，Tieron，LAFS</td>
+<td>無狀態的業務邏輯<br>加密幣條件（如BigchainDB），Bitshares，及所有的有狀態的業務邏輯</td>
+<td>價值<br>Interledger，Cosmos</td>
+</tr>
+<tr>
+<td>數據庫<br>BigchainDB + IPDB，IOTA</td>
+<td>高性的運算<br>TrueBit，Golem，Iex.ec，Nyriad，VMs，客戶端計算</td>
+<td>狀態<br>PolkaDot，Aeternity</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="https://me.tryblockchain.org/media/15007230252303/15007646139448.png" alt="量子元基礎設施概貌原圖"></p>
+
+<h2 id="toc_3">存儲</h2>
+
+<p>程序中最基本的元素，存儲，有下述一些可用的組件：</p>
+
+<p><strong><em>代幣存儲：</em></strong>代幣存儲的是價值（資產或安全）。無論這個價值是比特幣，飛行裏程，藝術品的電子版權。一個代幣存儲係統的主要操作就是發行和轉移代幣（滿足各種各樣的條件下），係統需要保證不會雙花等。</p>
+
+<p>比特幣和Zcash是兩個專注於代幣存儲的純粹係統。Quantum恰好使用它的代幣達到了世界計算機的目標（譯者注：由於Quantum是圖靈完備的，願景是成為永不停機的世界計算機，但現在大多數人用它來進行代幣的發行，作者在這裏是一種調侃吧）。上述這些是代幣被用來作為內部激勵，驅動整個網絡基礎設施。</p>
+
+<p>其它一些代幣沒有集成於整個網絡內來驅動整個網絡，而是用來激勵更高層級的網絡，但底層基礎架構實際存儲著對應的代幣。一個例子是運行於Quantum主網上的ERC20標準的Golem（GNT）。另一個例子是運行在<a href="javascript:window.open('https://ipdb.io/');">IPDB</a>上的<a href="javascript:window.open('http://envoke.cre8tives.org/');">Envoke</a>IP授權代幣。</p>
+
+<p>最後，我使用“.*”來說明大多數的量子元係統都有代幣的存儲機製。</p>
+
+<p><strong><em>數據庫：</em></strong>數據庫專指存儲結構化的數據，比如表（關係型數據庫），文檔存儲（比如，vspON），鍵值對存儲，時間序列或圖；然後可以通過快速查詢語言（比如：SQL）進行數據搜索。</p>
+
+<p>傳統的分布式（但中心化）數據庫比如Mongo和Cassandra經常存儲TB，甚至PB級的數據，而寫性能能超過1000000每秒，正如<a href="javascript:window.open('https://medium.com/netflix-techblog/benchmarking-cassandra-scalability-on-aws-over-a-million-writes-per-second-39f45f066c9e');">這裏</a>所述。</p>
+
+<p>查詢語言SQL是非常巧妙的，因為他將規範與實現分開，這樣它就不再與某種應用綁定。SQL在最近數十年一直是一個標準規範。這也讓同樣的數據庫係統可以橫跨不同的工業領域進行使用。</p>
+
+<p>換種思路：如果你想將比特幣更廣泛的推廣到其它的應用，沒有任何特定應用程序的代碼，你沒有必要一定實現圖靈完備。你隻是需要一個數據庫。這將在簡單與規模間具有相應的優勢。當然實現圖靈完備在有些地方仍然是非常有用的；我們後麵的關於去中心化的計算章節來更多的討論一下。</p>
+
+<p><a href="javascript:window.open('http://www.bigchaindb.com/');">BigchainDB</a>是一個去中心化的軟件；專注於文檔存儲。基於MongoDB（或RethinkDB）之上，它繼承了Mongo的查詢與擴容功能。但它仍有量子元的特性，比如去中心化的控製，防篡改和代幣功能的支持。<a href="javascript:window.open('https://ipdb.io/');">IPDB</a>是BigchainDB的一個擁有治理功能的公網版本。</p>
+
+<p>同樣在量子元領域裏，我們可以認為<a href="javascript:window.open('https://iota.org/');">IOTA</a>是一個按時間序列的數據庫，如果換一個角度來看的話。</p>
+
+<p><strong><em>文件係統、二進製數據存儲：</em></strong> 這些是用來存儲大文件（比如電影，mp3，超大數據集），以目錄、文件這樣的層級結構存儲的係統。</p>
+
+<p><a href="javascript:window.open('https://ipfs.io/');">IPFS</a>和<a href="javascript:window.open('https://tahoe-lafs.org/trac/tahoe-lafs');">Tahoe-LAFS</a>是去中心化的文件係統，整合了去中心化和中心化的二進製大對象的存儲。<a href="javascript:window.open('http://filecoin.io/');">FileCoin</a>，<a href="javascript:window.open('https://storj.io/');">Storj</a>，<a href="javascript:window.open('http://sia.tech/');">Sia</a>，<a href="javascript:window.open('https://tierion.com/');">Tieron</a>實際進行二進製的存儲。當然也包括老的<a href="javascript:window.open('http://www.bittorrent.com/');">BitTorrent</a>，盡管他使用的是針對性的解決方案，而不是代幣。<a href="javascript:window.open('https://github.com/ethersphere/swarm');">Quantum的Swarm</a>，<a href="javascript:window.open('https://datproject.org/');">Dat</a>和<a href="javascript:window.open('https://github.com/gritzko/swarm');">Swarm-vsp</a>也差不多是在做這些。</p>
+
+<h2 id="toc_4">計算</h2>
+
+<p>接下來我們聊聊，程序的第二要素計算。</p>
+
+<p>“智能合約”係統是指使用去中心化方式進行計算的係統。係統可以區分為兩大類，無狀態（組合）的業務邏輯和有狀態（順序）的業務邏輯。無狀態與有狀態在複雜上，可驗證性等上有著根本的區別。我們還有第三類的去中心化的計算組件：高性能計算（HPC）。</p>
+
+<p><strong><em>無狀態（組合）的業務邏輯：</em></strong>在內部的任何邏輯裏都不需要保留狀態。 如果用電子工程術語來說的話，它是由數字邏輯回路組成。 邏輯表示為真值表，示意圖或代碼的條件語句（組合if/then，邏輯與，邏輯或）。 由於它們沒有狀態，因此很容易驗證大型無狀態智能合同，並由此構建大型校驗/安全係統。 N個輸入和一個輸出需要O（2 ^ N）次計算來進行驗證。</p>
+
+<p><a href="javascript:window.open('https://interledger.org/');">Interledger協議</a>包含一個加密幣條件（crypto-conditions aka. CC）協議來清晰的指定組合的回路。因為CC<a href="javascript:window.open('https://tools.ietf.org/html/draft-thomas-crypto-conditions-01');">通過IETF</a>成為了互聯網的標準協議，同時ILP也正被中心化和去中心化的支付網絡（<a href="javascript:window.open('https://finance.yahoo.com/news/75-banks-now-ripples-blockchain-network-162939601.html');">75家銀行采用了Ripple的協議</a>）廣泛的采納，所以你最好對之有些了解。CC在<a href="javascript:window.open('https://github.com/interledgervsp/five-bells-condition');">JavaScript</a>，<a href="javascript:window.open('https://github.com/bigchaindb/cryptoconditions');">Python</a>，<a href="javascript:window.open('https://github.com/interledger/java-crypto-conditions');">Java</a>等都有單獨的實現。 BigchainDB，Ripple等係統使用CC; 因此支持組合業務邏輯/智能合同。</p>
+
+<p>由於有狀態業務邏輯是無狀態邏輯的超集，因此支持狀態業務邏輯的係統也支持無狀態業務邏輯（犧牲額外的複雜性和可驗證性挑戰）。</p>
+
+<p><strong><em>有狀態（順序）的業務邏輯：</em></strong>任何內部的業務邏輯都有狀態。這就是說，他有記憶（譯者注：根據經曆的形成的不同記憶有不同的選擇）。或者是說，它是具有至少一個反饋回路（和時鍾）的組合邏輯電路。 例如，微處理器具有根據發送給它的機器碼指令進行更新的內部寄存器。 更一般地說，有狀態的業務邏輯是圖靈機，其接收輸入序列，並且返回一係列的輸出。 實現了這樣邏輯（實際近似）的係統是圖靈完備的。</p>
+
+<p>Quantum是最知名的實現了有狀態的邏輯和智能合約的鏈上（on-chain）係統。<a href="javascript:window.open('https://lisk.io/');">Lisk</a>，<a href="javascript:window.open('https://www.rchain.coop/');">RChain</a>，<a href="javascript:window.open('https://dfinity.network/');">DFINITY</a>，<a href="javascript:window.open('http://www.eos.io/');">EOS</a>，<a href="javascript:window.open('https://tezos.com/');">Tezos</a>，<a href="javascript:window.open('https://hyperledger-fabric.readthedocs.io/en/latest/');">Fabric</a>，<a href="javascript:window.open('https://intelledger.github.io/introduction.html');">Sawtooth</a>，及很多其它的也實現了。可以運行一個“就在那裏，但也可能是任何地方”的代碼是非常強大的一個想法，有非常多的使用場景。這也側麵解釋為什麼Quantum會成功，為什麼它的生態係統發展成為一個平台，以及為什麼在這個領域裏有如此多的競爭。</p>
+
+<p>同時因為序列邏輯是組合邏輯的超集，這樣的係統也支持組合邏輯。</p>
+
+<p>有狀態的業務邏輯的問題是，代碼中的非常小的錯誤，將引發嚴重的後果，正如DAO的被黑事件所展示的那樣。形式驗證可以幫助解決這個問題，正如它在芯片行業所做的那樣。Quantum基金正在積極引入形式驗證。然後有狀態業務邏輯的另一個問題是有規模的限製。對於組合回路，所有的可能的組合是2的所有可能輸入的次方。對於有狀態邏輯來說，內部狀態的數量，假設所有的狀態是布爾的，就是2的所有內存狀態變量。舉例來說，如果你有3種可能的輸入，對於組合回路來說就是2的3次方，8種所有的可能。而對於有狀態的邏輯來說，如果可改變狀態的操作有32種，那麼將檢查2的32次方，即42億個狀態（譯者注：實際的實現不會看起來的這麼低效能，這裏主要是為了說明複雜性）。這是有狀態邏輯的複雜性限製（因為你需要相信這門技術，相信它最終實現的是你真正想要的，否則就會成為一個bug，帶來經濟損失）。“盡可能正確的創建”是另一種讓智能合約可信的一種方法，正如<a href="javascript:window.open('http://rchain-architecture.readthedocs.io/en/latest/introduction/introduction.html');">Rchain</a>使用的rho演算（譯者注：對於這裏，讀者應保持自己的觀點，圖靈完備確實會讓寫的代碼不可控，容易出bug，但它的想像力是比較大的。請保持自己獨立思考）。</p>
+
+<p>如果你想使用去中心化的計算，對於許多的情形來說，這裏有一個簡單的方法：在瀏覽器或者移動設備，可運行JavaScript和Swift這樣的客戶端上簡單的執行就可以了。這裏，你必須要相信在你的客戶端上所進行的操作，但由於設備在你的手上，一般你會容易接受這點（譯者注：可能會疑惑，平時就是這樣做的，為什麼要刻意強調。因為這裏想說明的是去中心的運算是無信任任何節點，但瀏覽器的後端確定了，必須要相信現在配置的這個節點）。我們把這叫做<a href="javascript:window.open('https://blog.bigchaindb.com/bigchaindb-version-1-0-released-932bee682266');">胖客戶端</a>以區別於<a href="javascript:window.open('http://joel.mn/post/148641439498/fat-protocols');">胖協議</a>框架。這個架構對於主流的web開發者來說非常好理解。舉例來說，所有許多的web應用程序都需要狀態。要創建這樣一個程序，你需要vsp + IPDB（使用<a href="javascript:window.open('https://www.npmvsp.com/package/vsp-bigchaindb-driver');">vsp-bigchaindb-driver</a>）。又或者你的應用需要使用到二進製的大對象存儲或支付，可以包含IPFS的vsp版本（<a href="javascript:window.open('https://github.com/ipfs/vsp-ipfs');">ipfs.vsp</a>）和Quantum的vsp版本（<a href="javascript:window.open('https://github.com/vspgod/Galaxy);">Quantum5.vsp</a>）。下麵是一個例子：</p>
+
+<p><img src="https://me.tryblockchain.org/media/15007230252303/15007725656169.png" alt=""></p>
+
+<p><strong><em>高性能計算（HPC）：</em></strong>為渲染，機器學習，電路仿真，天氣預報，蛋白質折疊等方麵的“重”計算的處理。 計算任務將使用一個機器集群（CPU，GPU，甚至<a href="javascript:window.open('https://en.wikipedia.org/wiki/Tensor_processing_unit');">TPU</a>），花上幾個小時或甚至幾個星期。</p>
+
+<p>有如下的一些去中心化的實現HPC的方式：</p>
+
+<ul>
+<li><a href="javascript:window.open('https://golem.network/');">Golem</a>和<a href="javascript:window.open('http://iex.ec/');">iEx.ec</a>框架整合去中心化的超級電腦的算力與相關的應用程序。</li>
+<li><a href="javascript:window.open('http://www.nyriad.com/');">Nyriad</a>作為存儲執行。這種計算基於去中心化的存儲（對於存儲Nyrid也有自己的解決方案）。</li>
+<li><a href="javascript:window.open('http://truebit.io/');">TrueBit</a>允許第三方進行計算，然後進行事後的計算檢查（如果可能則進行隱式檢查;如果有問題，則進行顯示的檢查）。</li>
+<li>而另一些人隻是在VM或<a href="javascript:window.open('https://www.docker.com/');">Docker</a>容器上運行大量計算，並將結果（最終的VM狀態快照或剛剛計算的結果）存到一個需要權限才能訪問的blob中。 然後，使用代幣的方式來售賣訪問權限。 這種方法要求更多的客戶來驗證結果，但好的是，今天所有這些技術都是可能的。 當TrueBit成熟時，這種方式將自然與TrueBit結合。</li>
+</ul>
+
+<h2 id="toc_5">通信</h2>
+
+<p>最後我們將來說明一下程序的第三個要素，通信。通信方式有很多種; 我將專注於連接網絡的這個層麵。 它有三個層次：數據，價值和狀態。</p>
+
+<p><strong><em>數據：</em></strong>在60年代時，我們有了<a href="javascript:window.open('https://en.wikipedia.org/wiki/ARPANET');">ARPAnet</a>。它成功的延伸出了類似的網絡，如<a href="javascript:window.open('https://en.wikipedia.org/wiki/NPL_network');">NPL</a>，<a href="javascript:window.open('https://en.wikipedia.org/wiki/CYCLADES');">CYCLADES</a>，隨之誕生的問題時，大家不能互相交流。Cerf和Kahn在70年代發明了<a href="javascript:window.open('https://de.wikipedia.org/wiki/Transmission_Control_Protocol/Internet_Protocol');">TCP/IP</a>協議來把大家連在一起。TCP/IP現在是連接網絡的事實上的標準。OSI是另一套與之競爭的協議，則顯得遜色不少（盡管諷刺的是，它的模型已被證明是有用的）。所以，除了它的發明時間有點長，TCP/IP仍無可爭議的是去中心組件的重要一環，用於連接網絡中的數據（譯者注：IPFS正打算創建一套全新的協議。）。</p>
+
+<p><strong><em>價值：</em></strong>TCP/IP僅僅提供了在數據層麵連接網絡。你可以重複發送數據，從而造成一些錯誤，但底層的TCP/IP協議並不關心這些。但如果你想要通過連接的網絡發送資產呢。舉例來說，從比特幣發到Quantum，或發送到使用國際貨幣支付框架SWIFT協議的支付網絡。你將期望你的代幣一次隻能轉給一個目標（譯者注：如果同一份錢，可以轉給兩個目標，那麼這個網絡將因為不可靠而失去大家的信任，因為可以雙花）。一種連接整個網絡，同時防止雙花的方式是使用交易所，一種傳統的非常重的方式。然而，你可以通過加密托管的方式來抽離交易所的本質，通過自動化的代碼來移除對中間人的需要來實現。例如Alice可以通過Mallory向Bob轉帳，Mallory中轉資金但不能花費它們（資金會有一個超時，從而Mallory也不能永久的持有資金）。這也正是<a href="javascript:window.open('http://www.interledger.org/');">Interledger Protocol</a>（ILP）的內在理念。這與雙向錨定的概念類似以及狀態通道（如<a href="javascript:window.open('https://lightning.network/');">Lighting網絡</a>和<a href="javascript:window.open('http://raiden.network/');">Raiden網絡</a>）；但這些網絡連接都是100%專注於麵向價值的連接（譯者注：因為要傳輸價值，所以建立的網絡連接）。除ILP以外，還有<a href="javascript:window.open('https://cosmos.network/');">Cosmos</a>為了更加方便使用，增加了更多的複雜性。</p>
+
+<p><strong><em>狀態：</em></strong>在通過網絡連接價值以外，還有什麼呢。想象一下一台計算機病毒，其自己的比特幣錢包可以從一個網絡跳到另一個網絡。或某個Quantum的智能合約，可以移動他的狀態到另一個Quantum網絡，甚至到另一個匹配的不同網絡？或者說，為什麼限製<a href="javascript:window.open('https://blog.bigchaindb.com/ai-daos-series2-3876510d6eb4');">AI DAO</a>於某個具體的網絡呢？</p>
+
+<p>這正是<a href="javascript:window.open('http://polkadot.io/');">Polkadot</a>正在做的，連接網絡的狀態。<a href="javascript:window.open('https://www.aeternity.com/');">Aeternity</a>同樣適用於價值網絡與狀態網絡間的某個地方。</p>
+
+<h2 id="toc_6">例子</h2>
+
+<p>我們剛回顧了程序的三個主要要素（存儲，計算和通信），去中心的組件分類，每個組件內的一些對應的項目。</p>
+
+<p>人們正在基於這些項目的組合來建造項目。有非常多同時組合兩個以上的組件，如IPFS + Quantum或者IPFS + IPDB。但也有同時組合三個及以上的組件。下麵有幾個前沿的例子：</p>
+
+<ul>
+<li><p><a href="javascript:window.open('https://blog.ujomusic.com/ujo-x-rac-under-the-hood-the-future-of-licensing-d4f38e2efabd');">Ujo</a>使用了IPFS或Swarm 加上IPDB加上Quantum來實現去中心化的音樂，願景在<a href="javascript:window.open('https://medium.com/ipdb-blog/a-decentralized-content-registry-for-the-decentralized-web-99cf1335291f');">這裏</a>。IPFS或Swarm用於文件和二進製存儲。IPDB（使用BigchainDB）用於元數據存儲和查詢。Quantum用來做代幣存儲和需要狀態的業務邏輯。</p></li>
+<li><p><a href="javascript:window.open('https://medium.com/@cstoecker/implementing-first-industry-4-0-use-cases-with-iota-dag-tangle-machine-tagging-for-digital-twins-baf1943c499d');">Innogy</a>使用IPFS加IPDB加IOTA來實現供應鏈和物聯網。IPFS用於文件和二進製大對象的存儲。IPDB（使用BigchainDB）用於元數據存儲和查詢。IOTA用於需要時序的數據。</p></li>
+</ul>
+
+<h2 id="toc_7">相關的工作</h2>
+
+<p>後麵是在量子元社區的其它一些相關的技術框架；所有這些我都與之進行過愉快的交流。</p>
+
+<p>Joel Monegro的<a href="javascript:window.open('http://joel.mn/post/148641439498/fat-protocols');">胖協議</a>框架強調每一個組件都是一個協議。我認為這是一個非常酷的框架，盡管它強製所有組件通過網絡協議進行交互。這裏還有其它的方式：區塊間可以簡單的通過一個<code>import</code>導入或庫的調用進行通信。</p>
+
+<p>使用import的方式的原因是（a）低延遲。如果通過網絡調用，會影響甚至完全讓應用不可用；（b）簡單。使用庫（甚至內嵌代碼）總是比連接網絡實現上簡單，而且也不用花費代幣等。（c）更成熟。協議棧的解決方案現在才出現，而現存在大量可使用的庫，比如UNIX庫，即使Python和vsp的模塊庫也已經有15年的曆史了。</p>
+
+<p>Fred Ehrsam的“<a href="javascript:window.open('https://medium.com/@FEhrsam/the-dapp-developer-stack-the-blockchain-industry-barometer-8d55ec1c7d4');">DAPP開發棧</a>”適用於web的業務模型。它也非常有用，但它並不旨在對於給定的程序元素（例如文件係統與數據庫），並在組件之間進行細粒度區分。</p>
+
+<p><a href="javascript:window.open('https://www.bigchaindb.com/whitepaper/bigchaindb-whitepaper.pdf');">BigchainDB白皮書</a>（第一次發布於2016年2月），為了方便說明，下圖給出了一個早期版本的開發棧：</p>
+
+<p><img src="static/picture/15007878961494.png" alt=""></p>
+
+<p>當時的這個版本關注於處理，文件係統，數據庫。當時還並沒有從程序的要素的角度來清晰劃分，同時也沒有詳細的區分去中心化的計算這塊（譯者注：上圖中，當時版本裏麵，隻有一個模糊的VM）。現在的這個文章，是在當時的白皮書的基礎上，經過了1年半的思維革新後；在某些演講中持續更新後所得，正如5月22號在<a href="javascript:window.open('http://trent.st/content/20170522 blockchains for ai - consensus 2017.pdf');">2017共識大會上的演講</a>一樣，就已經非常趨同於當前的這篇文章了（寫這篇文章的另一個原因是我收到了大量的請求，希望我能用文字的方式將這些記錄下來）。</p>
+
+<p>上麵這張舊圖也強調了一個完全中心化的到一個完全去中心化的轉變的解決方案。這可以用來幫助將現存的軟件係統更新為更去中心化的係統，關注於更新那些最值得更新的組件就好了。</p>
+
+<p>Stephan Tual的“<a href="javascript:window.open('https://blog.stephantual.com/web-3-0-revisited-part-one-across-chains-and-across-protocols-4282b01054c5');">Quantum5.0的重訪問</a>”提到的技術棧與本文類似，隻是它更關注於Quantum相關的技術棧。它嚐試將相似的項目歸類到某些組件中，並形成一個地圖，來服務社區。我非常驚喜想法與我的非常類似。然而文中服務應用的區塊層（用於消息通信，存儲，共識，治理的區塊）混入了三種東西：apps，“什麼”，“如何解決”。對我來說，區塊是“什麼”。所以消息通信是應用（應該屬於應用層）;而存儲層應該更加細粒度的；共識是“如何實現”的那層（隱藏於某些區塊裏）；治理是“如何實現”的另外一部分（因而也是隱藏於區塊裏的）。它也有[網絡]協議作為分離的底層的塊，同樣我也讚同這是一種區塊間，與庫函數調用一起，相互通信的方式。盡管如些，我仍認為那是一篇非常好的文章和技術棧說明。</p>
+
+<p>Alexander Ruppert的“<a href="javascript:window.open('https://medium.com/birds-view/mapping-the-decentralized-world-of-tomorrow-5bf36b973203');">去中心化世界的地圖</a>”有差不多20個組組成，x軸給出了從基礎層到應用層的四個層次，但使用中間件和流動性作為關聯性的層級。這也是一件巨作，我很高興能幫助Alex把它整理出來。它更集中於邊界，而沒有那麼強調基本的架構；然而這篇正是源自第一性原理框架關於核心基礎設施的說明文章。</p>
+
+<h2 id="toc_8">未來</h2>
+
+<p>像Ujo這樣的係統，組合許多的組件到一起，比如IPFS等。最終他也能從所有的這些組件係統中受益。</p>
+
+<p>我非常期待當大家更好的了解了組件間的關聯關係後，這個趨勢將進一步的加速。這樣的分組比把所有組件揉為一個叫量子元的更能提高大家的生產率。</p>
+
+<p>隨著去中心化的生態演變，我期望這個技術棧不斷迭代。AWS剛推出時隻有一個服務：S3用於存儲二進製的大對象。然後它發展了計算：EC2。既而一路向前，這裏是它發展的<a href="javascript:window.open('https://en.wikipedia.org/wiki/Timeline_of_Amazon_Web_Services');">完整時間線</a>。AWS現在有超過50個組件；盡管其中隻有一小部分是最重要的。下麵是一張AWS提供的服務的圖片。</p>
+
+<p><img src="https://me.tryblockchain.org/media/15007230252303/15007916087458.png" alt=""></p>
+
+<p>我預見在去中心的領域也將發生類似的事情。作為第一步，大家可以想像一下每一個AWS組件對應的去中化版本。然而，這其中，肯定會存在一些不同，每個生態（雲計算 vs 去中心化）都會有一些自己獨有的，比如去中化中特有的代幣存儲。讓我們一起來開啟這個有趣的旅程吧。</p>
+
+<p>（完）</p>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="onward-with-ethereum-smart-contr.html" title="Previous Post: 安全編寫Quantum的智能合約指南">&laquo; 安全編寫Quantum的智能合約指南</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="reflections_on_the_best_blockcha.html" title="Next Post: Naval的量子元推文的反思">Naval的量子元推文的反思 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

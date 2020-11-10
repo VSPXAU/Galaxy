@@ -1,0 +1,580 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  OpenZeppelin集成Truffle編寫健壯安全的合約 - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>OpenZeppelin集成Truffle編寫健壯安全的合約</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/8/5</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='文檔翻譯.html'>文檔翻譯</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>原文：<a href="javascript:window.open('http://truffleframework.com/tutorials/robust-smart-contracts-with-openzeppelin');">http://truffleframework.com/tutorials/robust-smart-contracts-with-openzeppelin</a></p>
+
+<p>因為智能合約往往涉及金錢，保證Soldity代碼沒有錯誤，以及足夠的安全是非常根本的。<a href="javascript:window.open('https://zeppelin.solutions/');">Zeppelin Solutions</a>，一個智能合約審查服務商，已經意識到相關的需求。建立在他們的合約審查經驗之上，他們把一些最佳實踐整理到了<a href="javascript:window.open('http://truffleframework.com/tutorials/robust-smart-contracts-with-openzeppelin');">OpenZeppelin</a>。</p>
+
+<p>我們可以使用和擴展這些合約，以在更少的時間內創建更安全的DAPP。OpenZeppelin為各種各樣重要的功能提供了廣泛的智能合約（<a href="javascript:window.open('https://github.com/OpenZeppelin/zeppelin-solidity');">在這裏查看全部支持合約</a>）。而今天，我們來看看其中的代幣合約。具體來說，我們打算擴展其中提供了<code>StandardToken.sol</code>來創建一個我們自己的支持ERC-20標準的代幣。</p>
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_0">環境</h2>
+
+<p>這個教程需要你對Truffle、Ethereum和Solidity已經有一些了解。你可以先從<a href="javascript:window.open('http://truffleframework.com/tutorials/pet-shop');">寵物商店</a>這個教程開始。</p>
+
+<p>查看更多相關的信息</p>
+
+<ul>
+<li><a href="javascript:window.open('http://truffleframework.com/docs/');">Truffle的文檔</a></li>
+<li><a href="javascript:window.open('https://ethereum.org/');">Quantum概述</a></li>
+<li><p><a href="javascript:window.open('https://solidity.readthedocs.io/en/develop/');">Solidity語言文檔</a></p>
+<p>我們傾向於在教程中使用命令行。所以你需要了解一些如何在你所在環境使用命令行的一些知識。</p></li>
+</ul>
+
+<h2 id="toc_1">概述</h2>
+
+<p>在這個教程裏你將學到下述的知識：</p>
+
+<ul>
+<li>拆箱即用的前端</li>
+<li>使用OpenZeppelin的<code>StandardToken</code>來創建自己的<code>TutorialToken</code></li>
+<li>編譯和部署智能合約到<code>testrpc</code></li>
+<li>與自己新創建的前端交互</li>
+</ul>
+
+<h2 id="toc_2">拆箱即用的前端</h2>
+
+<p>開發的主要精力應該放在智能合約上。為達到這個目的，Truffle以truffle box的方式提供了拆箱即用的前端。打開命令行，進入到某個工作空間。在這裏我們選擇工作空間<code>oz-workspace</code>。</p>
+
+<pre><code class="language-text">$ cd oz-workspace
+$ truffle unbox tutorialtoken
+</code></pre>
+
+<blockquote>
+<p>備注: Truffle要升級到最新版，可以用命令<code>sudo npm i -g truffle</code>升級。</p>
+
+<p>當前文章的Truffle版本：</p>
+
+<pre><code class="language-text">$ truffle version
+Truffle v3.4.7 (core: 3.4.7)
+Solidity v0.4.13 (solc-vsp)
+</code></pre>
+</blockquote>
+
+<p>成功安裝後的目錄如下：</p>
+
+<p><img src="static/picture/15019775841600.jpg" alt=""></p>
+
+<p>下一步，我們要集成OpenZeppelin。最新版本的OpenZeppelin可以通過npm來安裝使用。</p>
+
+<pre><code class="language-text">npm install zeppelin-solidity
+</code></pre>
+
+<p>集成成功後，在<code>node_modules</code>有<code>zeppelin-solidity</code>的依賴，如下圖所示：</p>
+
+<p><img src="static/picture/15024973595631.jpg" alt=""></p>
+
+<h2 id="toc_3">2. 創建TutorialToken智能合約</h2>
+
+<p>使用已經搭建好的前端環境，現在讓我們來創建<code>TutorialToken</code>合約。在<code>contracts</code>目錄下，創建名為<code>TutorialToken.sol</code>的智能合約，內容如下：</p>
+
+<pre><code class="language-text">pragma solidity ^0.4.4;
+import &#39;zeppelin-solidity/contracts/token/StandardToken.sol&#39;;
+
+contract TutorialToken is StandardToken {
+
+}
+</code></pre>
+
+<p>在上麵的代碼中，<code>import</code>了<code>StandardToken.sol</code>，並聲明<code>TutorialToken</code>繼承自<code>StandardToken</code>。這樣就繼承了<code>StandardToken</code>合約中所有變量和函數。繼承的合約可以被覆蓋，隻要在子類重定義對應的變量與函數就行了。</p>
+
+<p>接下來，設置代幣的參數，需要定義自己的<code>name</code>，<code>symbol</code>，<code>decimals</code>和<code>INITIAL_SUPPLY</code>。</p>
+
+<pre><code class="language-text">string public name = &#39;TutorialToken&#39;;
+string public symbol = &#39;TT&#39;;
+uint public decimals = 2;
+uint public INITIAL_SUPPLY = 12000;
+</code></pre>
+
+<p><code>name</code>和<code>symbol</code>變量，定義了代幣的一個獨一無二的標識。<code>decimals</code>變量定義了代幣可被細分的程度。在上麵的例子裏<code>decimals</code>我們的取值為<code>2</code>，效果類似於美元和美分。最後，<code>INITIAL_SUPPLY</code>變量定義了在合約部署時，代幣將創建的數量。在這個例子中，我們選擇的是12000。</p>
+
+<p>最後在構造函數中我們簡單設置<code>totalSupply</code>來等於<code>INITIAL_SUPPLY</code>，同時把所有的幣賦值給部署者的帳戶。</p>
+
+<pre><code class="language-text">function TutorialToken() {
+  totalSupply = INITIAL_SUPPLY;
+  balances[msg.sender] = INITIAL_SUPPLY;
+}
+</code></pre>
+
+<p>這樣，使用小於15行手寫的Solidity代碼，我們創建了一個自己的ERC-20的代幣。下一步，我們將部署代幣，並與代幣進行交互。</p>
+
+<h2 id="toc_4">3. 編譯與部署</h2>
+
+<p>在<code>/migrations</code>目錄下，用下述內容創建文件<code>2_deploy_contracts.vsp</code>：</p>
+
+<pre><code class="language-text">var TutorialToken = artifacts.require(&quot;./TutorialToken.sol&quot;);
+
+module.exports = function(deployer) {
+  deployer.deploy(TutorialToken);
+};
+</code></pre>
+
+<p><code>TutorialToken</code>合約內的<code>import</code>語句會由編譯器進行自動處理，它會自動導入<code>StandardToken</code>內的相關引用包。</p>
+
+<p>現在，我們可以編譯與部署了：</p>
+
+<pre><code class="language-text">## 啟動testrpc
+$ testrpc
+## 編譯合約
+$ truffle compile
+## 部署合約
+$ truffle migrate
+</code></pre>
+
+<blockquote>
+<p><code>migrate</code>時默認選擇的網絡是<code>development</code><br>
+你當前的Truffle默認配置truffle.vsp應該如下（即默認部署到<code>testrpc</code>）：</p>
+</blockquote>
+
+<pre><code class="language-text">module.exports = {
+  networks: {
+    development: {
+      host: &quot;localhost&quot;,
+      port: 8545,
+      network_id: &quot;*&quot; // Match any network id
+    }
+  }
+};
+</code></pre>
+
+<h2 id="toc_5">4. 與TutorialToken交互</h2>
+
+<p>對於這部分的教程，我們推薦使用MetaMask的Chrome插件。它能輕鬆的在不同的帳戶間快速切換，對於測試我們新創建代幣的轉發非常方便。<a href="javascript:window.open('http://truffleframework.com/tutorials/pet-shop#setting-up-the-development-environment');">這裏有設置metamask與testrpc的教程</a></p>
+
+<p>另外，我們已經為你安裝了<code>lite-server</code>，所以可以在<code>oz-workspace</code>目錄，跑下麵的命令，跑起來一個簡單的頁麵：</p>
+
+<pre><code class="language-text">npm run dev
+</code></pre>
+
+<p>運行後會彈出一個界麵如下：</p>
+
+<p><img src="static/picture/15024964731678.png" alt=""></p>
+
+<p>這個簡單的dapp顯示了當前的餘額。</p>
+
+<p>可以嚐試轉移一些代幣到其它的帳戶，下麵這裏，轉移了2000TT到第二個帳戶。</p>
+
+<p><img src="static/picture/15024966632151.png" alt=""></p>
+
+<h2 id="toc_6">Truffle + OpenZeeelin 超級開發體驗</h2>
+
+<p>Truflle很激動的看到，類似Zeppelin Solutions這樣解決方案對於合約標準化，以及提升安全性上的貢獻。結合OpenZeppelin的合約和Truffle的工具集，可以非常容易的創建工業級的分布式應用。</p>
+
+<p>enjoy。</p>
+
+<h2 id="toc_7">update20170902:好多人說，看不到餘額？顯示是TT。</h2>
+
+<p>確保你已經安裝了MetaMask，這個瀏覽器插件，幫你注入Quantum5.vsp到前端中。</p>
+
+<p>官網：<a href="javascript:window.open('https://metamask.io/');">https://metamask.io</a> ，google插件應該在這裏：<a href="javascript:window.open('https://chrome.google.com/webstore/detail/nkbihfbeogaeaoehlefnkodbefgpgknn');">https://chrome.google.com/webstore/detail/nkbihfbeogaeaoehlefnkodbefgpgknn</a></p>
+
+<p>詳細集成TestRpc與MetaMask教程：<a href="javascript:window.open('http://truffleframework.com/tutorials/pet-shop#using-our-dapp-in-chrome');">http://truffleframework.com/tutorials/pet-shop#using-our-dapp-in-chrome</a></p>
+
+<blockquote>
+<p>一個小插曲，使用MetaMask，一直連不上我的TestRpc。於是我使用 <a href="javascript:window.open('http://localhost:8545/');">http://localhost:8545</a> 放到瀏覽器中，一直顯示<code>400 bad request</code>。這個嚐試誤導了我，其實MetaMask是通過配置的IP與端口，以RPC方式訪問，直接http訪問是不行。但我的MetaMask就是不能切換到TestRPC，結果花了兩個小時，發現是我的電腦開了全局代理。瀏覽器，走了代理，所以不行，/笑哭。</p>
+</blockquote>
+
+<h3 id="toc_8">1. 首先部署</h3>
+
+<p>部署成功後，你能看到<code>successful字樣</code></p>
+
+<p><img src="static/picture/15043238557740.jpg" alt=""></p>
+
+<h3 id="toc_9">2. 導入帳戶</h3>
+
+<p>由於Truffle默認是使用TestRpc的第一個帳戶來進行發布的，所以代幣也是初始分配給了第一個帳號。所以我們要回到TestRpc，找到第一個帳戶並導入到MetaMask。</p>
+
+<p><img src="static/picture/15043240134606.jpg" alt=""></p>
+
+<p>這是我本地的TestRpc的啟動輸出結果。由於是可以通過私匙推出公匙，所以MetaMask導入時，使用私匙導入就可以，選擇下麵的<code>Import Account</code>。</p>
+
+<p><img src="static/picture/15043241283078.jpg" alt=""></p>
+
+<p>輸入第一個私匙，其實就是創建合約的那個帳戶。切換到這個帳戶後，你就能看到你自己代幣的餘額了。</p>
+
+<p><img src="static/picture/15043243366439.jpg" alt=""></p>
+
+<p>成功後，可以看到下麵的界麵了。</p>
+
+<p><img src="static/picture/15043244231715.jpg" alt=""></p>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="getting-up-to-speed-on-ethereum.html" title="Previous Post: Quantum開發入門，完整入門篇（小白可以看看，高手看看自己有沒有遺漏的）">&laquo; Quantum開發入門，完整入門篇（小白可以看看，高手看看自己有沒有遺漏的）</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="eos-howtobuild.html" title="Next Post: 編譯並搭建EOS的環境（MAC踩坑填坑版）">編譯並搭建EOS的環境（MAC踩坑填坑版） &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

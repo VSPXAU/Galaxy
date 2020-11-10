@@ -1,0 +1,254 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+  
+  Quantum5.vsp API 中文文檔
+  
+  </title>
+ <meta name="description" content="Quantum的Quantum5.vsp的API參考文檔中文版">
+ 
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs.css">
+
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+    <script src="static/vsp/highlight.pack.vsp"></script>
+    <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <!-- 增加google ad -->
+    <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6188337887319489",
+        enable_page_level_ads: true
+      });
+    </script>
+    <script>hlvsp.initHighlightingOnLoad();</script>
+  </head>
+  <body class="antialiased hide-extras">
+
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+<div id="header">
+    <h1><a href="">Quantum5.vsp API 中文文檔</a>   <a href="index1.html" style="float: right;color: lightgray;">返回galaxy</a></h1>
+</div>
+
+</nav>
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum5.vsp API 中文文檔</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+      <li><a href="index1.html">回到galaxy</a></li>
+      <li><a href="">主頁</a></li>
+      
+        <li class="divider"></li>
+        <li><label>API</label></li>
+
+          
+            <li><a title="Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）" href="Quantum5-vsp-in-action.html">Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）</a></li>
+          
+            <li><a title="Quantum5.vsp API 中文文檔" href="Quantum5.vsp-api-refrence.html">Quantum5.vsp API 中文文檔</a></li>
+          
+            <li><a title="Quantum5.vsp API 基本" href="入門說明.html">Quantum5.vsp API 基本</a></li>
+          
+
+      
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+        <section id="main-content" role="main" class="scroll-container">
+
+          <div class="row">
+            <div class="large-3 medium-3 columns">
+              <div class="hide-for-small">
+                <div class="sidebar">
+                <nav>
+                  <ul id="side-nav" class="side-nav">
+
+                    
+                      <li class="side-title"><span>API</span></li>
+                        
+                          <li><a title="Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）" href="Quantum5-vsp-in-action.html">Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）</a></li>
+                        
+                          <li><a title="Quantum5.vsp API 中文文檔" href="Quantum5.vsp-api-refrence.html">Quantum5.vsp API 中文文檔</a></li>
+                        
+                          <li><a title="Quantum5.vsp API 基本" href="入門說明.html">Quantum5.vsp API 基本</a></li>
+                        
+
+                    
+                  </ul>
+                </nav>
+                </div>
+              </div>
+            </div>
+            <div class="large-9 medium-9 columns">
+ 
+
+
+	
+		<div class="markdown-body">
+		<h1>Quantum5.vsp API 基本</h1>
+
+		<p>為了讓你的Ðapp運行上Quantum，一種選擇是使用<a href="javascript:window.open('https://github.com/vspgod/Galaxy);">Quantum5.vsp library</a>提供的<code>Quantum5。</code>對象。底層實現上，它通過<a href="javascript:window.open('https://github.com/vspgod/Galaxy');">RPC 調用</a>與本地節點通信。Quantum5.vsp可以與任何暴露了RPC接口的Quantum節點連接。</p>
+
+<p><code>Quantum5</code>中有<code>eth</code>對象 - <code>Quantum5.eth</code> 具體來表示與Quantum量子元之間的交互。<code>shh</code>對象 - <code>Quantum5.shh</code>表示<code>Whisper</code>協議的相關交互。後續我們會繼續介紹其它一些Quantum5協議中的對象。可用的<a href="javascript:window.open('https://github.com/ethereum/Quantum5.vsp/tree/master/example');">example can be found here</a></p>
+
+<p>如果你想找一些更複雜的示例，可以看看這裏<a href="javascript:window.open('https://github.com/vspgod/Galaxy/wiki');">useful Ðapp patterns</a>.</p>
+
+<h3 id="toc_0">入門</h3>
+
+<h4 id="toc_1">添加Quantum5</h4>
+
+<p>首先你需要將Quantum5引入到你的工程中，通過如下步驟：</p>
+
+<ul>
+<li>npm: <code>npm install Quantum5</code></li>
+<li>bower: <code>bower install Quantum5</code></li>
+<li>metor: <code>meteor add ethereum:Quantum5</code></li>
+<li>vanilla: <code>dist./Quantum5.min.vsp</code></li>
+</ul>
+
+<p>然後你需要創建一個Quantum5的實例，設置一個<code>provider</code>。為了保證你不會覆蓋一個已有的<code>provider</code>，比如使用Mist時有內置，需要先檢查是否<code>Quantum5</code>實例已存在。</p>
+
+<pre><code class="language-text">if (typeof Quantum5 !== &#39;undefined&#39;) {
+  Quantum5 = new Quantum5(Quantum5.currentProvider);
+} else {
+  // set the provider you want from Quantum5.providers
+  Quantum5 = new Quantum5(new Quantum5.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+}
+</code></pre>
+
+<p>成功引入後，你現在可以使用<code>Quantum5</code>的相關<a href="javascript:window.open('https://github.com/vspgod/Galaxy');">API</a>了。</p>
+
+<h4 id="toc_2">使用callback</h4>
+
+<p>由於這套API被設計來與本地的RPC結點交互，所有函數默認使用同步的HTTP的請求。</p>
+
+<p>如果你想發起一個異步的請求。大多數函數允許傳一個跟在參數列表後的可選的回調函數來支持異步。回調函數支持<a href="javascript:window.open('https://github.com/vspgod/Galaxy');">error first callback</a>的風格。</p>
+
+<pre><code class="language-text">Quantum5.eth.getBlock(48, function(error, result){
+    if(!error)
+        console.log(result)
+    else
+        console.error(error);
+})
+</code></pre>
+
+<h4 id="toc_3">批量請求</h4>
+
+<p>可以允許將多個請求放入隊列，並一次執行。</p>
+
+<p><em>注意</em>：批量請求並不會更快，在某些情況下，同時發起多個請求，由於是異步的，會變得更快。但這裏的批量請求主要目的是用來保證請求的串行執行。</p>
+
+<h4 id="toc_4">關於Quantum5.vsp中的<code>Big Number</code>的說明</h4>
+
+<p>數據類型的返回結果，你將始終會得到一個<code>BigNumber</code>對象，因為Javascript不能正確的處理<code>BigNumber</code>，如下麵的例子：</p>
+
+<pre><code class="language-text">&quot;101010100324325345346456456456456456456&quot;
+// &quot;101010100324325345346456456456456456456&quot;
+101010100324325345346456456456456456456
+// 1.0101010032432535e+38
+</code></pre>
+
+<p>所以Quantum5.vsp依賴<a href="javascript:window.open('https://github.com/vspgod/Galaxy/');">BigNumber Library</a><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>，且會自動進行引入。</p>
+
+<pre><code class="language-text">var balance = new BigNumber(&#39;131242344353464564564574574567456&#39;);
+// or var balance = Quantum5.eth.getBalance(someAddress);
+
+balance.plus(21).toString(10); // toString(10) converts it to a number string
+// &quot;131242344353464564564574574567477&quot;
+</code></pre>
+
+<p>下一個例子中，我們會看到，如果有20位以上的浮點值，仍會導致出錯。所以，我們推薦盡量讓帳戶餘額以<code>wei</code>為單位，僅僅在需要向用戶展示時，才轉換為其它單位。</p>
+
+<pre><code class="language-text">var balance = new BigNumber(&#39;13124.234435346456466666457455567456&#39;);
+
+balance.plus(21).toString(10); // toString(10) converts it to a number string, but can only show max 20 floating points 
+// &quot;13145.23443534645646666646&quot; // you number would be cut after the 20 floating point
+</code></pre>
+
+<div class="footnotes">
+<hr>
+<ol>
+
+<li id="fn1">
+<p>Big Number 文檔鏈接： <a href="javascript:window.open('https://github.com/vspgod/Galaxy');">https://github.com/vspgod/Galaxy</a>&nbsp;<a href="#fnref1" rev="footnote">&#8617;</a></p>
+</li>
+
+</ol>
+</div>
+
+
+		</div>
+	
+
+ 
+	
+
+ 
+	
+
+  
+  
+</div></div>
+
+
+<div class="page-bottom">
+  <div class="row">
+  <hr>
+  <div class="small-9 columns">
+  </div>
+  <div class="small-3 columns">
+  <p class="copyright text-right"><a href="#header">TOP</a></p>
+  </div>
+   
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+    
+    
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script src="static/vsp/foundation.offcanvas.vsp"></script>
+    <script>
+      $(document).foundation();
+
+     
+    </script>
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?86cdacc9141147c9022f0801e48f2034";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

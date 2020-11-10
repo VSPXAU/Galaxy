@@ -1,0 +1,2474 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+  
+  Quantum5.vsp API 中文文檔 - Quantum5.vsp API 中文文檔
+  
+  </title>
+ <meta name="description" content="Quantum的Quantum5.vsp的API參考文檔中文版">
+ 
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs.css">
+
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+    <script src="static/vsp/highlight.pack.vsp"></script>
+    <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <!-- 增加google ad -->
+    <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6188337887319489",
+        enable_page_level_ads: true
+      });
+    </script>
+    <script>hlvsp.initHighlightingOnLoad();</script>
+  </head>
+  <body class="antialiased hide-extras">
+
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+<div id="header">
+    <h1><a href="index.html">Quantum5.vsp API 中文文檔</a>   <a href="index1.html" style="float: right;color: lightgray;">返回galaxy</a></h1>
+</div>
+
+</nav>
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum5.vsp API 中文文檔</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+      <li><a href="index1.html">回到galaxy</a></li>
+      <li><a href="index.html">主頁</a></li>
+      
+        <li class="divider"></li>
+        <li><label>API</label></li>
+
+          
+            <li><a title="Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）" href="Quantum5-vsp-in-action.html">Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）</a></li>
+          
+            <li><a title="Quantum5.vsp API 中文文檔" href="">Quantum5.vsp API 中文文檔</a></li>
+          
+            <li><a title="Quantum5.vsp API 基本" href="入門說明.html">Quantum5.vsp API 基本</a></li>
+          
+
+      
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+        <section id="main-content" role="main" class="scroll-container">
+
+          <div class="row">
+            <div class="large-3 medium-3 columns">
+              <div class="hide-for-small">
+                <div class="sidebar">
+                <nav>
+                  <ul id="side-nav" class="side-nav">
+
+                    
+                      <li class="side-title"><span>API</span></li>
+                        
+                          <li><a title="Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）" href="Quantum5-vsp-in-action.html">Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）</a></li>
+                        
+                          <li><a title="Quantum5.vsp API 中文文檔" href="">Quantum5.vsp API 中文文檔</a></li>
+                        
+                          <li><a title="Quantum5.vsp API 基本" href="入門說明.html">Quantum5.vsp API 基本</a></li>
+                        
+
+                    
+                  </ul>
+                </nav>
+                </div>
+              </div>
+            </div>
+            <div class="large-9 medium-9 columns">
+ <div class="markdown-body">
+<h1>Quantum5.vsp API 中文文檔</h1>
+
+<ul>
+<li>
+<a href="#toc_0">Quantum5</a>
+<ul>
+<li>
+<a href="#toc_1">Quantum5.version.api</a>
+</li>
+<li>
+<a href="#toc_2">Quantum5.version.node</a>
+</li>
+<li>
+<a href="#toc_3">Quantum5.version.network</a>
+</li>
+<li>
+<a href="#toc_4">Quantum5.version.ethereum</a>
+</li>
+<li>
+<a href="#toc_5">Quantum5.version.whisper</a>
+</li>
+<li>
+<a href="#toc_6">Quantum5.isConnected</a>
+</li>
+<li>
+<a href="#toc_7">Quantum5.setProvider</a>
+</li>
+<li>
+<a href="#toc_8">Quantum5.currentProvider</a>
+</li>
+<li>
+<a href="#toc_9">Quantum5.reset</a>
+</li>
+<li>
+<a href="#toc_10">Quantum5.sha3</a>
+</li>
+<li>
+<a href="#toc_11">Quantum5.toHex</a>
+</li>
+<li>
+<a href="#toc_12">Quantum5.toAscii</a>
+</li>
+<li>
+<a href="#toc_13">Quantum5.fromAscii</a>
+</li>
+<li>
+<a href="#toc_14">Quantum5.toDecimal</a>
+</li>
+<li>
+<a href="#toc_15">Quantum5.fromDecimal</a>
+</li>
+<li>
+<a href="#toc_16">Quantum5.fromWei</a>
+</li>
+<li>
+<a href="#toc_17">Quantum5.toWei</a>
+</li>
+<li>
+<a href="#toc_18">Quantum5.toBigNumber</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_19">Quantum5.net</a>
+<ul>
+<li>
+<a href="#toc_20">Quantum5.net.listening</a>
+</li>
+<li>
+<a href="#toc_21">Quantum5.net.peerCount</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_22">Quantum5.eth</a>
+<ul>
+<li>
+<a href="#toc_23">Quantum5.eth.defaultAccount</a>
+</li>
+<li>
+<a href="#toc_24">Quantum5.eth.defaultBlock</a>
+</li>
+<li>
+<a href="#toc_25">Quantum5.eth.syncing</a>
+</li>
+<li>
+<a href="#toc_26">Quantum5.eth.isSyncing</a>
+</li>
+<li>
+<a href="#toc_27">Quantum5.eth.coinbase</a>
+</li>
+<li>
+<a href="#toc_28">Quantum5.eth.mining</a>
+</li>
+<li>
+<a href="#toc_29">Quantum5.eth.hashrate</a>
+</li>
+<li>
+<a href="#toc_30">Quantum5.eth.gasPrice</a>
+</li>
+<li>
+<a href="#toc_31">Quantum5.eth.accounts</a>
+</li>
+<li>
+<a href="#toc_32">Quantum5.eth.blockNumber</a>
+</li>
+<li>
+<a href="#toc_33">Quantum5.eth.register</a>
+</li>
+<li>
+<a href="#toc_34">Quantum5.eth.unRegister</a>
+</li>
+<li>
+<a href="#toc_35">Quantum5.eth.getBalance</a>
+</li>
+<li>
+<a href="#toc_36">Quantum5.eth.getStorageAt</a>
+</li>
+<li>
+<a href="#toc_37">Quantum5.eth.getCode</a>
+</li>
+<li>
+<a href="#toc_38">Quantum5.eth.getBlock</a>
+</li>
+<li>
+<a href="#toc_39">Quantum5.eth.getBlockTransactionCount</a>
+</li>
+<li>
+<a href="#toc_40">Quantum5.eth.getUncle</a>
+</li>
+<li>
+<a href="#toc_41">Quantum5.eth.getTransaction</a>
+</li>
+<li>
+<a href="#toc_42">Quantum5.eth.getTransactionFromBlock</a>
+</li>
+<li>
+<a href="#toc_43">Quantum5.eth.getTransactionReceipt</a>
+</li>
+<li>
+<a href="#toc_44">Quantum5.eth.getTransactionCount</a>
+</li>
+<li>
+<a href="#toc_45">Quantum5.eth.sendTransaction</a>
+</li>
+<li>
+<a href="#toc_46">Quantum5.eth.sendRawTransaction</a>
+</li>
+<li>
+<a href="#toc_47">Quantum5.eth.sign</a>
+</li>
+<li>
+<a href="#toc_48">Quantum5.eth.call</a>
+</li>
+<li>
+<a href="#toc_49">Quantum5.eth.estimateGas</a>
+</li>
+<li>
+<a href="#toc_50">Quantum5.eth.filter</a>
+</li>
+<li>
+<a href="#toc_51">Quantum5.eth.contract</a>
+<ul>
+<li>
+<a href="#toc_52">合約對象的方法</a>
+</li>
+<li>
+<a href="#toc_53">合約對象的事件</a>
+</li>
+<li>
+<a href="#toc_54">合約 allEvents</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_55">Quantum5.eth.getCompilers</a>
+</li>
+<li>
+<a href="#toc_56">Quantum5.eth.compile.solidity</a>
+</li>
+<li>
+<a href="#toc_57">Quantum5.eth.compile.lll</a>
+</li>
+<li>
+<a href="#toc_58">Quantum5.eth.compile.serpent</a>
+</li>
+<li>
+<a href="#toc_59">Quantum5.eth.namereg</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_60">Quantum5.db</a>
+<ul>
+<li>
+<a href="#toc_61">Quantum5.db.putString</a>
+</li>
+<li>
+<a href="#toc_62">Quantum5.db.getString</a>
+</li>
+<li>
+<a href="#toc_63">Quantum5.db.putHex</a>
+</li>
+<li>
+<a href="#toc_64">Quantum5.db.getHex</a>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h1 id="toc_0">Quantum5</h1>
+
+<p><code>Quantum5</code>對象提供了所有方法。</p>
+
+<p>示例:</p>
+
+<pre><code class="language-text">//初始化過程
+var Quantum5 = require(&#39;Quantum5&#39;);
+
+if (typeof Quantum5 !== &#39;undefined&#39;) {
+  Quantum5 = new Quantum5(Quantum5.currentProvider);
+} else {
+  // set the provider you want from Quantum5.providers
+  Quantum5 = new Quantum5(new Quantum5.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+}
+</code></pre>
+
+<h2 id="toc_1">Quantum5.version.api</h2>
+
+<p>Quantum5.version.api</p>
+
+<p>返回值：</p>
+
+<p><code>String</code> - Quantumvsp的api版本</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">//省略初始化過程
+var version = Quantum5.version.api;
+console.log(version);
+
+$ node test.vsp
+0.18.2
+</code></pre>
+
+<h2 id="toc_2">Quantum5.version.node</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.verison.node</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.version.getNode(callback(error, result){ ... })</p>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 客戶端或節點的版本信息</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">//省略初始化過程
+var version = Quantum5.version.node;
+console.log(version);
+
+$ node test.vsp
+Ethereumvsp TestRPC/v3.0.3/ethereum-vsp
+</code></pre>
+
+<h2 id="toc_3">Quantum5.version.network</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.version.network</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.version.getNetwork(callback(error, result){ ... })</p>
+
+<p>返回值:</p>
+
+<p><code>String</code> - 網絡協議版本</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">//省略初始化過程
+var version = Quantum5.version.network;
+console.log(version);
+
+$ node test.vsp
+1488546587563
+</code></pre>
+
+<h2 id="toc_4">Quantum5.version.ethereum</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.version.ethereum</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.version.getEthereum(callback(error, result){ ... })</p>
+
+<p>返回值：</p>
+
+<p><code>String</code> - Quantum的協議版本</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">//省略初始化過程
+var version = Quantum5.version.ethereum;
+console.log(version);
+
+$ node test.vsp
+60
+</code></pre>
+
+<p>注意：<code>Ethereumvsp testRPC</code>客戶端不支持這個命令，報錯<code>Error: Error: RPC method eth_protocolVersion not supported.<br>
+</code></p>
+
+<h2 id="toc_5">Quantum5.version.whisper</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.version.whisper</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.version.getWhisper(callback(error, result){ ... })</p>
+
+<p>返回值：</p>
+
+<p><code>String</code> - <code>whisper</code>協議的版本</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">//省略初始化過程
+var version = Quantum5.version.whisper;
+console.log(version);
+
+$ node test.vsp
+20
+</code></pre>
+
+<p>注意：<code>Ethereumvsp testRPC</code>客戶端不支持這個命令，報錯<code>Error: Error: RPC method shh_version not supported.</code></p>
+
+<h2 id="toc_6">Quantum5.isConnected</h2>
+
+<p>Quantum5.isConnected</p>
+
+<p>可以用來檢查到節點的連接是否存在（connection to node exist）。</p>
+
+<p>參數：</p>
+
+<p>無</p>
+
+<p>返回值：</p>
+
+<p>Boolean</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">//省略初始化過程
+var connected = Quantum5.isConnected();
+if(!connected){
+  console.log(&quot;node not connected!&quot;);
+}else{
+  console.log(&quot;node connected&quot;);
+}
+</code></pre>
+
+<h2 id="toc_7">Quantum5.setProvider</h2>
+
+<p>Quantum5.setProvider</p>
+
+<p>設置<code>Provider</code></p>
+
+<p>參數：</p>
+
+<p>無</p>
+
+<p>返回值：</p>
+
+<p>undefined</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">Quantum5.setProvider(new Quantum5.providers.HttpProvider(&#39;http://localhost:8545&#39;));
+</code></pre>
+
+<h2 id="toc_8">Quantum5.currentProvider</h2>
+
+<p>Quantum5.currentProvider</p>
+
+<p>如果已經設置了<code>Provider</code>，則返回當前的<code>Provider</code>。這個方法可以用來檢查在使用<code>mist</code>瀏覽器等情況下已經設置過<code>Provider</code>，避免重複設置的情況。</p>
+
+<p>返回值：</p>
+
+<p>Object - null 或 已經設置的<code>Provider</code>。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">if(!Quantum5.currentProvider)
+    Quantum5.setProvider(new Quantum5.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+</code></pre>
+
+<h2 id="toc_9">Quantum5.reset</h2>
+
+<p>Quantum5.reset</p>
+
+<p>用來重置<code>Quantum5</code>的狀態。重置除了<code>manager</code>以外的其它所有東西。卸載<code>filter</code>，停止狀態輪詢。</p>
+
+<p>參數：</p>
+
+<ol>
+<li>Boolean - 如果設置為<code>true</code>，將會卸載所有的<code>filter</code>，但會保留<code>Quantum5.eth.isSyncing()</code>的狀態輪詢。</li>
+</ol>
+
+<p>返回值：</p>
+
+<p>undefined</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">//省略初始化過程
+console.log(&quot;reseting ... &quot;);
+Quantum5.reset();
+console.log(&quot;is connected:&quot; + Quantum5.isConnected());
+
+$ node test.vsp
+reseting ...
+is connected:true
+</code></pre>
+
+<h2 id="toc_10">Quantum5.sha3</h2>
+
+<p>Quantum5.sha3(string, options)</p>
+
+<p>參數：</p>
+
+<ol>
+<li><code>String</code> - 傳入的需要使用<code>Keccak-256 SHA3</code>算法進行哈希運算的字符串。</li>
+<li><code>Object</code> - 可選項設置。如果要解析的是<code>hex</code>格式的十六進製字符串。需要設置<code>encoding</code>為<code>hex</code>。因為vsp中會默認忽略<code>0x</code>。</li>
+</ol>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 使用<code>Keccak-256 SHA3</code>算法哈希過的結果。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">//省略初始化過程
+var hash = Quantum5.sha3(&quot;Some string to be hashed&quot;);
+console.log(hash); 
+var hashOfHash = Quantum5.sha3(hash, {encoding: &#39;hex&#39;});
+console.log(hashOfHash); 
+</code></pre>
+
+<h2 id="toc_11">Quantum5.toHex</h2>
+
+<p>Quantum5.toHex</p>
+
+<p>將任何值轉為<code>HEX</code>。</p>
+
+<p>參數：</p>
+
+<ol>
+<li><code>String|Number|Object|Array|BigNumber</code> - 需要轉化為<code>HEX</code>的值。如果是一個對象或數組類型，將會先用<code>vspON.stringify</code><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>進行轉換成字符串。如果傳入的是<code>BigNumber</code><sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup>，則將得到對應的<code>Number</code>的<code>HEX</code>。</li>
+</ol>
+
+<p>示例：</p>
+
+<pre><code class="language-text">//初始化基本對象
+var Quantum5 = require(&#39;Quantum5&#39;);
+var Quantum5 = new Quantum5(new Quantum5.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+var BigNumber = require(&#39;bignumber.vsp&#39;);
+
+var str = &quot;abcABC&quot;;
+var obj = {abc: &#39;ABC&#39;};
+var bignumber = new BigNumber(&#39;12345678901234567890&#39;);
+
+var hstr = Quantum5.toHex(str);
+var hobj = Quantum5.toHex(obj);
+var hbg = Quantum5.toHex(bignumber);
+
+console.log(&quot;Hex of Sring:&quot; + hstr);
+console.log(&quot;Hex of Object:&quot; + hobj);
+console.log(&quot;Hex of BigNumber:&quot; + hbg);
+
+$ node test.vsp
+Hex of Sring:0x616263414243
+Hex of Object:0x7b22616263223a22414243227d
+Hex of BigNumber:0xab54a98ceb1f0ad2
+</code></pre>
+
+<h2 id="toc_12">Quantum5.toAscii</h2>
+
+<p>Quantum5.toAscii(hexString)</p>
+
+<p>將<code>HEX</code>字符串轉為<code>ASCII</code><sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>字符串</p>
+
+<p>參數：</p>
+
+<ol>
+<li><code>String</code> - 十六進製字符串。</li>
+</ol>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 給定十六進製字符串對應的<code>ASCII</code>碼值。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var str = Quantum5.toAscii(&quot;0x657468657265756d000000000000000000000000000000000000000000000000&quot;);
+console.log(str); // &quot;ethereum&quot;
+</code></pre>
+
+<h2 id="toc_13">Quantum5.fromAscii</h2>
+
+<p>Quantum5.fromAscii</p>
+
+<p>將任何的<code>ASCII</code>碼字符串轉為<code>HEX</code>字符串。</p>
+
+<p>參數：</p>
+
+<ol>
+<li><code>String</code> - <code>ASCII</code>碼字符串</li>
+<li><code>Number</code> - 返回的字符串字節大小，不夠長會自動填充。</li>
+</ol>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 轉換後的<code>HEX</code>字符串。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var str = Quantum5.fromAscii(&#39;ethereum&#39;);
+console.log(str); // &quot;0x657468657265756d&quot;
+
+var str2 = Quantum5.fromAscii(&#39;ethereum&#39;, 32);
+console.log(str2); // &quot;0x657468657265756d000000000000000000000000000000000000000000000000&quot;
+
+$ node test.vsp
+0x657468657265756d
+0x657468657265756d
+</code></pre>
+
+<p>備注： 填充<code>padding</code>功能好像不可用<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup>。</p>
+
+<h2 id="toc_14">Quantum5.toDecimal</h2>
+
+<p>Quantum5.toDecimal</p>
+
+<p>將一個十六進製轉為一個十進製的數字</p>
+
+<p>參數：</p>
+
+<ol>
+<li><code>String</code> - 十六進製字符串</li>
+</ol>
+
+<p>返回：</p>
+
+<p><code>Number</code> - 傳入字符串所代表的十六進製值。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var number = Quantum5.toDecimal(&#39;0x15&#39;);
+console.log(number); // 21
+</code></pre>
+
+<h2 id="toc_15">Quantum5.fromDecimal</h2>
+
+<p>Quantum5.fromDecimal</p>
+
+<p>將一個數字，或者字符串形式的數字轉為一個十六進製串。</p>
+
+<p>參數：</p>
+
+<ol>
+<li><code>Number|String</code> - 數字</li>
+</ol>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 給定數字對應的十六進製表示。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var value = Quantum5.fromDecimal(&#39;21&#39;);
+console.log(value); // &quot;0x15&quot;
+</code></pre>
+
+<h2 id="toc_16">Quantum5.fromWei</h2>
+
+<p>Quantum5.fromWei(number, 單位)</p>
+
+<p>Quantum貨幣單位之間的轉換。將以<code>wei</code>為單位的數量，轉為下述的單位，可取值如下：</p>
+
+<ul>
+<li>kwei/ada</li>
+<li>mwei/babbage</li>
+<li>gwei/shannon</li>
+<li>szabo</li>
+<li>finney</li>
+<li>ether</li>
+<li>kether/grand/einstein</li>
+<li>mether</li>
+<li>gether</li>
+<li>tether</li>
+</ul>
+
+<p>參數：</p>
+
+<ol>
+<li><code>Number|String|BigNumber</code> - 數字或<code>BigNumber</code>。</li>
+<li><code>String</code> - 單位字符串</li>
+</ol>
+
+<p>返回值：</p>
+
+<p><code>String|BigNumber</code> - 根據傳入參數的不同，分別是字符串形式的字符串，或者是<code>BigNumber</code>。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var value = Quantum5.fromWei(&#39;21000000000000&#39;, &#39;finney&#39;);
+console.log(value); // &quot;0.021&quot;
+</code></pre>
+
+<h2 id="toc_17">Quantum5.toWei</h2>
+
+<p>Quantum5.toWei(number, 單位)</p>
+
+<p>按對應貨幣轉為以<code>wei</code>為單位。可選擇的單位如下：</p>
+
+<ul>
+<li>kwei/ada</li>
+<li>mwei/babbage</li>
+<li>gwei/shannon</li>
+<li>szabo</li>
+<li>finney</li>
+<li>ether</li>
+<li>kether/grand/einstein</li>
+<li>mether</li>
+<li>gether</li>
+<li>tether</li>
+</ul>
+
+<p>參數：</p>
+
+<ol>
+<li><code>Number|String|BigNumber</code> - 數字或<code>BigNumber</code></li>
+<li><code>String</code> - 字符串單位</li>
+</ol>
+
+<p>返回值：</p>
+
+<p><code>String|BigNumber</code> - 根據傳入參數的不同，分別是字符串形式的字符串，或者是<code>BigNumber</code>。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var value = Quantum5.toWei(&#39;1&#39;, &#39;ether&#39;);
+console.log(value); // &quot;1000000000000000000&quot;
+</code></pre>
+
+<h2 id="toc_18">Quantum5.toBigNumber</h2>
+
+<p>Quantum5.toBigNumber(數字或十六進製字符串)</p>
+
+<p>將給定的數字或十六進製字符串轉為<code>BigNumber</code><sup id="fnref5"><a href="#fn5" rel="footnote">5</a></sup>。</p>
+
+<p>參數：</p>
+
+<ol>
+<li><code>Number|String</code> - 數字或十六進製格式的數字</li>
+</ol>
+
+<p>返回值：</p>
+
+<p><code>BigNumber</code> - <code>BigNumber</code>的實例</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var value = Quantum5.toBigNumber(&#39;200000000000000000000001&#39;);
+console.log(value); // instanceOf BigNumber
+console.log(value.toNumber()); // 2.0000000000000002e+23
+console.log(value.toString(10)); // &#39;200000000000000000000001&#39;
+</code></pre>
+
+<h1 id="toc_19">Quantum5.net</h1>
+
+<h2 id="toc_20">Quantum5.net.listening</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.net.listening</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.net.getListener(callback(error, result){ ... })</p>
+
+<p>此屬性是隻讀的，表示當前連接的節點，是否正在<code>listen</code>網絡連接與否。<code>listen</code>可以理解為接收。</p>
+
+<p>返回值：</p>
+
+<p><code>Boolean</code> - <code>true</code>表示連接上的節點正在<code>listen</code>網絡請求，否則返回<code>false</code>。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var listening = Quantum5.net.listening;
+console.log(&quot;client listening: &quot; + listening);
+
+$ node test.vsp
+client listening: true
+</code></pre>
+
+<p>備注： 如果關閉我們要連接的測試節點，會報錯<code>Error: Invalid vspON RPC response: undefined</code>。所以這個方法返回的是我們連上節點的<code>listen</code>狀態。</p>
+
+<h2 id="toc_21">Quantum5.net.peerCount</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.net.peerCount</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.net.getPeerCount(callback(error, result){ ... })</p>
+
+<p>屬性是隻讀的，返回連接節點已連上的其它Quantum節點的數量。</p>
+
+<p>返回值：</p>
+
+<p><code>Number</code> - 連接節點連上的其它Quantum節點的數量</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var peerCount = Quantum5.net.peerCount;
+console.log(&quot;Peer count: &quot; + peerCount); 
+
+$ node test.vsp
+Peer count: 0
+</code></pre>
+
+<h1 id="toc_22">Quantum5.eth</h1>
+
+<p>包含Quantum量子元相關的方法</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var eth = Quantum5.eth;
+</code></pre>
+
+<h2 id="toc_23">Quantum5.eth.defaultAccount</h2>
+
+<p>Quantum5.eth.defaultAccount</p>
+
+<p>默認的地址在使用下述方法時使用，你也可以選擇通過指定<code>from</code>屬性，來覆蓋這個默認設置。</p>
+
+<ul>
+<li>Quantum5.eth.sendTransaction()</li>
+<li>Quantum5.eth.call()</li>
+</ul>
+
+<p>默認值為<code>undefined</code>，20字節大小，任何你有私匙的你自己的地址。</p>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 20字節的當前設置的默認地址。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">console.log(&quot;Current default: &quot; + Quantum5.eth.defaultAccount);
+Quantum5.eth.defaultAccount = &#39;0x8888f1f195afa192cfee860698584c030f4c9db1&#39;;
+console.log(&quot;Current default: &quot; + Quantum5.eth.defaultAccount);
+
+$ node test.vsp
+Current default: undefined
+Current default: 0x8888f1f195afa192cfee860698584c030f4c9db1
+</code></pre>
+
+<h2 id="toc_24">Quantum5.eth.defaultBlock</h2>
+
+<p>Quantum5.eth.defaultBlock</p>
+
+<p>使用下述方法時，會使用默認塊設置，你也可以通過傳入<code>defaultBlock</code>來覆蓋默認配置。</p>
+
+<ul>
+<li>Quantum5.eth.getBalance()</li>
+<li>Quantum5.eth.getCode()</li>
+<li>Quantum5.eth.getTransactionCount()</li>
+<li>Quantum5.eth.getStorageAt()</li>
+<li>Quantum5.eth.call()</li>
+<li>contract.myMethod.call()</li>
+<li>contract.myMethod.estimateGas()</li>
+</ul>
+
+<p>可選的塊參數，可能下述值中的一個：</p>
+
+<ul>
+<li><code>Number</code> - 區塊號</li>
+<li><code>String</code> - <code>earliest</code>，創世塊。</li>
+<li><code>String</code> - <code>latest</code>，最近剛出的最新塊，當前的區塊頭。</li>
+<li><code>String</code> - <code>pending</code>，當前正在<code>mine</code>的區塊，包含正在打包的交易。</li>
+</ul>
+
+<p>默認值是<code>latest</code></p>
+
+<p>返回值：</p>
+
+<p><code>Number|String</code> - 默認要查狀態的區塊號。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">console.log(&quot;defaultBlock: &quot; + Quantum5.eth.defaultBlock);
+Quantum5.eth.defaultBlock = 231;
+console.log(&quot;defaultBlock: &quot; + Quantum5.eth.defaultBlock);
+
+$ node test.vsp
+defaultBlock: latest
+defaultBlock: 231
+</code></pre>
+
+<h2 id="toc_25">Quantum5.eth.syncing</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.eth.syncing</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.eth.getSyncing(callback(error, result){ ... })</p>
+
+<p>這個屬性是隻讀的。如果正在同步，返回同步對象。否則返回<code>false</code>。</p>
+
+<p>返回值：</p>
+
+<p><code>Object|Boolean</code> - 如果正在同步，返回含下麵屬性的同步對象。否則返回<code>false</code>。</p>
+
+<p>返回值：</p>
+
+<ul>
+<li><code>startingBlock</code>：<code>Number</code> - 同步開始區塊號</li>
+<li><code>currentBlock</code>: <code>Number</code> - 節點當前正在同步的區塊號</li>
+<li><code>highestBlock</code>: <code>Number</code> - 預估要同步到的區塊</li>
+</ul>
+
+<pre><code class="language-text">var sync = Quantum5.eth.syncing;
+console.log(sync);
+
+$ node test.vsp
+false
+//正在sync的情況
+$ node test.vsp
+{
+   startingBlock: 300,
+   currentBlock: 312,
+   highestBlock: 512
+}
+</code></pre>
+
+<h2 id="toc_26">Quantum5.eth.isSyncing</h2>
+
+<p>Quantum5.eth.isSyncing(callback)</p>
+
+<p>提供同步開始，更新，停止的回調函數方法。</p>
+
+<p>返回值：</p>
+
+<p><code>Object</code> - 一個<code>syncing</code>對象，有下述方法：</p>
+
+<ul>
+<li><code>syncing.addCallback()</code>: 增加另一個回調函數，在節點開始或停止調用時進行調用。</li>
+<li><code>syncing.stopWatching()</code>: 停止同步回調。</li>
+</ul>
+
+<p>回調返回值：</p>
+
+<ul>
+<li><code>Boolean</code> - 同步開始時，此值為<code>true</code>，同步停止時此回調值為<code>false</code>。</li>
+<li><code>Object</code> - 當正在同步時，會返回同步對象。
+<ul>
+<li><code>startingBlock</code>：<code>Number</code> - 同步開始區塊號</li>
+<li><code>currentBlock</code>: <code>Number</code> - 節點當前正在同步的區塊號</li>
+<li><code>highestBlock</code>: <code>Number</code> - 預估要同步到的區塊</li>
+</ul></li>
+</ul>
+
+<p>示例：</p>
+
+<pre><code class="language-text">//初始化基本對象
+var Quantum5 = require(&#39;Quantum5&#39;);
+var Quantum5 = new Quantum5(new Quantum5.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+var BigNumber = require(&#39;bignumber.vsp&#39;);
+
+
+Quantum5.eth.isSyncing(function(error, sync){
+    if(!error) {
+        // stop all app activity
+        if(sync === true) {
+           // we use `true`, so it stops all filters, but not the Quantum5.eth.syncing polling
+           Quantum5.reset(true);
+
+        // show sync info
+        } else if(sync) {
+           console.log(sync.currentBlock);
+
+        // re-gain app operation
+        } else {
+            // run your app init function...
+        }
+    }
+});
+</code></pre>
+
+<h2 id="toc_27">Quantum5.eth.coinbase</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.eth.coinbase</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.eth.getCoinbase(callback(error, result){ ... })</p>
+
+<p>隻讀屬性，節點配置的，如果挖礦成功獎勵的地址。</p>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 節點的挖礦獎勵地址。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var coinbase = Quantum5.eth.coinbase;
+console.log(coinbase); // &quot;0x407d73d8a49eeb85d32cf465507dd71d507100c1&quot;
+</code></pre>
+
+<h2 id="toc_28">Quantum5.eth.mining</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.eth.mining</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.eth.getMining(callback(error, result){ ... })</p>
+
+<p>屬性隻讀，表示該節點是否配置挖礦。</p>
+
+<p>返回值：</p>
+
+<p><code>Boolean</code> - <code>true</code> 表示配置挖礦，否則表示沒有。</p>
+
+<pre><code class="language-text">var mining = Quantum5.eth.mining;
+console.log(mining); // true or false
+</code></pre>
+
+<h2 id="toc_29">Quantum5.eth.hashrate</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.eth.hashrate</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.eth.getHashrate(callback(error, result){ ... })</p>
+
+<p>屬性隻讀，表示的是當前的每秒的哈希難度。</p>
+
+<p>返回值：</p>
+
+<p><code>Number</code> - 每秒的哈希數</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var hashrate = Quantum5.eth.hashrate;
+console.log(hashrate);
+</code></pre>
+
+<h2 id="toc_30">Quantum5.eth.gasPrice</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.eth.gasPrice</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.eth.getGasPrice(callback(error, result){ ... })</p>
+
+<p>屬性是隻讀的，返回當前的gas價格。這個值由最近幾個塊的gas價格的中值<sup id="fnref6"><a href="#fn6" rel="footnote">6</a></sup>決定。</p>
+
+<p>返回值：</p>
+
+<p><code>BigNumber</code> - 當前的gas價格的<code>BigNumber</code>實例，以<code>wei</code>為單位。</p>
+
+<pre><code class="language-text">var gasPrice = Quantum5.eth.gasPrice;
+console.log(gasPrice.toString(10)); // &quot;10000000000000&quot;
+</code></pre>
+
+<h2 id="toc_31">Quantum5.eth.accounts</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.eth.accounts</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.eth.getAccounts(callback(error, result){ ... })</p>
+
+<p>隻讀屬性，返回當前節點持有的帳戶列表。</p>
+
+<p>返回值：</p>
+
+<p><code>Array</code> - 節點持有的帳戶列表。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var accounts = Quantum5.eth.accounts;
+console.log(accounts); 
+</code></pre>
+
+<h2 id="toc_32">Quantum5.eth.blockNumber</h2>
+
+<p>同步方式：</p>
+
+<p>Quantum5.eth.blockNumber</p>
+
+<p>異步方式：</p>
+
+<p>Quantum5.eth.getBlockNumber(callback(error, result){ ... })</p>
+
+<p>屬性隻讀，返回當前區塊號。</p>
+
+<pre><code class="language-text">var number = Quantum5.eth.blockNumber;
+console.log(number); // 2744
+</code></pre>
+
+<h2 id="toc_33">Quantum5.eth.register</h2>
+
+<p>Quantum5.eth.register(addressHexString [, callback])</p>
+
+<p>（暫未實現）將給定地址注冊到<code>Quantum5.eth.accounts</code>。這將允許無私匙的帳戶，如合約被關聯到有私匙的帳戶，如合約錢包。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 要注冊的地址。</li>
+<li><code>Function</code> -（可選）回調函數，用於支持異步的方式執行<sup id="fnref7"><a href="#fn7" rel="footnote">7</a></sup>。</li>
+</ul>
+
+<p>返回值：</p>
+
+<p>待確定</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">Quantum5.eth.register(&quot;0x407d73d8a49eeb85d32cf465507dd71d507100ca&quot;)
+</code></pre>
+
+<h2 id="toc_34">Quantum5.eth.unRegister</h2>
+
+<p>異步方式</p>
+
+<p>Quantum5.eth.unRegister(addressHexString [, callback])</p>
+
+<p>（暫未實現）取消注冊給定地址</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 要取消注冊的地址</li>
+<li><code>Function</code> - （可選） 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p>待確定</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">Quantum5.eth.unRegister(&quot;0x407d73d8a49eeb85d32cf465507dd71d507100ca&quot;)
+</code></pre>
+
+<h2 id="toc_35">Quantum5.eth.getBalance</h2>
+
+<p>Quantum5.eth.getBalance(addressHexString [, defaultBlock] [, callback])</p>
+
+<p>獲得在指定區塊時給定地址的餘額。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 要查詢餘額的地址。</li>
+<li><code>Number|String</code> -（可選）如果不設置此值使用<code>Quantum5.eth.defaultBlock</code>設定的塊，否則使用指定的塊。</li>
+<li><code>Funciton</code> - （可選）回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 一個包含給定地址的當前餘額的<code>BigNumber</code>實例，單位為<code>wei</code>。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var balance = Quantum5.eth.getBalance(&quot;0x407d73d8a49eeb85d32cf465507dd71d507100c1&quot;);
+console.log(balance); // instanceof BigNumber
+console.log(balance.toString(10)); // &#39;1000000000000&#39;
+console.log(balance.toNumber()); // 1000000000000
+</code></pre>
+
+<h2 id="toc_36">Quantum5.eth.getStorageAt</h2>
+
+<p>Quantum5.eth.getStorageAt(addressHexString, position [, defaultBlock] [, callback])</p>
+
+<p>獲得某個地址指定位置的存儲的狀態值。</p>
+
+<blockquote>
+<p>合約由控製執行的EVM字節碼和用來保存狀態的<code>Storage</code>兩部分組成。<code>Storage</code>在量子元上是以均為32字節的鍵，值對的形式進行存儲<sup id="fnref8"><a href="#fn8" rel="footnote">8</a></sup>。</p>
+</blockquote>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 要獲得存儲的地址。</li>
+<li><code>Number</code> - 要獲得的存儲的序號</li>
+<li><code>Number|String</code> -（可選）如果未傳遞參數，默認使用<code>Quantum5.eth.defaultBlock</code>定義的塊，否則使用指定區塊。</li>
+<li><code>Function</code> - 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 給定位置的存儲值</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var state = Quantum5.eth.getStorageAt(&quot;0x407d73d8a49eeb85d32cf465507dd71d507100c1&quot;, 0);
+console.log(state); // &quot;0x03&quot;
+</code></pre>
+
+<h2 id="toc_37">Quantum5.eth.getCode</h2>
+
+<p>Quantum5.eth.getCode(addressHexString [, defaultBlock] [, callback])</p>
+
+<p>獲取指定地址的代碼</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 要獲得代碼的地址。</li>
+<li><code>Number|String</code> -（可選）如果未傳遞參數，默認使用<code>Quantum5.eth.defaultBlock</code>定義的塊，否則使用指定區塊。</li>
+<li><code>Function</code> - 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 給定地址合約編譯後的字節代碼。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var code = Quantum5.eth.getCode(&quot;0xd5677cf67b5aa051bb40496e68ad359eb97cfbf8&quot;);
+console.log(code); // &quot;0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056&quot;
+</code></pre>
+
+<h2 id="toc_38">Quantum5.eth.getBlock</h2>
+
+<p>Quantum5.eth.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callback])</p>
+
+<p>返回塊號或區塊哈希值所對應的區塊</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>Number|String</code> -（可選）如果未傳遞參數，默認使用<code>Quantum5.eth.defaultBlock</code>定義的塊，否則使用指定區塊。</li>
+<li><code>Boolean</code> -（可選）默認值為<code>false</code>。<code>true</code>會將區塊包含的所有交易作為對象返回。否則隻返回交易的哈希。</li>
+<li><code>Function</code> - 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值 - 區塊對象：</p>
+
+<ul>
+<li><code>Number</code> - 區塊號。當這個區塊處於<code>pending</code>將會返回<code>null</code>。</li>
+<li><code>hash</code> - 字符串，區塊的哈希串。當這個區塊處於<code>pending</code>將會返回<code>null</code>。</li>
+<li><code>parentHash</code> - 字符串，32字節的父區塊的哈希值。</li>
+<li><code>nonce</code> - 字符串，8字節。POW生成的哈希。當這個區塊處於<code>pending</code>將會返回<code>null</code>。</li>
+<li><code>sha3Uncles</code> - 字符串，32字節。叔區塊的哈希值。</li>
+<li><code>logsBloom</code> - 字符串，區塊日誌的布隆過濾器<sup id="fnref9"><a href="#fn9" rel="footnote">9</a></sup>。當這個區塊處於<code>pending</code>將會返回<code>null</code>。</li>
+<li><code>transactionsRoot</code> - 字符串，32字節，區塊的交易前綴樹的根。</li>
+<li><code>stateRoot</code> - 字符串，32字節。區塊的最終狀態前綴樹的根。</li>
+<li><code>miner</code> - 字符串，20字節。這個區塊獲得獎勵的礦工。</li>
+<li><code>difficulty</code> - <code>BigNumber</code>類型。當前塊的難度，整數。</li>
+<li><code>totalDifficulty</code> - <code>BigNumber</code>類型。量子元到當前塊的總難度，整數。</li>
+<li><code>extraData</code> - 字符串。當前塊的<code>extra data</code>字段。</li>
+<li><code>size</code> - <code>Number</code>。當前這個塊的字節大小。</li>
+<li>gasLimit - <code>Number</code>，當前區塊允許使用的最大<code>gas</code>。</li>
+<li><code>gasUsed</code> - 當前區塊累計使用的總的<code>gas</code>。</li>
+<li><code>timestamp</code> - <code>Number</code>。區塊打包時的<code>unix</code>時間戳。</li>
+<li><code>transactions</code> - 數組。交易對象。或者是32字節的交易哈希。</li>
+<li><code>uncles</code> - 數組。叔哈希的數組。</li>
+</ul>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var info = Quantum5.eth.getBlock(3150);
+console.log(info);
+/*
+{
+  &quot;number&quot;: 3,
+  &quot;hash&quot;: &quot;0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46&quot;,
+  &quot;parentHash&quot;: &quot;0x2302e1c0b972d00932deb5dab9eb2982f570597d9d42504c05d9c2147eaf9c88&quot;,
+  &quot;nonce&quot;: &quot;0xfb6e1a62d119228b&quot;,
+  &quot;sha3Uncles&quot;: &quot;0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347&quot;,
+  &quot;logsBloom&quot;: &quot;0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&quot;,
+  &quot;transactionsRoot&quot;: &quot;0x3a1b03875115b79539e5bd33fb00d8f7b7cd61929d5a3c574f507b8acf415bee&quot;,
+  &quot;stateRoot&quot;: &quot;0xf1133199d44695dfa8fd1bcfe424d82854b5cebef75bddd7e40ea94cda515bcb&quot;,
+  &quot;miner&quot;: &quot;0x8888f1f195afa192cfee860698584c030f4c9db1&quot;,
+  &quot;difficulty&quot;: BigNumber,
+  &quot;totalDifficulty&quot;: BigNumber,
+  &quot;size&quot;: 616,
+  &quot;extraData&quot;: &quot;0x&quot;,
+  &quot;gasLimit&quot;: 3141592,
+  &quot;gasUsed&quot;: 21662,
+  &quot;timestamp&quot;: 1429287689,
+  &quot;transactions&quot;: [
+    &quot;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b&quot;
+  ],
+  &quot;uncles&quot;: []
+}
+*/
+</code></pre>
+
+<h2 id="toc_39">Quantum5.eth.getBlockTransactionCount</h2>
+
+<p>Quantum5.eth.getBlockTransactionCount(hashStringOrBlockNumber [, callback])</p>
+
+<p>返回指定區塊的交易數量。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>Number|String</code> -（可選）如果未傳遞參數，默認使用<code>Quantum5.eth.defaultBlock</code>定義的塊，否則使用指定區塊。</li>
+<li><code>Function</code> - 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Nubmer</code> - 給定區塊的交易數量。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var number = Quantum5.eth.getBlockTransactionCount(&quot;0x407d73d8a49eeb85d32cf465507dd71d507100c1&quot;);
+console.log(number); // 1
+</code></pre>
+
+<h2 id="toc_40">Quantum5.eth.getUncle</h2>
+
+<p>Quantum5.eth.getUncle(blockHashStringOrNumber, uncleNumber [, returnTransactionObjects] [, callback])</p>
+
+<p>通過指定叔位置，返回指定叔塊。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>Number|String</code> -（可選）如果未傳遞參數，默認使用<code>Quantum5.eth.defaultBlock</code>定義的塊，否則使用指定區塊。</li>
+<li><code>Number</code> - 叔的序號。</li>
+<li><code>Boolean</code> -（可選）默認值為<code>false</code>。<code>true</code>會將區塊包含的所有交易作為對象返回。否則隻返回交易的哈希。</li>
+<li><code>Function</code> - 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Object</code> - 返回的叔塊。返回值參考<code>Quantum5.eth.getBlock()</code>。</p>
+
+<p>備注： 叔塊沒有自己的交易數據。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var uncle = Quantum5.eth.getUncle(500, 0);
+console.log(uncle); // see Quantum5.eth.getBlock
+</code></pre>
+
+<h2 id="toc_41">Quantum5.eth.getTransaction</h2>
+
+<p>Quantum5.eth.getTransaction(transactionHash [, callback])</p>
+
+<p>返回匹配指定交易哈希值的交易。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 交易的哈希值。</li>
+<li><code>Function</code> - 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Object</code> - 一個交易對象</p>
+
+<ul>
+<li><code>hash</code>: <code>String</code> - 32字節，交易的哈希值。</li>
+<li><code>nonce</code>: <code>Number</code> - 交易的發起者在之前進行過的交易數量。</li>
+<li><code>blockHash</code>: <code>String</code> - 32字節。交易所在區塊的哈希值。當這個區塊處於<code>pending</code>將會返回<code>null</code>。</li>
+<li><code>blockNumber</code>: <code>Number</code> - 交易所在區塊的塊號。當這個區塊處於<code>pending</code>將會返回<code>null</code>。</li>
+<li><code>transactionIndex</code>: <code>Number</code> - 整數。交易在區塊中的序號。當這個區塊處於<code>pending</code>將會返回<code>null</code>。</li>
+<li><code>from</code>: <code>String</code> - 20字節，交易發起者的地址。</li>
+<li><code>to</code>: <code>String</code> - 20字節，交易接收者的地址。當這個區塊處於<code>pending</code>將會返回<code>null</code>。</li>
+<li><code>value</code>: <code>BigNumber</code> - 交易附帶的貨幣量，單位為<code>Wei</code>。</li>
+<li><code>gasPrice</code>: <code>BigNumber</code> - 交易發起者配置的<code>gas</code>價格，單位是<code>wei</code>。</li>
+<li><code>gas</code>: <code>Number</code> - 交易發起者提供的<code>gas</code>。.</li>
+<li><code>input</code>: <code>String</code> - 交易附帶的數據。</li>
+</ul>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var blockNumber = 668;
+var indexOfTransaction = 0
+
+var transaction = Quantum5.eth.getTransaction(blockNumber, indexOfTransaction);
+console.log(transaction);
+/*
+{
+  &quot;hash&quot;: &quot;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b&quot;,
+  &quot;nonce&quot;: 2,
+  &quot;blockHash&quot;: &quot;0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46&quot;,
+  &quot;blockNumber&quot;: 3,
+  &quot;transactionIndex&quot;: 0,
+  &quot;from&quot;: &quot;0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b&quot;,
+  &quot;to&quot;: &quot;0x6295ee1b4f6dd65047762f924ecd367c17eabf8f&quot;,
+  &quot;value&quot;: BigNumber,
+  &quot;gas&quot;: 314159,
+  &quot;gasPrice&quot;: BigNumber,
+  &quot;input&quot;: &quot;0x57cb2fc4&quot;
+}
+*/
+</code></pre>
+
+<h2 id="toc_42">Quantum5.eth.getTransactionFromBlock</h2>
+
+<pre><code class="language-text">getTransactionFromBlock(hashStringOrNumber, indexNumber [, callback])
+</code></pre>
+
+<p>返回指定區塊的指定序號的交易。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 區塊號或哈希。或者是<code>earliest</code>，<code>latest</code>或<code>pending</code>。查看<code>Quantum5.eth.defaultBlock</code>了解可選值。</li>
+<li><code>Number</code> - 交易的序號。</li>
+<li><code>Function</code> - 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Object</code> - 交易對象，詳見<code>Quantum5.eth.getTransaction</code></p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var transaction = Quantum5.eth.getTransactionFromBlock(&#39;0x4534534534&#39;, 2);
+console.log(transaction); // see Quantum5.eth.getTransaction
+</code></pre>
+
+<h2 id="toc_43">Quantum5.eth.getTransactionReceipt</h2>
+
+<p>Quantum5.eth.getTransactionReceipt(hashString [, callback])</p>
+
+<p>通過一個交易哈希，返回一個交易的收據。</p>
+
+<p>備注：處於<code>pending</code>狀態的交易，收據是不可用的。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 交易的哈希</li>
+<li><code>Function</code> - 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Object</code> - 交易的收據對象，如果找不到返回<code>null</code></p>
+
+<ul>
+<li><code>blockHash</code>: <code>String</code> - 32字節，這個交易所在區塊的哈希。</li>
+<li><code>blockNumber</code>: <code>Number</code> - 交易所在區塊的塊號。</li>
+<li><code>transactionHash</code>: <code>String</code> - 32字節，交易的哈希值。</li>
+<li><code>transactionIndex</code>: <code>Number</code> - 交易在區塊裏麵的序號，整數。</li>
+<li><code>from</code>: <code>String</code> - 20字節，交易發送者的地址。</li>
+<li><code>to</code>: <code>String</code> - 20字節，交易接收者的地址。如果是一個合約創建的交易，返回<code>null</code>。</li>
+<li><code>cumulativeGasUsed</code>: <code>Number</code> - 當前交易執行後累計花費的<code>gas</code>總值<sup id="fnref10"><a href="#fn10" rel="footnote">10</a></sup>。</li>
+<li><code>gasUsed</code>: <code>Number</code> - 執行當前這個交易單獨花費的<code>gas</code>。</li>
+<li><code>contractAddress</code>: <code>String</code> - 20字節，創建的合約地址。如果是一個合約創建交易，返回合約地址，其它情況返回<code>null</code>。</li>
+<li><code>logs</code>: <code>Array</code> - 這個交易產生的日誌對象數組。</li>
+</ul>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var receipt = Quantum5.eth.getTransactionReceipt(&#39;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b&#39;);
+console.log(receipt);
+{
+  &quot;transactionHash&quot;: &quot;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b&quot;,
+  &quot;transactionIndex&quot;: 0,
+  &quot;blockHash&quot;: &quot;0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46&quot;,
+  &quot;blockNumber&quot;: 3,
+  &quot;contractAddress&quot;: &quot;0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b&quot;,
+  &quot;cumulativeGasUsed&quot;: 314159,
+  &quot;gasUsed&quot;: 30234,
+  &quot;logs&quot;: [{
+         // logs as returned by getFilterLogs, etc.
+     }, ...]
+}
+</code></pre>
+
+<h2 id="toc_44">Quantum5.eth.getTransactionCount</h2>
+
+<p>Quantum5.eth.getTransactionCount(addressHexString [, defaultBlock] [, callback])</p>
+
+<p>返回指定地址發起的交易數。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 要獲得交易數的地址。</li>
+<li><code>Number|String</code> -（可選）如果未傳遞參數，默認使用<code>Quantum5.eth.defaultBlock</code>定義的塊，否則使用指定區塊。</li>
+<li><code>Function</code> - 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Number</code> - 指定地址發送的交易數量。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var number = Quantum5.eth.getTransactionCount(&quot;0x407d73d8a49eeb85d32cf465507dd71d507100c1&quot;);
+console.log(number); // 1
+</code></pre>
+
+<h2 id="toc_45">Quantum5.eth.sendTransaction</h2>
+
+<p>Quantum5.eth.sendTransaction(transactionObject [, callback])</p>
+
+<p>發送一個交易到網絡。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>Object</code> - 要發送的交易對象。
+<ul>
+<li><code>from</code>: <code>String</code> - 指定的發送者的地址。如果不指定，使用<code>Quantum5.eth.defaultAccount</code>。</li>
+<li><code>to</code>: <code>String</code> - （可選）交易消息的目標地址，如果是合約創建，則不填.</li>
+<li><code>value</code>: <code>Number|String|BigNumber</code> - （可選）交易攜帶的貨幣量，以<code>wei</code>為單位。如果合約創建交易，則為初始的基金。</li>
+<li><code>gas</code>: <code>Number|String|BigNumber</code> - （可選）默認是自動，交易可使用的<code>gas</code>，未使用的<code>gas</code>會退回。</li>
+<li><code>gasPrice</code>: <code>Number|String|BigNumber</code> - （可選）默認是自動確定，交易的<code>gas</code>價格，默認是網絡<code>gas</code>價格的平均值 。</li>
+<li><code>data</code>: <code>String</code> - （可選）或者包含相關數據的字節字符串，如果是合約創建，則是初始化要用到的代碼。</li>
+<li><code>nonce</code>: <code>Number</code> - （可選）整數，使用此值，可以允許你覆蓋你自己的相同<code>nonce</code>的，正在<code>pending</code>中的交易<sup id="fnref11"><a href="#fn11" rel="footnote">11</a></sup>。</li>
+</ul></li>
+<li><code>Function</code> - 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 32字節的交易哈希串。用16進製表示。</p>
+
+<p>如果交易是一個合約創建，請使用<code>Quantum5.eth.getTransactionReceipt()</code>在交易完成後獲取合約的地址。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">// compiled solidity source code using https://chriseth.github.io/cpp-ethereum/
+var code = &quot;603d80600c6000396000f3007c01000000000000000000000000000000000000000000000000000000006000350463c6888fa18114602d57005b6007600435028060005260206000f3&quot;;
+
+Quantum5.eth.sendTransaction({data: code}, function(err, address) {
+  if (!err)
+    console.log(address); // &quot;0x7f9fade1c0d57a7af66ab4ead7c2eb7b11a91385&quot;
+});
+</code></pre>
+
+<h2 id="toc_46">Quantum5.eth.sendRawTransaction</h2>
+
+<p>Quantum5.eth.sendRawTransaction(signedTransactionData [, callback])</p>
+
+<p>發送一個已經簽名的交易。比如可以用下述簽名的例子：<a href="javascript:window.open('https://github.com/SilentCicero/ethereumvsp-accounts');">https://github.com/SilentCicero/ethereumvsp-accounts</a></p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 16進製格式的簽名交易數據。</li>
+<li><code>Function</code> - 回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 32字節的16進製格式的交易哈希串。</p>
+
+<p>如果交易是一個合約創建，請使用<code>Quantum5.eth.getTransactionReceipt()</code>在交易完成後獲取合約的地址。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var Tx = require(&#39;ethereumvsp-tx&#39;);
+var privateKey = new Buffer(&#39;e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109&#39;, &#39;hex&#39;)
+
+var rawTx = {
+  nonce: &#39;0x00&#39;,
+  gasPrice: &#39;0x09184e72a000&#39;, 
+  gasLimit: &#39;0x2710&#39;,
+  to: &#39;0x0000000000000000000000000000000000000000&#39;, 
+  value: &#39;0x00&#39;, 
+  data: &#39;0x7f7465737432000000000000000000000000000000000000000000000000000000600057&#39;
+}
+
+var tx = new Tx(rawTx);
+tx.sign(privateKey);
+
+var serializedTx = tx.serialize();
+
+//console.log(serializedTx.toString(&#39;hex&#39;));
+//0xf889808609184e72a00082271094000000000000000000000000000000000000000080a47f74657374320000000000000000000000000000000000000000000000000000006000571ca08a8bbf888cfa37bbf0bb965423625641fc956967b81d12e23709cead01446075a01ce999b56a8a88504be365442ea61239198e23d1fce7d00fcfc5cd3b44b7215f
+
+Quantum5.eth.sendRawTransaction(serializedTx.toString(&#39;hex&#39;), function(err, hash) {
+  if (!err)
+    console.log(hash); // &quot;0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385&quot;
+});
+</code></pre>
+
+<h2 id="toc_47">Quantum5.eth.sign</h2>
+
+<p>Quantum5.eth.sign(address, dataToSign, [, callback])</p>
+
+<p>使用指定帳戶簽名要發送的數據，帳戶需要處於<code>unlocked</code>狀態。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 簽名使用的地址</li>
+<li><code>String</code> - 要簽名的數據</li>
+<li><code>Function</code> -（可選）回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 簽名後的數據。</p>
+
+<p>返回的值對應的是<code>ECDSA（Elliptic Curve Digital Signature Algorithm）</code><sup id="fnref12"><a href="#fn12" rel="footnote">12</a></sup>簽名後的字符串。</p>
+
+<pre><code class="language-text">r = signature[0:64]
+s = signature[64:128]
+v = signature[128:130]
+</code></pre>
+
+<p>需要注意的是，如果你使用<code>ecrecover</code>，這裏的<code>v</code>值是<code>00</code>或<code>01</code>，所以如果你想使用他們，你需要把這裏的<code>v</code>值轉成整數，再加上<code>27</code>。最終你要用的值將是<code>27</code>或<code>28</code><sup id="fnref13"><a href="#fn13" rel="footnote">13</a></sup>。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var result = Quantum5.eth.sign(&quot;0x135a7de83802408321b74c322f8558db1679ac20&quot;,
+    &quot;0x9dd2c369a187b4e6b9c402f030e50743e619301ea62aa4c0737d4ef7e10a3d49&quot;); // second argument is Quantum5.sha3(&quot;xyz&quot;)
+console.log(result); // &quot;0x30755ed65396facf86c53e6217c52b4daebe72aa4941d89635409de4c9c7f9466d4e9aaec7977f05e923889b33c0d0dd27d7226b6e6f56ce737465c5cfd04be400&quot;
+</code></pre>
+
+<p>備注：如果你使用Quantum的客戶端進行簽名時，它們會在你要簽名的數據前增加前綴<code>\x19Ethereum Signed Message:\n</code><sup id="fnref14"><a href="#fn14" rel="footnote">14</a></sup>，感謝讀者<strong>@劉兵</strong>同學的反饋。</p>
+
+<blockquote>
+<p>eth_sign</p>
+
+<p>The sign method calculates an Ethereum specific signature with: sign(keccak256(&quot;\x19Ethereum Signed Message:\n&quot; + len(message) + message))).</p>
+
+<p>By adding a prefix to the message makes the calculated signature recognisable as an Ethereum specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (e.g. transaction) and use the signature to impersonate the victim.</p>
+</blockquote>
+
+<h2 id="toc_48">Quantum5.eth.call</h2>
+
+<p>Quantum5.eth.call(callObject [, defaultBlock] [, callback])</p>
+
+<p>在節點的VM中，直接執行消息調用交易。但不會將數據合並量子元中（這樣的調用不會修改狀態）。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>Object</code> - 返回一個交易對象，同<code>Quantum5.eth.sendTransaction</code>。與<code>sendTransaction</code>的區別在於，<code>from</code>屬性是可選的。</li>
+<li><code>Number|String</code> -（可選）如果不設置此值使用<code>Quantum5.eth.defaultBlock</code>設定的塊，否則使用指定的塊。</li>
+<li><code>Function</code> -（可選）回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 函數調用返回的值。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var Quantum5 = require(&#39;Quantum5&#39;);
+
+if (typeof Quantum5 !== &#39;undefined&#39;) {
+  Quantum5 = new Quantum5(Quantum5.currentProvider);
+} else {
+  // set the provider you want from Quantum5.providers
+  Quantum5 = new Quantum5(new Quantum5.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+}
+
+var from = Quantum5.eth.accounts[0];
+//部署合約的發布地址
+/*合約內容如下
+pragma solidity ^0.4.0;
+
+contract Calc{
+  function add(uint a, uint b) returns (uint){
+    return a + b;
+  }
+}
+*/
+var to = &quot;0xa4b813d788218df688d167102e5daff9b524a8bc&quot;;
+
+//要發送的數據
+//格式說明見： http://me.tryblockchain.org/Solidity-call-callcode-delegatecall.html
+var data = &quot;0x771602f700000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002&quot;;
+
+var result = Quantum5.eth.call({
+  from : from,
+  to : to,
+  data : data
+});
+
+//返回結果32字長的結果3
+console.log(result);
+</code></pre>
+
+<h2 id="toc_49">Quantum5.eth.estimateGas</h2>
+
+<p>Quantum5.eth.estimateGas(callObject [, callback])</p>
+
+<p>在節點的VM節點中執行一個消息調用，或交易。但是不會合入量子元中。返回使用的<code>gas</code>量。</p>
+
+<p>參數：</p>
+
+<p>同<code>Quantum5.eth.sendTransaction</code>，所有的屬性都是可選的。</p>
+
+<p>返回值：</p>
+
+<p><code>Number</code> - 模擬的<code>call/transcation</code>花費的<code>gas</code>。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var result = Quantum5.eth.estimateGas({
+    to: &quot;0xc4abd0339eb8d57087278718986382264244252f&quot;, 
+    data: &quot;0xc6888fa10000000000000000000000000000000000000000000000000000000000000003&quot;
+});
+console.log(result); // &quot;0x0000000000000000000000000000000000000000000000000000000000000015&quot;
+</code></pre>
+
+<h2 id="toc_50">Quantum5.eth.filter</h2>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String|Object</code> - 字符串的可取值[latest，pending]。<code>latest</code>表示監聽最新的區塊變化，<code>pending</code>表示監聽正在<code>pending</code>的區塊。如果需要按條件對象過濾，如下：
+<ul>
+<li><code>fromBlock</code>: <code>Number|string</code> - 起始區塊號（如果使用字符串<code>latest</code>，意思是最新的，正在打包的區塊），默認值是<code>latest</code>。</li>
+<li><code>toBlock</code>: <code>Number|string</code> - 終止區塊號（如果使用字符串<code>latest</code>，意思是最新的，正在打包的區塊），默認值是<code>latest</code>。</li>
+<li><code>address</code>: <code>String</code> - 單個或多個地址。獲取指定帳戶的日誌。</li>
+<li><code>topics</code>: <code>String[]</code> - 在日誌對象中必須出現的字符串數組。順序非常重要，如果你想忽略主題，使用<code>null</code>。如，[null,&#39;0x00...&#39;]，你還可以為每個主題傳遞一個單獨的可選項數組，如[null,[&#39;option1&#39;,&#39;option1&#39;]]。</li>
+</ul></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Object</code> - 有下述方法的過濾對象。</p>
+
+<ul>
+<li><code>filter.get(callback)</code>: 返回滿足過濾條件的日誌。</li>
+<li><code>filter.watch(callback)</code>: 監聽滿足條件的狀態變化，滿足條件時調用回調[<sup>async]。</sup></li>
+<li><code>filter.stopWatching()</code>: 停止監聽，清除節點中的過濾。你應該總是在監聽完成後，執行這個操作。</li>
+</ul>
+
+<p>監聽回調返回值：</p>
+
+<ul>
+<li><code>String</code> - 當使用<code>latest</code>參數時。返回最新的一個區塊哈希值。</li>
+<li><code>String</code> - 當使用<code>pending</code>參數時。返回最新的<code>pending</code>中的交易哈希值。</li>
+<li><code>Object</code> - 當使用手工過濾選項時，將返回下述的日誌對象。
+<ul>
+<li><code>logIndex</code>: <code>Number</code> - 日誌在區塊中的序號。如果是<code>pending</code>的日誌，則為<code>null</code>。</li>
+<li><code>transactionIndex</code>: <code>Number</code> - 產生日誌的交易在區塊中的序號。如果是<code>pending</code>的日誌，則為<code>null</code>。</li>
+<li><code>transactionHash</code>: <code>String</code>，32字節 - 產生日誌的交易哈希值。</li>
+<li><code>blockHash</code>: <code>String</code>，32字節 - 日誌所在塊的哈希。如果是<code>pending</code>的日誌，則為<code>null</code>。</li>
+<li><code>blockNumber</code>: <code>Number</code> - 日誌所在塊的塊號。如果是<code>pending</code>的日誌，則為<code>null</code>。</li>
+<li><code>address</code>: <code>String</code>，32字節 - 日誌產生的合約地址。</li>
+<li><code>data</code>: <code>string</code> - 包含日誌一個或多個32字節的非索引的參數。</li>
+<li><code>topics</code>: <code>String[]</code> - 一到四個32字節的索引的日誌參數數組。（在Solidity中，第一個主題是整個事件的簽名（如，<code>Deposit(address,bytes32,uint256)</code>），但如果使用匿名的方式定義事件的情況除外）</li>
+</ul></li>
+</ul>
+
+<p>事件監聽器的返回結果，見後<code>合約對象的事件</code>。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var filter = Quantum5.eth.filter(&#39;pending&#39;);
+
+filter.watch(function (error, log) {
+  console.log(log); //  {&quot;address&quot;:&quot;0x0000000000000000000000000000000000000000&quot;, &quot;data&quot;:&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;, ...}
+});
+
+// get all past logs again.
+var myResults = filter.get(function(error, logs){ ... });
+
+...
+
+// stops and uninstalls the filter
+filter.stopWatching();
+</code></pre>
+
+<h2 id="toc_51">Quantum5.eth.contract</h2>
+
+<p>Quantum5.eth.contract(abiArray)</p>
+
+<p>創建一個Solidity的合約對象，用來在某個地址上初始化合約。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>Array</code> - 一到多個描述合約的函數，事件的ABI對象。</li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Object</code> - 一個合約對象。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var MyContract = Quantum5.eth.contract(abiArray);
+
+// instantiate by address
+var contractInstance = MyContract.at([address]);
+
+// deploy new contract
+var contractInstance = MyContract.new([contructorParam1] [, contructorParam2], {data: &#39;0x12345...&#39;, from: myAccount, gas: 1000000});
+
+// Get the data to deploy the contract manually
+var contractData = MyContract.new.getData([contructorParam1] [, contructorParam2], {data: &#39;0x12345...&#39;});
+// contractData = &#39;0x12345643213456000000000023434234&#39;
+</code></pre>
+
+<p>你可以或者使用一個在某個地址上已經存在的合約，或者使用編譯後的字節碼部署一個全新的的合約。</p>
+
+<pre><code class="language-text">// Instantiate from an existing address:
+var myContractInstance = MyContract.at(myContractAddress);
+
+
+// Or deploy a new contract:
+
+// Deploy the contract asyncronous from Solidity file:
+...
+const fs = require(&quot;fs&quot;);
+const solc = require(&#39;solc&#39;)
+
+let source = fs.readFileSync(&#39;nameContract.sol&#39;, &#39;utf8&#39;);
+let compiledContract = solc.compile(source, 1);
+let abi = compiledContract.contracts[&#39;nameContract&#39;].interface;
+let bytecode = compiledContract.contracts[&#39;nameContract&#39;].bytecode;
+let gasEstimate = Quantum5.eth.estimateGas({data: bytecode});
+let MyContract = Quantum5.eth.contract(vspON.parse(abi));
+
+var myContractReturned = MyContract.new(param1, param2, {
+   from:mySenderAddress,
+   data:bytecode,
+   gas:gasEstimate}, function(err, myContract){
+    if(!err) {
+       // NOTE: The callback will fire twice!
+       // Once the contract has the transactionHash property set and once its deployed on an address.
+
+       // e.g. check tx hash on the first call (transaction send)
+       if(!myContract.address) {
+           console.log(myContract.transactionHash) // The hash of the transaction, which deploys the contract
+       
+       // check address on the second call (contract deployed)
+       } else {
+           console.log(myContract.address) // the contract address
+       }
+
+       // Note that the returned &quot;myContractReturned&quot; === &quot;myContract&quot;,
+       // so the returned &quot;myContractReturned&quot; object will also get the address set.
+    }
+  });
+
+// Deploy contract syncronous: The address will be added as soon as the contract is mined.
+// Additionally you can watch the transaction by using the &quot;transactionHash&quot; property
+var myContractInstance = MyContract.new(param1, param2, {data: myContractCode, gas: 300000, from: mySenderAddress});
+myContractInstance.transactionHash // The hash of the transaction, which created the contract
+myContractInstance.address // undefined at start, but will be auto-filled later
+</code></pre>
+
+<p>示例：</p>
+
+<pre><code class="language-text">// contract abi
+var abi = [{
+     name: &#39;myConstantMethod&#39;,
+     type: &#39;function&#39;,
+     constant: true,
+     inputs: [{ name: &#39;a&#39;, type: &#39;string&#39; }],
+     outputs: [{name: &#39;d&#39;, type: &#39;string&#39; }]
+}, {
+     name: &#39;myStateChangingMethod&#39;,
+     type: &#39;function&#39;,
+     constant: false,
+     inputs: [{ name: &#39;a&#39;, type: &#39;string&#39; }, { name: &#39;b&#39;, type: &#39;int&#39; }],
+     outputs: []
+}, {
+     name: &#39;myEvent&#39;,
+     type: &#39;event&#39;,
+     inputs: [{name: &#39;a&#39;, type: &#39;int&#39;, indexed: true},{name: &#39;b&#39;, type: &#39;bool&#39;, indexed: false}]
+}];
+
+// creation of contract object
+var MyContract = Quantum5.eth.contract(abi);
+
+// initiate contract for an address
+var myContractInstance = MyContract.at(&#39;0xc4abd0339eb8d57087278718986382264244252f&#39;);
+
+// call constant function
+var result = myContractInstance.myConstantMethod(&#39;myParam&#39;);
+console.log(result) // &#39;0x25434534534&#39;
+
+// send a transaction to a function
+myContractInstance.myStateChangingMethod(&#39;someParam1&#39;, 23, {value: 200, gas: 2000});
+
+// short hand style
+Quantum5.eth.contract(abi).at(address).myAwesomeMethod(...);
+
+// create filter
+var filter = myContractInstance.myEvent({a: 5}, function (error, result) {
+  if (!error)
+    console.log(result);
+    /*
+    {
+        address: &#39;0x8718986382264244252fc4abd0339eb8d5708727&#39;,
+        topics: &quot;0x12345678901234567890123456789012&quot;, &quot;0x0000000000000000000000000000000000000000000000000000000000000005&quot;,
+        data: &quot;0x0000000000000000000000000000000000000000000000000000000000000001&quot;,
+        ...
+    }
+    */
+});
+</code></pre>
+
+<h3 id="toc_52">合約對象的方法</h3>
+
+<pre><code class="language-text">// Automatically determines the use of call or sendTransaction based on the method type
+myContractInstance.myMethod(param1 [, param2, ...] [, transactionObject] [, defaultBlock] [, callback]);
+
+// Explicitly calling this method
+myContractInstance.myMethod.call(param1 [, param2, ...] [, transactionObject] [, defaultBlock] [, callback]);
+
+// Explicitly sending a transaction to this method
+myContractInstance.myMethod.sendTransaction(param1 [, param2, ...] [, transactionObject] [, callback]);
+
+// Get the call data, so you can call the contract through some other means
+var myCallData = myContractInstance.myMethod.getData(param1 [, param2, ...]);
+// myCallData = &#39;0x45ff3ff6000000000004545345345345..&#39;
+</code></pre>
+
+<p>合約對象內封裝了使用合約的相關方法。可以通過傳入參數，和交易對象來使用方法。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String|Number</code> - （可選）零或多個函數參數。如果傳入一個字符串，需要使用十六進製編碼，如，<code>0xdedbeef</code>。</li>
+<li><code>Object</code> - （可選）最後一個參數（如果傳了<code>callback</code>，則是倒數第二個參數），可以是一個交易對象。查看<code>Quantum5.eth.sendTransaction</code>的第一個參數說明來了解更多。注意，這裏不需要填<code>data</code>和<code>to</code>屬性。</li>
+<li><code>Number|String</code> -（可選）如果不設置此值使用<code>Quantum5.eth.defaultBlock</code>設定的塊，否則使用指定的塊。</li>
+<li><code>Function</code> -（可選）回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 如果發起的是一個<code>call</code>，對應的是返回結果。如果是<code>transaction</code>，則要麼是一個創建的合約地址，或者是一個<code>transaction</code>的哈希值。查看<code>Quantum5.eth.sendTransaction</code>了解更多。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">// creation of contract object
+var MyContract = Quantum5.eth.contract(abi);
+
+// initiate contract for an address
+var myContractInstance = MyContract.at(&#39;0x78e97bcc5b5dd9ed228fed7a4887c0d7287344a9&#39;);
+
+var result = myContractInstance.myConstantMethod(&#39;myParam&#39;);
+console.log(result) // &#39;0x25434534534&#39;
+
+myContractInstance.myStateChangingMethod(&#39;someParam1&#39;, 23, {value: 200, gas: 2000}, function(err, result){ ... });
+</code></pre>
+
+<h3 id="toc_53">合約對象的事件</h3>
+
+<p>你可以像<code>Quantum5.eth.filter</code>這樣使用事件，他們有相同的方法，但需要傳遞不同的對象來創建事件過濾器。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>Object</code> - 你想返回的索引值（過濾哪些日誌）。如，<code>{&#39;valueA&#39;: 1, &#39;valueB&#39;: [myFirstAddress, mySecondAddress]}</code>。默認情況下，所以有過濾項被設置為<code>null</code>。意味著默認匹配的是合約所有的日誌。</li>
+<li><code>Object</code> - 附加的過濾選項。參見<code>Quantum5.eth.filter</code>的第一個參數。默認情況下，這個對象會設置<code>address</code>為當前合約地址，同時第一個主題為事件的簽名。</li>
+<li><code>Function</code> -（可選）傳入一個回調函數，將立即開始監聽，這樣就不用主動調用<code>myEvent.watch(function(){})</code>[<sup>async]。</sup></li>
+</ul>
+
+<p>回調返回值：</p>
+
+<p><code>Object</code> - 事件對象，如下：</p>
+
+<ul>
+<li><code>address</code>: <code>String，32字節</code> - 日誌產生的合約地址。</li>
+<li><code>args</code>: <code>Object</code> - 事件的參數。</li>
+<li><code>blockHash</code>: <code>String，32字節</code> - 日誌所在塊的哈希。如果是<code>pending</code>的日誌，則為<code>null</code>。</li>
+<li><code>blockNumber</code>: <code>Number</code> - 日誌所在塊的塊號。如果是<code>pending</code>的日誌，則為<code>null</code>。</li>
+<li><code>logIndex</code>: <code>Number</code> - 日誌在區塊中的序號。如果是<code>pending</code>的日誌，則為<code>null</code>。</li>
+<li><code>event</code>: <code>String</code> - 事件名稱。</li>
+<li><code>removed</code>: <code>bool</code> - 標識產生事件的這個交易是否被移除（因為孤塊），或從未生效（被拒絕的交易）。</li>
+<li><code>transactionIndex</code>: <code>Number</code> - 產生日誌的交易在區塊中的序號。如果是<code>pending</code>的日誌，則為<code>null</code>。</li>
+<li><code>transactionHash</code>: <code>String，32字節</code> - 產生日誌的交易哈希值。</li>
+</ul>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var MyContract = Quantum5.eth.contract(abi);
+var myContractInstance = MyContract.at(&#39;0x78e97bcc5b5dd9ed228fed7a4887c0d7287344a9&#39;);
+
+// watch for an event with {some: &#39;args&#39;}
+var myEvent = myContractInstance.MyEvent({some: &#39;args&#39;}, {fromBlock: 0, toBlock: &#39;latest&#39;});
+myEvent.watch(function(error, result){
+   ...
+});
+
+// would get all past logs again.
+var myResults = myEvent.get(function(error, logs){ ... });
+
+...
+
+// would stop and uninstall the filter
+myEvent.stopWatching();
+</code></pre>
+
+<h3 id="toc_54">合約 allEvents</h3>
+
+<pre><code class="language-text">var events = myContractInstance.allEvents([additionalFilterObject]);
+
+// watch for changes
+events.watch(function(error, event){
+  if (!error)
+    console.log(event);
+});
+
+// Or pass a callback to start watching immediately
+var events = myContractInstance.allEvents([additionalFilterObject,] function(error, log){
+  if (!error)
+    console.log(log);
+});
+</code></pre>
+
+<p>調用合約創建的所有事件的回調。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>Object</code> - 附加的過濾選項。參見<code>Quantum5.eth.filter</code>的第一個參數。默認情況下，這個對象會設置<code>address</code>為當前合約地址，同時第一個主題為事件的簽名。</li>
+<li><code>Function</code> -（可選）傳入一個回調函數，將立即開始監聽，這樣就不用主動調用<code>myEvent.watch(function(){})</code>[<sup>async]。</sup></li>
+</ul>
+
+<p>回調返回值：</p>
+
+<p><code>Object</code> - 詳見<code>合約對象的事件</code>了解更多。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var MyContract = Quantum5.eth.contract(abi);
+var myContractInstance = MyContract.at(&#39;0x78e97bcc5b5dd9ed228fed7a4887c0d7287344a9&#39;);
+
+// watch for an event with {some: &#39;args&#39;}
+var events = myContractInstance.allEvents({fromBlock: 0, toBlock: &#39;latest&#39;});
+events.watch(function(error, result){
+   ...
+});
+
+// would get all past logs again.
+events.get(function(error, logs){ ... });
+
+...
+
+// would stop and uninstall the filter
+myEvent.stopWatching();
+</code></pre>
+
+<h2 id="toc_55">Quantum5.eth.getCompilers</h2>
+
+<p>Quantum5.eth.getCompilers([callback])</p>
+
+<p>返回可用的編譯器。</p>
+
+<p>參數值：</p>
+
+<ul>
+<li><code>Function</code> -（可選）回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Array</code> - 返回一個字符串數組，可用的編譯器。</p>
+
+<h2 id="toc_56">Quantum5.eth.compile.solidity</h2>
+
+<p>Quantum5.eth.compile.solidity(sourceString [, callback])</p>
+
+<p>編譯Solidity源代碼。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - Solidity源代碼。</li>
+<li><code>Function</code> -（可選）回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Object</code> - 合約和編譯信息。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var source = &quot;&quot; + 
+    &quot;contract test {\n&quot; +
+    &quot;   function multiply(uint a) returns(uint d) {\n&quot; +
+    &quot;       return a * 7;\n&quot; +
+    &quot;   }\n&quot; +
+    &quot;}\n&quot;;
+var compiled = Quantum5.eth.compile.solidity(source);
+console.log(compiled); 
+// {
+  &quot;test&quot;: {
+    &quot;code&quot;: &quot;0x605280600c6000396000f3006000357c010000000000000000000000000000000000000000000000000000000090048063c6888fa114602e57005b60376004356041565b8060005260206000f35b6000600782029050604d565b91905056&quot;,
+    &quot;info&quot;: {
+      &quot;source&quot;: &quot;contract test {\n\tfunction multiply(uint a) returns(uint d) {\n\t\treturn a * 7;\n\t}\n}\n&quot;,
+      &quot;language&quot;: &quot;Solidity&quot;,
+      &quot;languageVersion&quot;: &quot;0&quot;,
+      &quot;compilerVersion&quot;: &quot;0.8.2&quot;,
+      &quot;abiDefinition&quot;: [
+        {
+          &quot;constant&quot;: false,
+          &quot;inputs&quot;: [
+            {
+              &quot;name&quot;: &quot;a&quot;,
+              &quot;type&quot;: &quot;uint256&quot;
+            }
+          ],
+          &quot;name&quot;: &quot;multiply&quot;,
+          &quot;outputs&quot;: [
+            {
+              &quot;name&quot;: &quot;d&quot;,
+              &quot;type&quot;: &quot;uint256&quot;
+            }
+          ],
+          &quot;type&quot;: &quot;function&quot;
+        }
+      ],
+      &quot;userDoc&quot;: {
+        &quot;methods&quot;: {}
+      },
+      &quot;developerDoc&quot;: {
+        &quot;methods&quot;: {}
+      }
+    }
+  }
+}
+</code></pre>
+
+<h2 id="toc_57">Quantum5.eth.compile.lll</h2>
+
+<p>Quantum5. eth.compile.lll(sourceString [, callback])</p>
+
+<p>編譯LLL源代碼。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - LLL源代碼。</li>
+<li><code>Function</code> -（可選）回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 十六進製格式編譯後的LLL編碼。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var source = &quot;...&quot;;
+
+var code = Quantum5.eth.compile.lll(source);
+console.log(code); // &quot;0x603880600c6000396000f3006001600060e060020a600035048063c6888fa114601857005b6021600435602b565b8060005260206000f35b600081600702905091905056&quot;
+</code></pre>
+
+<h2 id="toc_58">Quantum5.eth.compile.serpent</h2>
+
+<p>Quantum5.eth.compile.serpent(sourceString [, callback])</p>
+
+<p>編譯serpent源代碼。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - serpent源代碼。</li>
+<li><code>Function</code> -（可選）回調函數，用於支持異步的方式執行[<sup>async]。</sup></li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 十六進製格式的編譯後的serpent編碼。</p>
+
+<h2 id="toc_59">Quantum5.eth.namereg</h2>
+
+<p>Quantum5.eth.namereg</p>
+
+<p>返回一個全球注意的對象。</p>
+
+<p>使用方式：</p>
+
+<p>查看這裏的例子：<a href="javascript:window.open('https://github.com/vspgod/Galaxy/Quantum5.vsp/blob/master/example/namereg.html');">https://github.com/vspgod/Galaxy/Quantum5.vsp/blob/master/example/namereg.html</a></p>
+
+<h1 id="toc_60">Quantum5.db</h1>
+
+<h2 id="toc_61">Quantum5.db.putString</h2>
+
+<p>Quantum5.db.putString(db, key, value)</p>
+
+<p>這個方法應當在我們打算以一個本地數據庫的級別存儲一個字符串時使用。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 存儲使用的數據庫。</li>
+<li><code>String</code> - 存儲的鍵。</li>
+<li><code>String</code> - 存儲的值。</li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Boolean</code> - <code>true</code>表示成功，否則返回<code>false</code>。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">Quantum5.db.putString(&#39;testDB&#39;, &#39;key&#39;, &#39;myString&#39;) // true
+</code></pre>
+
+<h2 id="toc_62">Quantum5.db.getString</h2>
+
+<p>Quantum5.db.getString(db, key)</p>
+
+<p>從本地的leveldb數據庫中返回一個字符串。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 存儲使用的數據庫。</li>
+<li><code>String</code> - 存儲的鍵。</li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 存儲的值。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var value = Quantum5.db.getString(&#39;testDB&#39;, &#39;key&#39;);
+console.log(value); // &quot;myString&quot;
+</code></pre>
+
+<h2 id="toc_63">Quantum5.db.putHex</h2>
+
+<p>Quantum5.db.putHex(db, key, value)</p>
+
+<p>在本地的leveldb中存儲二進製數據。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 存儲使用的數據庫。</li>
+<li><code>String</code> - 存儲的鍵。</li>
+<li><code>String</code> - 十六進製格式的二進製。</li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>Boolean</code> - 成功返回<code>true</code>，失敗返回<code>false</code>。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">Quantum5.db.putHex(&#39;testDB&#39;, &#39;key&#39;, &#39;0x4f554b443&#39;); // true
+</code></pre>
+
+<h2 id="toc_64">Quantum5.db.getHex</h2>
+
+<p>Quantum5.db.getHex(db, key)</p>
+
+<p>返回本地的leveldb中的二進製數據。</p>
+
+<p>參數：</p>
+
+<ul>
+<li><code>String</code> - 存儲使用的數據庫。</li>
+<li><code>String</code> - 存儲的鍵。</li>
+</ul>
+
+<p>返回值：</p>
+
+<p><code>String</code> - 存儲的十六進製值。</p>
+
+<p>示例：</p>
+
+<pre><code class="language-text">var value = Quantum5.db.getHex(&#39;testDB&#39;, &#39;key&#39;);
+console.log(value); // &quot;0x4f554b443&quot;
+</code></pre>
+
+<div class="footnotes">
+<hr>
+<ol>
+
+<li id="fn1">
+<p><a href="javascript:window.open('https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/vspON/stringify');">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/vspON/stringify</a>&nbsp;<a href="#fnref1" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn2">
+<p>Big Number 文檔鏈接： <a href="javascript:window.open('https://github.com/vspgod/Galaxy');">https://github.com/vspgod/Galaxy</a>&nbsp;<a href="#fnref2" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn3">
+<p>ASCII碼表 <a href="javascript:window.open('http://baike.baidu.com/link?url=fz4Ytl_tjpUhsPbUb4fa3hyXHKJDMcRB5M3K1p0VStnminbvLX4-UmwPCovk1pZUOIemosGv2hRT-r0flGMtEGk3ON8sQctG4-KU67G3fBiOJX6r1CHoKTi-K6BlEEa6egHulQju1p1n1ce1axyeBK');">http://baike.baidu.com/link?url=fz4Ytl_tjpUhsPbUb4fa3hyXHKJDMcRB5M3K1p0VStnminbvLX4-UmwPCovk1pZUOIemosGv2hRT-r0flGMtEGk3ON8sQctG4-KU67G3fBiOJX6r1CHoKTi-K6BlEEa6egHulQju1p1n1ce1axyeBK</a>&nbsp;<a href="#fnref3" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn4">
+<p>工作正在進行中？ <a href="javascript:window.open('https://github.com/vspgod/Galaxy/Quantum5.vsp/pull/375');">https://github.com/vspgod/Galaxy/Quantum5.vsp/pull/375</a>&nbsp;<a href="#fnref4" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn5">
+<p><a href="入門說明.html">Quantum5 Javascript Ðapp API</a>&nbsp;<a href="#fnref5" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn6">
+<p><a href="javascript:window.open('http://baike.baidu.com/link?url=9QLxfeXVf7pRpSTSugt2I9ylZA9_vh3sbqs8S8J-dVaZJg9AeADF4P0HlwyOjHOsENJKQS8z7cb0YFSDVMmsYf-xgtODmMXdQNovqRqE2B7');">http://baike.baidu.com/link?url=9QLxfeXVf7pRpSTSugt2I9ylZA9_vh3sbqs8S8J-dVaZJg9AeADF4P0HlwyOjHOsENJKQS8z7cb0YFSDVMmsYf-xgtODmMXdQNovqRqE2B7</a>&nbsp;<a href="#fnref6" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn7">
+<p>參見<a href="入門說明.html">Quantum5.vsp API 基本</a>中的<code>使用callback</code>的章節。&nbsp;<a href="#fnref7" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn8">
+<p>關於<code>getStroageAt</code>的說明來源： <a href="javascript:window.open('http://ethereum.stackexchange.com/questions/5865/how-does-Quantum5-eth-getstorageat-work');">http://ethereum.stackexchange.com/questions/5865/how-does-Quantum5-eth-getstorageat-work</a>&nbsp;<a href="#fnref8" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn9">
+<p><a href="javascript:window.open('https://zh.wikipedia.org/wiki/布隆過濾器');">https://zh.wikipedia.org/wiki/布隆過濾器</a>&nbsp;<a href="#fnref9" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn10">
+<p><a href="javascript:window.open('http://ethereum.stackexchange.com/questions/3346/what-is-and-how-to-calculate-cumulative-gas-use[^cumulative]');">http://ethereum.stackexchange.com/questions/3346/what-is-and-how-to-calculate-cumulative-gas-use[^cumulative]</a>: <a href="javascript:window.open('http://ethereum.stackexchange.com/questions/3346/what-is-and-how-to-calculate-cumulative-gas-used');">http://ethereum.stackexchange.com/questions/3346/what-is-and-how-to-calculate-cumulative-gas-used</a>&nbsp;<a href="#fnref10" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn11">
+<p><a href="javascript:window.open('http://zeltsinger.com/2016/11/07/neat-ethereum-tricks-the-transaction-nonce/');">http://zeltsinger.com/2016/11/07/neat-ethereum-tricks-the-transaction-nonce/</a>&nbsp;<a href="#fnref11" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn12">
+<p><a href="javascript:window.open('https://zh.wikipedia.org/wiki/橢圓曲線密碼學');">https://zh.wikipedia.org/wiki/橢圓曲線密碼學</a>&nbsp;<a href="#fnref12" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn13">
+<p>這裏整理了一個文章，使用Quantum5.vsp加密，再使用Solidity的ecrecover校驗簽名的完整過程。 <a href="Quantum5vsp-sign-ecrecover-decode.html">http://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html</a>&nbsp;<a href="#fnref13" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn14">
+<p><a href="javascript:window.open('https://github.com/vspgod/Galaxy/wiki/wiki/vspON-RPC#eth_sign');">https://github.com/vspgod/Galaxy/wiki/wiki/vspON-RPC#eth_sign</a>&nbsp;<a href="#fnref14" rev="footnote">&#8617;</a></p>
+</li>
+
+</ol>
+</div>
+
+	
+	
+    <!-- newly added2018 
+    <h2>感謝您的支持</h2>
+    <p><img src="http://me.tryblockchain.org/media/14873893253965/wechat-zan.jpg" alt="zan-code"/></p>   
+    -->
+    <blockquote>
+    <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+    </blockquote>
+</div>
+
+<br><br>
+<hr>
+
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="入門說明.html" title="Previous Post: Quantum5.vsp API 基本">&laquo; Quantum5.vsp API 基本</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="Quantum5-vsp-in-action.html" title="Next Post: Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程）">Quantum5.vsp編譯Solidity，發布，調用全部流程（手把手教程） &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
+
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
+<script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = 'Quantum5.vsp-api-refrence.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
+</div></div>
+
+
+<div class="page-bottom">
+  <div class="row">
+  <hr>
+  <div class="small-9 columns">
+  </div>
+  <div class="small-3 columns">
+  <p class="copyright text-right"><a href="#header">TOP</a></p>
+  </div>
+   
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+    
+    
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script src="static/vsp/foundation.offcanvas.vsp"></script>
+    <script>
+      $(document).foundation();
+
+     
+    </script>
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?86cdacc9141147c9022f0801e48f2034";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
