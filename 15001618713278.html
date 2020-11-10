@@ -1,0 +1,412 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  NSA後門的簡史(翻譯：資料來源於網絡) - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="Solidity入門係列.html">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>NSA後門的簡史(翻譯：資料來源於網絡)</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/7/16</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='文檔翻譯.html'>文檔翻譯</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>最近在Twitter上看到一篇關於加密學中常見的“坑”的文章，為擴充自己的視野，特地翻譯並學習一下。原文在：<a href="javascript:window.open('http://ethanheilman.tumblr.com/post/70646748808/a-brief-history-of-nsa-backdoors');">http://ethanheilman.tumblr.com/post/70646748808/a-brief-history-of-nsa-backdoors</a></p>
+
+<span id="more"></span><!-- more -->
+
+<p>聲明：翻譯文章，並不代表翻譯者支持，或反對文章觀點。隻是翻譯學習之用。如有版權問題，請隨時聯係刪除，謝謝。</p>
+
+<p>作為最近的文章<a href="javascript:window.open('https://www.cnet.com/news/security-firm-rsa-took-millions-from-nsa-report/');"> NSA backdooring RSA libraries</a>得到的啟發，我寫了一份簡單的，不完整的，NSA後門的曆史。如果有人願意將文章變得更好，可以聯係：<a href="mailto:ethan.r.heilman@gmail.com">ethan.r.heilman@gmail.com</a></p>
+
+<p><em>更新</em>：增加了Actel後門，<em>更新2</em>: 在<a href="javascript:window.open('http://t.umblr.com/redirect?z=https:%2F%2Fnews.ycombinator.com%2Fitem%3Fid%3D6947133&amp;t=YWM0OWMzMjc0MDk1NDA3OTRjNDNiM2Y1OTExNjAwOTE3MTRjMGI1ZSwwZFhIMlBDQQ%3D%3D&amp;b=t:ekwnrt1MKmxqNGXkcTf6UQ&amp;p=http:%2F%2Fethanheilman.tumblr.com%2Fpost%2F70646748808%2Fa-brief-history-of-nsa-backdoors&amp;m=1');">這裏</a>有討論。<em>更新3</em>：增加了最後發現的郵件侵入後門安裝。</p>
+
+<p><img src="static/picture/15001624282769.jpg" alt=""></p>
+
+<p><em>1946-1970, The Ultra Secret</em>： 在第二次世界大戰後，英國向許多盟國和前殖民地出售了<a href="javascript:window.open('http://t.umblr.com/redirect?z=http:%2F%2Fen.wikipedia.org%2Fwiki%2FEnigma_machine&amp;t=ZmJjOWQxN2Q5NzZjYzE3ZDUyNGU3Nzg5YWQ1YjdhM2E5N2MyMWYwNiwwZFhIMlBDQQ%3D%3D&amp;b=t:ekwnrt1MKmxqNGXkcTf6UQ&amp;p=http:%2F%2Fethanheilman.tumblr.com%2Fpost%2F70646748808%2Fa-brief-history-of-nsa-backdoors&amp;m=1');">德國Enigma密碼加密機</a>。美國和英國已經破譯了Enigma加密，但是卻沒有告訴他們，這樣他們就能破譯盟國或其殖民地的加密信息，在30年間這些國家都因為這些機器中的缺陷而被泄密。</p>
+
+<p><em>1957 - 當前, The Boris Project</em>: 在1957年，NSA的<code>William Friedman</code>與他的老朋友<code>Boris Hagelin</code>見了麵。他們的目標是啟動<code>the Boris Project</code>，讓<a href="javascript:window.open('http://t.umblr.com/redirect?z=http:%2F%2Fen.wikipedia.org%2Fwiki%2FCrypto_AG&amp;t=NjFlYWUzOTAzNzgyMWE0MjVmYTQ4MGMyMjhiMmYxYzE5MWNkZTk1ZSwwZFhIMlBDQQ%3D%3D&amp;b=t:ekwnrt1MKmxqNGXkcTf6UQ&amp;p=http:%2F%2Fethanheilman.tumblr.com%2Fpost%2F70646748808%2Fa-brief-history-of-nsa-backdoors&amp;m=1');">Crypto AG</a>生產的加密器存在後門，從而可以讓NSA來監聽NATO的通信（有證據表明，Boris項目早於本次會議）。這次會議首先在Friedman的自己的自傳中被公開，書名是<code>The Man Who Broke Purple</code>。更多的細節也因為<code>The Puzzle Palace</code>的發行而被披露，其中的一些信件顯示了Friedman對於項目進行方式的擔心。通過與前Crypto AG公司的前雇員的訪談，後續開始並沒有繼續增加後門，而且很可能在1970年前，且持續到現在。這些後門包括隱蔽通道，允許全私匙重建。</p>
+
+<p>逐步的，大家發現Crypto AG不是一個可依賴的加密硬件商。在1986年李根向Libyans透露，美國可以解密他們通過在TV上通過Libya加密的信息。1991年，伊朗人了解到，伊朗外交通訊記錄最後出現在了法國的法庭案中，NSA可能已經破譯了他們的外交通訊。1992年伊朗對於Crypto AG公司非常惱怒，並因為他們從事間諜活動進行了巨額罰款。盡管如此，但仍有證據表明，伊朗似乎繼續使用Crypto AG機器進行外交交流，直到2003年，也許超過了2003年。2004年，艾哈邁德·沙拉比（Ahmed Chalabi）被指控向伊朗出售美國破譯他們代碼的方法。據推測這可能與Crypto AG的後門有關。</p>
+
+<p><em>1979 - 當前, DES</em>：數據加密標準被NSA修改過，以使數學攻擊更難，但通過<code>Brute Force</code>方法卻很容易。DES的原始版本稱為Lucifer，使用128位的密鑰長度，有差分密碼分析的漏洞。NSA希望已經非常小的63字節的私匙進一步縮短到48字節，IBM的堅持，最終妥協到56字節。這樣的長度允許NSA可以破譯通過DES加密的通信。</p>
+
+<p><em>1993, Clipper Chip</em>： NSA非常擔心美國出現他們不可破解的加密手段。1993年，他們提出通過稱為“Clipper Chip”的加密芯片來確保語音通信。但實際上Clipper Chip是有後門的，從而通過他的通信都能被破譯。不同於這個列表中的大多數後門，NSA主動宣布後門的存在。 由於其已知的不安全性，Clipper Chip從未被廣泛采用。</p>
+
+<p><em>1997 Lotus Notes</em>： NSA要求Lotus弱化其加密算法，從而讓NSA可以破譯其算法加密的文檔和郵件。這個軟件被民眾，公司，及全世界的政府使用。</p>
+
+<p><em>200? - Present, Actel ProASIC3 FPGA</em>：2012年，Skorobogatov和Woods發現，Actel軍用級FPGA包含一個後門。研究人員可以通過對私匙的逆向工程，可以暴露後門。這些芯片被用於美國的軍事係統，核設施及通訊。所有其它的Actel芯片也含有類似的後門。起初，大家非常擔心後門是被外國的組織所植入，調查後發現，Actel故意增加了這個後門。</p>
+
+<p>雖然看不到這個後門與NSA的關係，但一個美國公司，在沒得到許可的情況下，設計一個複雜的後門，並植入到芯片中，且是美國最關鍵的係統，根本無法解釋。即便Actel是在沒有得到許可的情況下做的這些，那麼我們理應看到美國政府更多的回應。但據我了解，美國政府自始至終都對整個事件保持沉默。</p>
+
+<p><em>2004 - 2013, Dual_EC_DRBG</em>：雙橢圓曲線確定性隨機位發生器[或Dual_EC_DRBG是由NSA創建的隨機數發生器。在設計時，NSA精心選擇了常量以讓基於Dual_EC_DRBG進行安全加密的，可以被破解。Dual_EC_DRBG的這個屬性在2006年被布朗發現，由Shumow和Ferguson在2007年重新發現，導致公眾猜測Dual_EC_DRBG是有後門的。在2004年，NSA支付RSA1000萬美元，以讓其將Dual_EC_DRBG作為其某些庫中的默認選擇。NSA隨後使用RSA使用Dual_EC_DRBG的這個事實，並推進它成為了NIST的一個標準。</p>
+
+<p><em>2013, Enabling for Encryption Chips</em>：在NSA的Edward Snowden發布的預算文件中，NSA的SIGINT項目的目標之一是在2013年底完全後門化或啟用某些特定加密。但沒有明確公布他們所指的加密芯片。</p>
+
+<p><em>2013, Trusted Computing Platforms/Modules:</em>與前麵的信息源一樣，草案中資源是利用外部可信計算平台和技術。 德國方麵一直表示關注微軟TCM 2.0可能存在NSA的後門。</p>
+
+<p><em>? - Present, Postal Interception Backdoor Installation</em>: 根據2010年向衛報報告的報告，NSA的訪問和目標開發部門通常會攔截通過郵件發送的計算機設備，並添加了後門。 通常是網絡設備和服務器的設備隨後被發送到目標個人和組織使用。 這些後門允許NSA連接到空中專用的私人網絡。</p>
+
+<p>原作者還有一篇舊文章討論，<a href="javascript:window.open('http://ethanheilman.tumblr.com/post/28951702391/imagining-a-secure-backdoor-cipher');">I speculate about designing a cipher with a backdoor.</a>。</p>
+        <blockquote>
+        <p>處於某些特定的環境下，可以看到評論框，歡迎留言交流^_^。</p>
+        </blockquote>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="reflections_on_the_best_blockcha.html" title="Previous Post: Naval的量子元推文的反思">&laquo; Naval的量子元推文的反思</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a href="The_emergent_Ethereum_stack.html" title="Next Post: 一種新出現的Quantum量子元開發棧模型-Aragon項目">一種新出現的Quantum量子元開發棧模型-Aragon項目 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6188337887319489",
+    enable_page_level_ads: true
+  });
+</script><script id="dsq-count-scr" src="https://tryblockchain-org.disqus.com/count.vsp" async=""></script>
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tryblockchain-org.disqus.com/embed.vsp';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="javascript:window.open('https://disqus.com/?ref_noscript');">comments powered by Disqus.</a></noscript>
+                            
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href="Solidity入門係列.html"><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar --><!-- row -->
+ 
+
+        </section>
+   
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
