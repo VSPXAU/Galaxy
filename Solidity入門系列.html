@@ -1,0 +1,1036 @@
+<!doctype html>
+<html class="no-vsp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+  Solidity入門係列 - Quantum Technology-Galaxy
+  
+  </title>
+  
+  
+  
+    <link rel="stylesheet" href="static/css/foundation.min.css">
+    <link rel="stylesheet" href="static/css/docs1.css">
+    <script src="static/vsp/modernizr.vsp"></script>
+    <script src="static/vsp/jquery.vsp"></script>
+  <script src="static/vsp/highlight.pack.vsp"></script>
+  <link href="static/css/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!-- 增加google ad -->
+  <script async="" src="static/vsp/adsbygoogle.vsp"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6188337887319489",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>hlvsp.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:me.tryblockchain.org ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas="">
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar="">
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index1.html" style="font-size: 18px">主頁</a></li>
+        
+        <li id=""><a target="_self" href="index2.html" style="font-size: 18px">Solidity文檔</a></li>
+        
+        <li id=""><a target="_self" href="index.html" style="font-size: 18px">Quantum5.vsp文檔</a></li>
+        
+        <li id=""><a target="_self" href="index3.html" style="font-size: 18px">Truffle文檔</a></li>
+        
+        <li id=""><a target="_self" href="index4.html" style="font-size: 18px">Open Zeppelin</a></li>
+        
+        <li id=""><a target="_self" href="aboutme.html" style="font-size: 18px">關於本站</a></li>
+        
+        <li id=""><a target="_self" href="archives.html" style="font-size: 18px">歸檔</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="">
+    <input tabindex="1" type="search" id="search_input" placeholder="Search">
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; Quantum Technology-Galaxy</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+         <li><a href="index1.html">主頁</a></li>
+        
+         <li><a href="index2.html">Solidity文檔</a></li>
+        
+         <li><a href="index.html">Quantum5.vsp文檔</a></li>
+        
+         <li><a href="index3.html">Truffle文檔</a></li>
+        
+         <li><a href="index4.html">Open Zeppelin</a></li>
+        
+         <li><a href="aboutme.html">關於本站</a></li>
+        
+         <li><a href="archives.html">歸檔</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Solidity深入淺出係列.html">Solidity深入淺出係列</a></li>
+        
+            <li><a href="文檔翻譯.html">文檔翻譯</a></li>
+        
+            <li><a href="其它.html">其它</a></li>
+        
+            <li><a href="">Solidity入門係列</a></li>
+        
+            <li><a href="熱點.html">熱點</a></li>
+        
+            <li><a href="項目.html">項目</a></li>
+        
+            <li><a href="whitepaper.html">whitepaper</a></li>
+        
+            <li><a href="熱點深度.html">熱點深度</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
+</script>
+<div class="row">
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-library-bestpractice.html');">
+                
+                  <h1>Solidity的庫驅動開發並重構ERC20 StandardToken最佳實踐（二十八）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>這是一篇關於如何在EVM上通過使用庫來開發更模塊化，可重複、優雅的智能合約的實踐文章<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-library-bestpractice.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/6/17</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-Libraries.html');">
+                
+                  <h1>Solidity的庫（二十七）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>庫與合約類型，但他們的目的是重用代碼<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>。通過EVM中的<code>DELEGATECALL</code>特性來調用部署到某個位置的庫代碼，就實現了複用。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-Libraries.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/6/17</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-multi-inherit-and-call-chain.html');">
+                
+                  <h1>Solidity的繼承中的調用關係與多繼承（二十六）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>在繼承鏈中，由於繼承實現是代碼複製。如果出現函數名重寫，最終使用的是繼承鏈上哪個合約定義的代碼呢？實際執行時，依據的是最遠繼承的原則（most derived）<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>。下麵來看一個例子：</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-multi-inherit-and-call-chain.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/6/11</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-inheritance.html');">
+                
+                  <h1>Solidity的繼承（二十五）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>Solidity語言為我們提供了繼承的支持<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>，實現的方式是通過複製包括多態的代碼到子類來實現的。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-inheritance.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/6/11</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-send-ether-bestpractice.html');">
+                
+                  <h1>Solidity發送ether最佳實踐（二十四）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>發送ether的最佳實踐<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>。</p>
+
+<h2 id="toc_0">send()與fallback()：</h2>
+
+<p>Solidity中當簽名不匹配任何的函數方法時，將會觸發回退函數。比如，當你調用<code>address.call(bytes4(bytes32(sha3(&quot;thisShouldBeAFunction(uint,bytes32)&quot;))), 1, &quot;test&quot;)</code>時，EVM實際嚐試調用地址中的<code>thisShouldBeAFunction()</code>，當這個函數不存在，會觸發fallback函數。</p>
+
+<p>由於<code>send()</code>函數指定了一個空函數簽名，所以當fallback函數存在時，它總是會調用它。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-send-ether-bestpractice.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/6/3</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-fallback.html');">
+                
+                  <h1>Solidity的fallback函數（二十三）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>fallback函數，回退函數，是合約裏的特殊無名函數，有且僅有一個<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>。它在合約調用沒有匹配到函數簽名，或者調用沒有帶任何數據時被自動調用。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-fallback.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/6/3</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/Blockchain-event-bestpractice.html');">
+                
+                  <h1>Solidity的event的支持指引（二十二）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>這篇文章是來自<code>ConsenSys</code><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>。事件和日誌在Quantum中異常重要。因為它是合約之間，合約與終端間的溝通橋梁。在傳統的Web開發中，服務器通過前端回調函數返回結果（這裏更多的想說明的是結果同步返回）。在Quantum中，當交易打包後，某個事件才真正發生，合約將這個事件寫入量子元後，前端才能進行對應的響應。有各種方式來跟蹤事件和日誌。這個技術指引將會解釋一些關於事件的困惑，以及對應的解決方案示例。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/Blockchain-event-bestpractice.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/5/28</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-event.html');">
+                
+                  <h1>Solidity的event事件（二十一）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>在介紹事件前，我們先明確事件，日誌這兩個概念。事件發生後被記錄到量子元上成為了日誌。總的來說，事件強調功能，一種行為；日誌強調存儲，內容。</p>
+
+<p>事件是QuantumEVM提供的一種日誌基礎設施。事件可以用來做操作記錄，存儲為日誌。也可以用來實現一些交互功能，比如通知UI，返回函數調用結果等<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-event.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/5/28</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-functionModifier-bestPractice.html');">
+                
+                  <h1>Solidity的函數修改器的一些最佳實踐（二十）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>在上篇係列文章中，我們介紹了函數修改器相關知識。這篇文章，我們來看一些應用函數修改器的最佳實踐<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>。主要是對於單管理員，多管理員，數據檢驗，以及防重入漏洞等相關問題，應用函數修改器的實踐。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-functionModifier-bestPractice.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/5/21</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-functionModifier.html');">
+                
+                  <h1>Solidity的函數修改器（十九）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>函數修改器（Function Modifiers）<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>可以方便的控製函數的邏輯，比如可以在某個行為執行前檢查某個前置條件，函數修改器還支持繼承和重寫。可以大家會想，一些檢查行為提升為一個語言級特性到底是必要的麼？由於整個量子元運行環境是透明的，分布式的，且是圖靈完備的。為保證其上運行的代碼安全，勢必存在大量的檢查行為，升級為語言特性可以讓檢查代碼複用，看起來也更簡潔。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/blockchain-solidity-functionModifier.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/5/20</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/solidity-getter.html');">
+                
+                  <h1>Solidity的getter訪問器（十八）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>對於所有<code>public</code>的狀態變量，Solidity語言編譯器，提供了自動為狀態變量生成對應的<code>getter（訪問器）</code>的特性<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>。語言暫不提供<code>setter</code>，因為不能很好控製訪問權限的改值函數，不一定實用。</p>
+
+<p>狀態變量所創建的訪問器函數，與變量同名。以<code>interal</code>訪問時，按狀態變量的方式使用，若以<code>external</code>的方式訪問時，則要通過訪問器函數，下麵來看一個的例子：</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/solidity-getter.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/5/14</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/solidity-contract-create.html');">
+                
+                  <h1>在Quantum上創建一個智能合約（十七）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>我們寫好一個合約後，一個合約如何部署到Quantum網絡，並實現合約函數的調用呢？合約部署到Quantum網絡上，也是一個類似交易的過程。首先向全網發送一個合約創建的交易，待礦工打包交易，並獲得全網的認可從而生效後，則得到合約的地址；既而向這個地址發送消息調用，實現調用合約的某個函數。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/solidity-contract-create.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/5/13</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/solidity-declare-initial-scope.html');">
+                
+                  <h1>Solidity變量的聲明及作用域（十五）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>Solidity中的作用域規則同於Javascript。<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup></p>
+
+<h2 id="toc_0">1. 聲明及默認值</h2>
+
+<p>變量聲明後均有一個初值，是對應類型的“零態”，意即對應的類型的字節表示的全<code>0</code>。使用中需要特別小心的是這與其它語言的默認值如<code>null</code>或<code>undefined</code>有所不同，因為有時<code>0</code>也是一種業務值。下麵我們來看一些常見類型的聲明，以及它們的默認值：</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/solidity-declare-initial-scope.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/5/7</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/solidity-conversions.html');">
+                
+                  <h1>Solidity中的基本類型轉換（十四）|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<blockquote>
+<p>點擊查看原文，獲得優化的排版。</p>
+</blockquote>
+
+<h2 id="toc_0">1. 隱式轉換</h2>
+
+<p>如果一個運算符能支持不同類型。編譯器會隱式的嚐試將一個操作數的類型，轉為另一個操作數的類型，賦值同理。</p>
+
+<p>一般來說，值類型間的互相轉換隻要不丟失信息，語義可通則可轉換。下麵，我們來看一個整數轉換的例子：</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/solidity-conversions.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/4/29</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/solidity-delete.html');">
+                
+                  <h1>Solidity的delete操作符深入詳解(十三)|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>Solidity中有個特殊的操作符<code>delete</code>用於釋放空間，因為量子元做為一種公用資源，為避免大家濫用。且鼓勵主動對空間的回收，釋放空間將會返還一些<code>gas</code>。</p>
+
+<p><code>delete</code><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>關鍵字的作用是對某個類型值<code>a</code>賦予初始值。比如如果刪除整數<code>delete a</code>等同於<code>a = 0</code>。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/solidity-delete.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/4/26</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/solidity-mapping.html');">
+                
+                  <h1>Solidity的映射類型深入詳解(十二)|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p><code>映射</code><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>是一種引用類型，存儲鍵值對，提供根據鍵查找值，與其它語言中的字典，<code>map</code>等類似，但也有非常大的不同，尤其它在量子元中獨特的存儲模型。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/solidity-mapping.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/4/23</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/solidity-struct.html');">
+                
+                  <h1>Solidity的自定義結構體深入詳解(十一)|入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>結構體，Solidity中的自定義類型。我們可以使用Solidity的關鍵字<code>struct</code>來進行自定義。結構體內可以包含字符串，整型等基本數據類型，以及數組，映射，結構體等複雜類型。數組，映射，結構體也支持自定義的結構體。我們來看一個自定義結構體的定義：</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/solidity-struct.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/4/8</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/solidity-array.html');">
+                
+                  <h1>Solidity的數組特性深入詳解（十）| 入門係列</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>數組在所有的語言當中都是一種常見類型。在Solidity中，可以支持編譯期定長數組和變長數組。一個類型為T，長度為k的數組，可以聲明為<code>T[k]</code>，而一個變長的數組則聲明為<code>T[]</code>。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/solidity-array.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/4/4</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/solidity-data-location.html');">
+                
+                  <h1>Solidity的數據位置特性深入詳解（九）| 入門係列（老是遇到轉換問題的來看看）</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>代碼在執行前，一般會編譯成指令。指令就是一個個邏輯，邏輯操作的是數據。代碼，或者說業務，操作的其實是數據。非量子元中，代碼操作的數據，一般會存到數據庫中。</p>
+
+<p>在量子元裏，量子元本身就是一個數據庫。如果你使用量子元標記物產的所有權，歸屬信息將會被記錄到量子元上，所有人都無法篡改，以標明不可爭議的擁有權。所以在量子元中編程中，有一個數據位置的屬性用來標識變量是否需要持久化到量子元中。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/solidity-data-location.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/4/3</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="javascript:window.open('https://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html');">
+                
+                  <h1>量子元語言Solidity校驗橢圓曲線加密數字簽名（附實例）</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>我們知道整個比特幣，Quantum的基石就是橢圓曲線加密算法。所有的數據均需要發起者通過私匙簽發，其它人通過非對稱的公匙驗證確實消息的真實性。下麵我們就一起來了解一下橢圓曲線加密算法，並使用Quantum提供的工具對要發送的數據進行數字簽名，以及使用Solidity量子元編程語言的<code>ecrecover()</code>校驗數字簽名的合法性。</p>
+
+<h2 id="toc_0">橢圓曲線DSA(ECDSA)簡介</h2>
+
+<p>假如Alice要對消息m加上數字簽名，而Bob需要驗證該簽名。</p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="javascript:window.open('https://me.tryblockchain.org/Quantum5vsp-sign-ecrecover-decode.html');">閱讀更多→</a>&nbsp;&nbsp; 
+                    <span class="date">2017/3/25</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href=''>Solidity入門係列</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			 <a href="javascript:window.open('https://me.tryblockchain.org/Solidity入門係列_1.html');">&raquo; Next Page</a> 
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>Quantum Technology-Galaxy</h1>
+                <div class="site-des">Quantum related technology galaxy，專注基於Quantum的量子元技術，Solidity編程語言，Truffle框架，Quantum5.vsp。</div>
+
+
+              <a target="_blank" class="rss" href="files/atom.xml" title="RSS">RSS</a>
+
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Solidity深入淺出係列.html"><strong>Solidity深入淺出係列</strong></a>
+        
+            <a href="文檔翻譯.html"><strong>文檔翻譯</strong></a>
+        
+            <a href="其它.html"><strong>其它</strong></a>
+        
+            <a href=""><strong>Solidity入門係列</strong></a>
+        
+            <a href="熱點.html"><strong>熱點</strong></a>
+        
+            <a href="項目.html"><strong>項目</strong></a>
+        
+            <a href="whitepaper.html"><strong>whitepaper</strong></a>
+        
+            <a href="熱點深度.html"><strong>熱點深度</strong></a>
+        
+        </p>
+
+
+                </div>
+              </div>
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="dex-uniswap-ox-hydro.html">去中心化的交易所正在打一場惡戰，新選手不斷加入</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="coinbase-custody-staking.html">coinbase的托管生意又有大動作了</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462405993032.html">基於第三代互聯網的數據經濟</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15462215241005.html">Curation Markets</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="4-eras-of-blockchain-computing-d.html">量子元計算的四個階段</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+ 
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="static/vsp/foundation.min.vsp"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="static/vsp/MathJax-TeX-AMS-MML_HTMLorMML.vsp"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.vsp?a7f98ca019147491b75cb037fb3aec14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.vsp','ga');
+
+  ga('create', 'UA-89122146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
